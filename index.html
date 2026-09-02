@@ -1,0 +1,1043 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Draft about a real person, still carrying placeholders: keep it out of search
+     results until the real content lands. Remove this line to go properly public. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Pattaya in Four Languages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Sans+SC:wght@400;600&family=Noto+Sans+Myanmar:wght@400;600&display=swap">
+
+<style>
+/* ============================================================
+   TOKENS — light is the complete palette; dark redefines tokens only
+   ============================================================ */
+:root{
+  --paper:#EDEEEA;
+  --panel:#E4E6E1;
+  --ink:#14201D;
+  --ink-2:#3A4A45;
+  --muted:#5A6863;
+  --rule:#CDD3CE;
+  --rule-soft:#DDE1DC;
+  --jade:#1B6B57;
+  --jade-ink:#0F4838;
+  --jade-wash:#DBE7E1;
+  --brass:#79601F;
+  --focus:#1B6B57;
+
+  --f-display:"Newsreader","Iowan Old Style",Georgia,serif;
+  --f-body:"IBM Plex Sans","IBM Plex Sans Thai","Noto Sans SC","Noto Sans Myanmar",
+           -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono","SF Mono",ui-monospace,Menlo,monospace;
+
+  --rail:15.5rem;
+  --measure:38rem;
+  --gap:clamp(1rem,3vw,2rem);
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1614;
+    --panel:#16211E;
+    --ink:#E8EDE9;
+    --ink-2:#B6C3BE;
+    --muted:#83948E;
+    --rule:#2A3733;
+    --rule-soft:#1E2A27;
+    --jade:#6DC4A6;
+    --jade-ink:#8FD8BE;
+    --jade-wash:#16302A;
+    --brass:#C9A45C;
+    --focus:#6DC4A6;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1614;
+  --panel:#16211E;
+  --ink:#E8EDE9;
+  --ink-2:#B6C3BE;
+  --muted:#83948E;
+  --rule:#2A3733;
+  --rule-soft:#1E2A27;
+  --jade:#6DC4A6;
+  --jade-ink:#8FD8BE;
+  --jade-wash:#16302A;
+  --brass:#C9A45C;
+  --focus:#6DC4A6;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:1rem;
+  line-height:1.6;
+  font-synthesis-weight:none;
+}
+/* Burmese stacks tall diacritics — give it air */
+:root[data-lang="my"] body{line-height:1.85}
+:root[data-lang="my"] .display{line-height:1.35}
+
+a{color:var(--jade);text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:var(--jade-ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+.display{font-family:var(--f-display);font-weight:400;letter-spacing:-.015em}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+:root[data-lang="my"] .eyebrow,
+:root[data-lang="th"] .eyebrow,
+:root[data-lang="zh"] .eyebrow{text-transform:none;letter-spacing:.06em;font-family:var(--f-body)}
+
+/* Placeholder marker — obvious to fill, still tidy on screen */
+.ph{
+  color:var(--brass);
+  border-bottom:1px dotted currentColor;
+  font-style:normal;
+}
+
+/* ============================================================
+   SHELL
+   ============================================================ */
+.shell{display:block}
+
+/* --- left rail --- */
+.rail{
+  border-bottom:1px solid var(--rule);
+  background:var(--paper);
+  padding:1.25rem var(--gap);
+  position:sticky;top:0;z-index:20;
+}
+.rail__id{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.rail__name{
+  font-family:var(--f-display);
+  font-size:1.15rem;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+}
+.rail__role{font-size:.75rem;color:var(--muted)}
+
+.langbar{display:flex;gap:.3rem;margin-top:.85rem;flex-wrap:wrap}
+.langbtn{
+  font-family:var(--f-body);
+  font-size:.78rem;
+  line-height:1;
+  padding:.45rem .6rem;
+  border:1px solid var(--rule);
+  background:transparent;
+  color:var(--ink-2);
+  cursor:pointer;
+  border-radius:0;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.langbtn:hover{border-color:var(--jade);color:var(--jade)}
+.langbtn[aria-pressed="true"]{
+  background:var(--jade);
+  border-color:var(--jade);
+  color:var(--paper);
+}
+
+.index{display:none}
+
+/* --- content --- */
+.main{padding:0 var(--gap) 4rem}
+.wrap{max-width:var(--measure);margin:0 auto;counter-reset:sec}
+
+section{padding-block:clamp(2.5rem,6vw,4rem);border-top:1px solid var(--rule-soft)}
+section:first-of-type{border-top:0}
+
+.sechead{display:flex;align-items:baseline;gap:.75rem;margin-bottom:1.5rem}
+.sechead h2{
+  font-family:var(--f-display);
+  font-size:clamp(1.35rem,3.5vw,1.7rem);
+  font-weight:400;
+}
+.sechead .num{
+  font-family:var(--f-mono);
+  font-size:.7rem;
+  color:var(--muted);
+  letter-spacing:.1em;
+}
+.sechead .num::before{
+  counter-increment:sec;
+  content:counter(sec,decimal-leading-zero);
+}
+
+.prose{display:flex;flex-direction:column;gap:1rem;color:var(--ink-2)}
+.prose strong{color:var(--ink);font-weight:600}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:clamp(2.5rem,7vw,4.5rem)}
+.hero__name{
+  font-family:var(--f-display);
+  font-size:clamp(2.6rem,9vw,4.4rem);
+  font-weight:300;
+  line-height:1.02;
+  letter-spacing:-.03em;
+  margin-top:.9rem;
+}
+.hero__native{
+  margin-top:.55rem;
+  font-size:1.05rem;
+  color:var(--muted);
+}
+.hero__lede{
+  font-family:var(--f-display);
+  font-size:clamp(1.05rem,2.6vw,1.3rem);
+  line-height:1.55;
+  color:var(--ink-2);
+  margin-top:1.4rem;
+  max-width:32ch;
+}
+:root[data-lang="zh"] .hero__lede,
+:root[data-lang="th"] .hero__lede,
+:root[data-lang="my"] .hero__lede{font-family:var(--f-body);max-width:34ch}
+
+.facts{
+  margin-top:1.8rem;
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  padding-top:1.2rem;
+  border-top:1px solid var(--rule);
+}
+.fact{display:flex;gap:.75rem;font-size:.88rem;align-items:baseline}
+.fact__k{
+  font-family:var(--f-mono);
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  flex:0 0 6.5rem;
+}
+:root[data-lang="my"] .fact__k,
+:root[data-lang="th"] .fact__k,
+:root[data-lang="zh"] .fact__k{font-family:var(--f-body);text-transform:none;letter-spacing:.04em}
+.fact__v{color:var(--ink-2)}
+
+.actions{display:flex;gap:.7rem;margin-top:1.8rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  font-size:.85rem;
+  padding:.7rem 1.15rem;
+  border:1px solid var(--jade);
+  color:var(--jade);
+  text-decoration:none;
+  transition:background .18s ease,color .18s ease;
+}
+.btn:hover{background:var(--jade-wash);color:var(--jade-ink)}
+.btn--solid{background:var(--jade);color:var(--paper);border-color:var(--jade)}
+.btn--solid:hover{background:var(--jade-ink);border-color:var(--jade-ink);color:var(--paper)}
+
+/* ============================================================
+   LANGUAGE MATRIX
+   ============================================================ */
+.tablewrap{overflow-x:auto;margin-inline:calc(var(--gap) * -1);padding-inline:var(--gap)}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.86rem}
+th,td{text-align:left;padding:.75rem .8rem;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);
+  font-size:.66rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:400;
+  border-bottom:1px solid var(--rule);
+}
+:root[data-lang="my"] thead th,
+:root[data-lang="th"] thead th,
+:root[data-lang="zh"] thead th{font-family:var(--f-body);text-transform:none;letter-spacing:.04em;font-size:.72rem}
+tbody tr:last-child td{border-bottom:0}
+.lang-cell{font-weight:600;color:var(--ink);white-space:nowrap}
+.lang-cell span{display:block;font-weight:400;font-size:.75rem;color:var(--muted)}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.tl{display:flex;flex-direction:column;gap:2rem;position:relative}
+.tl::before{
+  content:"";position:absolute;left:.3rem;top:.5rem;bottom:.5rem;
+  width:1px;background:var(--rule);
+}
+.tl__item{position:relative;padding-left:1.9rem}
+.tl__dot{
+  position:absolute;left:0;top:.42rem;width:.62rem;height:.62rem;
+  border-radius:50%;background:var(--paper);border:1.5px solid var(--jade);
+}
+.tl__date{
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;
+  color:var(--brass);text-transform:uppercase;
+}
+:root[data-lang="my"] .tl__date,
+:root[data-lang="th"] .tl__date{font-family:var(--f-body);text-transform:none}
+.tl__title{font-size:1.02rem;font-weight:600;margin-top:.3rem}
+.tl__org{color:var(--jade);font-size:.88rem;margin-top:.12rem}
+.tl__body{color:var(--ink-2);font-size:.9rem;margin-top:.6rem}
+.tl__body ul{margin:.4rem 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+
+/* ============================================================
+   TOOLKIT + WORK
+   ============================================================ */
+.grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+.kit__h{
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);
+  padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+}
+:root[data-lang="my"] .kit__h,
+:root[data-lang="th"] .kit__h,
+:root[data-lang="zh"] .kit__h{font-family:var(--f-body);text-transform:none;letter-spacing:.04em;font-size:.76rem}
+.kit ul{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;color:var(--ink-2)}
+
+.work{border-top:1px solid var(--rule-soft);padding-top:1.1rem}
+.work:first-child{border-top:0;padding-top:0}
+.work__type{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+:root[data-lang="my"] .work__type,
+:root[data-lang="th"] .work__type{font-family:var(--f-body);text-transform:none}
+.work__title{font-size:1rem;font-weight:600;margin-top:.35rem}
+.work__desc{font-size:.9rem;color:var(--ink-2);margin-top:.4rem}
+
+/* ============================================================
+   VIDEO WALL — 9:16 tiles that play only while on screen
+   ============================================================ */
+.vidwall{
+  display:grid;gap:.9rem;
+  grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));
+  margin-top:1.4rem;
+}
+.vtile{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.vtile__media{
+  position:relative;aspect-ratio:9/16;overflow:hidden;
+  background:var(--panel);border:1px solid var(--rule);
+}
+.vtile__media video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  opacity:0;transition:opacity .35s ease;
+}
+.vtile.is-ready .vtile__media video{opacity:1}
+.vtile__pending{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:.6rem;line-height:1.5;
+  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+}
+.vtile.is-ready .vtile__pending{display:none}
+.vtile__views{
+  position:absolute;left:.4rem;bottom:.4rem;z-index:2;
+  font-family:var(--f-mono);font-size:.62rem;font-variant-numeric:tabular-nums;
+  padding:.15rem .35rem;color:#FFFFFF;background:rgba(0,0,0,.62);
+}
+.vtile__cap{display:flex;flex-direction:column;gap:.12rem}
+.vtile__label{font-size:.76rem;line-height:1.35;color:var(--ink-2)}
+.vtile__sub{font-size:.66rem;line-height:1.35;color:var(--muted)}
+.vtile.is-full .vtile__media video{opacity:1}
+.vtile.is-full .vtile__pending,
+.vtile.is-full .vtile__views{display:none}
+.vtile__btn{
+  position:absolute;inset:0;z-index:3;width:100%;height:100%;
+  border:0;background:transparent;cursor:pointer;
+  font-size:0;color:transparent;
+}
+.vtile__btn:focus-visible{outline:2px solid var(--focus);outline-offset:-3px}
+:root[data-lang="my"] .vtile__views,
+:root[data-lang="th"] .vtile__views,
+:root[data-lang="my"] .vtile__pending,
+:root[data-lang="th"] .vtile__pending,
+:root[data-lang="zh"] .vtile__pending{font-family:var(--f-body);text-transform:none;letter-spacing:.03em}
+@media (min-width:64rem){
+  .vidwall{grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr))}
+}
+
+/* ============================================================
+   CONTACT + FOOTER
+   ============================================================ */
+.contact{display:flex;flex-direction:column;gap:.1rem;margin-top:1.2rem}
+.crow{
+  display:flex;gap:1rem;align-items:baseline;
+  padding:.8rem 0;border-bottom:1px solid var(--rule-soft);
+}
+.crow__k{
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);flex:0 0 5.5rem;
+}
+:root[data-lang="my"] .crow__k,
+:root[data-lang="th"] .crow__k,
+:root[data-lang="zh"] .crow__k{font-family:var(--f-body);text-transform:none;letter-spacing:.04em}
+
+footer{
+  padding:2rem var(--gap) 3rem;
+  border-top:1px solid var(--rule);
+  color:var(--muted);
+  font-size:.78rem;
+}
+
+/* ============================================================
+   DESKTOP — rail becomes a fixed spine
+   ============================================================ */
+@media (min-width:64rem){
+  .shell{display:grid;grid-template-columns:var(--rail) 1fr;align-items:start}
+  .rail{
+    position:sticky;top:0;height:100vh;
+    border-bottom:0;border-right:1px solid var(--rule);
+    padding:3rem 1.75rem;
+    display:flex;flex-direction:column;gap:2rem;
+  }
+  .rail__id{flex-direction:column;gap:.25rem}
+  .rail__name{font-size:1.3rem;white-space:normal}
+  .langbar{margin-top:0;flex-direction:column;align-items:flex-start}
+  .langbtn{width:100%;text-align:left}
+  .index{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+  .index a{
+    font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;
+    color:var(--muted);text-decoration:none;
+  }
+  :root[data-lang="my"] .index a,
+  :root[data-lang="th"] .index a,
+  :root[data-lang="zh"] .index a{font-family:var(--f-body);letter-spacing:0;font-size:.8rem}
+  .index a:hover{color:var(--jade)}
+  .main{padding:clamp(3rem,6vw,5rem) clamp(2rem,6vw,5rem) 5rem}
+  .grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .fact__k{flex-basis:7.5rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* Print to PDF = a clean one-page CV */
+@media print{
+  :root{--paper:#fff;--ink:#000;--ink-2:#222;--muted:#555;--rule:#bbb;--rule-soft:#ddd;--jade:#0F4838}
+  .rail,.actions,.index{display:none}
+  .shell{display:block}
+  .main{padding:0}
+  section{page-break-inside:avoid;padding-block:1.2rem}
+}
+</style>
+
+<div class="shell">
+
+  <!-- =========================== RAIL =========================== -->
+  <header class="rail">
+    <div class="rail__id">
+      <span class="rail__name">Ei Phyu Sin Thant</span>
+      <span class="rail__role" data-i18n="railRole">Economics · Property</span>
+    </div>
+
+    <nav class="langbar" aria-label="Language">
+      <button class="langbtn" data-lang-set="en" aria-pressed="true">English</button>
+      <button class="langbtn" data-lang-set="zh" aria-pressed="false">简体中文</button>
+      <button class="langbtn" data-lang-set="th" aria-pressed="false">ไทย</button>
+      <button class="langbtn" data-lang-set="my" aria-pressed="false">မြန်မာ</button>
+    </nav>
+
+    <nav class="index" aria-label="Sections">
+      <a href="#about"      data-i18n="navAbout">About</a>
+      <a href="#video"      data-i18n="navVideo">On camera</a>
+      <a href="#languages"  data-i18n="navLang">Languages</a>
+      <a href="#education"  data-i18n="navEdu">Education</a>
+      <a href="#experience" data-i18n="navExp">Experience</a>
+      <a href="#toolkit"    data-i18n="navKit">Toolkit</a>
+      <a href="#work"       data-i18n="navWork">Work</a>
+      <a href="#contact"    data-i18n="navContact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- =========================== MAIN =========================== -->
+  <main class="main">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroName">
+      <p class="eyebrow" data-i18n="heroEyebrow">Chiang Rai, Thailand · Golden Triangle</p>
+
+      <h1 class="hero__name" id="heroName">Ei Phyu Sin Thant</h1>
+      <p class="hero__native">
+        <span class="ph">[her name in Burmese / Thai / Chinese — to confirm]</span>
+      </p>
+
+      <p class="hero__lede" data-i18n="heroLede">
+        Economics graduate working where four languages and three borders meet —
+        cross-border trade, regional markets, and property in northern Thailand.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <span class="fact__k" data-i18n="factDegree">Degree</span>
+          <span class="fact__v">BEcon, Mae Fah Luang University — <span class="ph">[expected MONTH YEAR]</span></span>
+        </div>
+        <div class="fact">
+          <span class="fact__k" data-i18n="factRole">Recent role</span>
+          <span class="fact__v" data-i18n="factRoleV">Intern, Anjia Property</span>
+        </div>
+        <div class="fact">
+          <span class="fact__k" data-i18n="factLang">Languages</span>
+          <span class="fact__v">English · 中文 · ไทย · မြန်မာ</span>
+        </div>
+        <div class="fact">
+          <span class="fact__k" data-i18n="factBase">Based in</span>
+          <span class="fact__v" data-i18n="factBaseV">Chiang Rai, Thailand</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--solid" href="#contact" data-i18n="ctaContact">Get in touch</a>
+        <a class="btn" href="#" data-i18n="ctaCv">Download CV</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="h-about">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-about" data-i18n="navAbout">About</h2>
+      </div>
+      <div class="prose">
+        <p>
+          <span class="ph">[Opening paragraph — 2–3 sentences in her own voice. Who she is,
+          what she's drawn to in economics, and what she wants to do next.]</span>
+        </p>
+        <p>
+          She is completing a <strong>Bachelor of Economics</strong> at
+          <strong>Mae Fah Luang University</strong> in Chiang Rai, a programme taught entirely in
+          English under the philosophy <em>"Economics for Future Society."</em> Her most recent
+          role was an internship with <strong>Anjia Property</strong>,
+          <span class="ph">[one line on what the internship involved]</span>.
+        </p>
+        <p>
+          <span class="ph">[Closing paragraph — the thread that ties the languages, the region,
+          and the economics together. What kind of work she's looking for.]</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ON CAMERA -->
+    <section id="video" aria-labelledby="h-video">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-video" data-i18n="navVideo">On camera</h2>
+      </div>
+      <div class="prose">
+        <p data-i18n="videoIntro">Eight property walk-throughs presented on camera for the
+          agency's channel — pool villas, branded residences and beachfront condos across
+          Pattaya and Jomtien, one of them filmed in Burmese.</p>
+      </div>
+
+      <div class="vidwall" id="vidwall"></div>
+
+      <p class="eyebrow" style="margin-top:1.1rem">
+        <span data-i18n="videoNote">Tiles play while on screen and pause when scrolled away.</span>
+        <a href="https://www.tiktok.com/@xinxin.property.pattaya"
+           target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya&nbsp;↗</a>
+      </p>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages" aria-labelledby="h-lang">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-lang" data-i18n="navLang">Languages</h2>
+      </div>
+      <div class="prose" style="margin-bottom:1.3rem">
+        <p data-i18n="langIntro">
+          Four working languages across the Thailand–Myanmar–China corridor.
+        </p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="thLang">Language</th>
+              <th data-i18n="thSpeak">Speaking</th>
+              <th data-i18n="thWrite">Reading &amp; writing</th>
+              <th data-i18n="thUse">Used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lang-cell">မြန်မာ<span>Burmese</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td><span class="ph">[e.g. first language; Myanmar clients]</span></td>
+            </tr>
+            <tr>
+              <td class="lang-cell">English<span>English</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td data-i18n="useEn">Degree taught in English; international clients</td>
+            </tr>
+            <tr>
+              <td class="lang-cell">ไทย<span>Thai</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td data-i18n="useTh">Local market, university, documentation</td>
+            </tr>
+            <tr>
+              <td class="lang-cell">中文<span>Mandarin Chinese</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td><span class="ph">[level]</span></td>
+              <td data-i18n="useZh">Chinese-speaking buyers and investors</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" aria-labelledby="h-edu">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-edu" data-i18n="navEdu">Education</h2>
+      </div>
+      <div class="tl">
+        <div class="tl__item">
+          <span class="tl__dot"></span>
+          <p class="tl__date"><span class="ph">[start year]</span> — <span class="ph">[expected MONTH YEAR]</span></p>
+          <h3 class="tl__title">Bachelor of Economics (BEcon)</h3>
+          <p class="tl__org">Mae Fah Luang University — School of Management, Chiang Rai</p>
+          <div class="tl__body">
+            <p data-i18n="eduNote">
+              Taught in English. The programme trains graduates to analyse economic situations,
+              trends and opportunities at national, regional and global level, with career tracks
+              in international trade and investment analysis.
+            </p>
+            <ul>
+              <li><strong data-i18n="lblCourses">Selected coursework:</strong> <span class="ph">[list 4–6 courses]</span></li>
+              <li><strong data-i18n="lblThesis">Thesis / research:</strong> <span class="ph">[title and one-line summary]</span></li>
+              <li><strong data-i18n="lblHonours">Honours / GPA:</strong> <span class="ph">[only if she wants it shown]</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl__item">
+          <span class="tl__dot"></span>
+          <p class="tl__date"><span class="ph">[years]</span></p>
+          <h3 class="tl__title"><span class="ph">[Prior school / foundation programme]</span></h3>
+          <p class="tl__org"><span class="ph">[Institution, city]</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="h-exp">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-exp" data-i18n="navExp">Experience</h2>
+      </div>
+      <div class="tl">
+        <div class="tl__item">
+          <span class="tl__dot"></span>
+          <p class="tl__date"><span class="ph">[MONTH YEAR — MONTH YEAR]</span></p>
+          <h3 class="tl__title" data-i18n="expInternTitle">Intern</h3>
+          <p class="tl__org"><a href="https://www.anjia-home.net/" target="_blank" rel="noopener noreferrer">Anjia Property</a> — Pattaya</p>
+          <div class="tl__body">
+            <ul>
+              <li><span class="ph">[What she actually did — start with a verb. e.g. "Prepared listing
+                  material and market comparisons for X properties."]</span></li>
+              <li><span class="ph">[A second responsibility — ideally one where the languages mattered.]</span></li>
+              <li><span class="ph">[A result, with a number if there is one.]</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl__item">
+          <span class="tl__dot"></span>
+          <p class="tl__date"><span class="ph">[dates]</span></p>
+          <h3 class="tl__title"><span class="ph">[Other role, part-time job, or university position]</span></h3>
+          <p class="tl__org"><span class="ph">[Organisation]</span></p>
+          <div class="tl__body"><p><span class="ph">[One or two lines.]</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section id="toolkit" aria-labelledby="h-kit">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-kit" data-i18n="navKit">Toolkit</h2>
+      </div>
+      <div class="grid">
+        <div class="kit">
+          <p class="kit__h" data-i18n="kitAnalysis">Economic analysis</p>
+          <ul>
+            <li><span class="ph">[e.g. Microeconomic &amp; macroeconomic analysis]</span></li>
+            <li><span class="ph">[e.g. Econometrics / regression]</span></li>
+            <li><span class="ph">[e.g. Market &amp; trade research]</span></li>
+          </ul>
+        </div>
+        <div class="kit">
+          <p class="kit__h" data-i18n="kitData">Data &amp; tools</p>
+          <ul>
+            <li><span class="ph">[e.g. Excel — modelling, pivot tables]</span></li>
+            <li><span class="ph">[e.g. SPSS / Stata / R / Python]</span></li>
+            <li><span class="ph">[e.g. Canva, CRM, Google Workspace]</span></li>
+          </ul>
+        </div>
+        <div class="kit">
+          <p class="kit__h" data-i18n="kitProperty">Property &amp; market</p>
+          <ul>
+            <li><span class="ph">[e.g. Listing preparation]</span></li>
+            <li><span class="ph">[e.g. Comparable market analysis]</span></li>
+            <li><span class="ph">[e.g. Client viewings &amp; follow-up]</span></li>
+          </ul>
+        </div>
+        <div class="kit">
+          <p class="kit__h" data-i18n="kitComms">Communication</p>
+          <ul>
+            <li><span class="ph">[e.g. Four-language client liaison]</span></li>
+            <li><span class="ph">[e.g. Translation &amp; interpreting]</span></li>
+            <li><span class="ph">[e.g. Report writing &amp; presentation]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" aria-labelledby="h-work">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-work" data-i18n="navWork">Work &amp; research</h2>
+      </div>
+      <div class="grid">
+        <article class="work">
+          <p class="work__type" data-i18n="typeThesis">Thesis</p>
+          <h3 class="work__title"><span class="ph">[Thesis title]</span></h3>
+          <p class="work__desc"><span class="ph">[Two lines: the question, the method, the finding.]</span></p>
+        </article>
+        <article class="work">
+          <p class="work__type" data-i18n="typeProject">Course project</p>
+          <h3 class="work__title"><span class="ph">[Project title]</span></h3>
+          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
+        </article>
+        <article class="work">
+          <p class="work__type" data-i18n="typeReport">Internship report</p>
+          <h3 class="work__title"><span class="ph">[Report or deliverable title]</span></h3>
+          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
+        </article>
+        <article class="work">
+          <p class="work__type" data-i18n="typeOther">Activity</p>
+          <h3 class="work__title"><span class="ph">[Club, volunteering, competition, certificate]</span></h3>
+          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="h-contact">
+      <div class="sechead">
+        <span class="num mono"></span>
+        <h2 id="h-contact" data-i18n="navContact">Contact</h2>
+      </div>
+      <div class="prose"><p data-i18n="contactIntro">Open to graduate roles in economic analysis,
+        trade and investment research, and property consulting across the region.</p></div>
+      <div class="contact">
+        <div class="crow"><span class="crow__k">Email</span><span class="ph">[email address]</span></div>
+        <div class="crow"><span class="crow__k">LinkedIn</span><span class="ph">[profile URL]</span></div>
+        <div class="crow"><span class="crow__k">Phone</span><span class="ph">[number, or leave out]</span></div>
+        <div class="crow"><span class="crow__k">LINE</span><span class="ph">[LINE ID]</span></div>
+        <div class="crow"><span class="crow__k">WeChat</span><span class="ph">[WeChat ID]</span></div>
+      </div>
+    </section>
+
+  </div>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="yr"></span> Ei Phyu Sin Thant · <span data-i18n="footNote">Chiang Rai, Thailand</span></p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   i18n — chrome and headings translate; personal content is
+   filled in per language once the real copy arrives.
+   ============================================================ */
+var I18N = {
+  en:{
+    railRole:"Economics · Property",
+    navAbout:"About", navLang:"Languages", navEdu:"Education", navExp:"Experience",
+    navKit:"Toolkit", navWork:"Work & research", navContact:"Contact", navVideo:"On camera",
+    heroEyebrow:"Pattaya · Jomtien · Thailand",
+    heroLede:"Economics undergraduate presenting Pattaya property on camera — pool villas and premium condos, in four languages.",
+    videoIntro:"Eight property walk-throughs presented on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien, one of them filmed in Burmese.",
+    videoNote:"Tiles play while on screen and pause when scrolled away.",
+    factDegree:"Degree", factRole:"Recent role", factRoleV:"Intern, Anjia Property",
+    factLang:"Languages", factBase:"Based in", factBaseV:"Pattaya, Thailand",
+    ctaContact:"Get in touch", ctaCv:"Download CV",
+    langIntro:"Four working languages for Thailand's most international property market.",
+    thLang:"Language", thSpeak:"Speaking", thWrite:"Reading & writing", thUse:"Used for",
+    useEn:"Degree taught in English; international clients",
+    useTh:"Local market, university, documentation",
+    useZh:"Chinese-speaking buyers and investors",
+    eduNote:"Taught in English. The programme trains graduates to analyse economic situations, trends and opportunities at national, regional and global level, with career tracks in international trade and investment analysis.",
+    lblCourses:"Selected coursework:", lblThesis:"Thesis / research:", lblHonours:"Honours / GPA:",
+    expInternTitle:"Intern",
+    kitAnalysis:"Economic analysis", kitData:"Data & tools", kitProperty:"Property & market", kitComms:"Communication",
+    typeThesis:"Thesis", typeProject:"Course project", typeReport:"Internship report", typeOther:"Activity",
+    contactIntro:"Open to graduate roles in economic analysis, trade and investment research, and property consulting across the region.",
+    footNote:"Pattaya, Thailand"
+  },
+  zh:{
+    railRole:"经济学 · 房地产",
+    navAbout:"关于", navLang:"语言能力", navEdu:"教育背景", navExp:"工作经历",
+    navKit:"专业技能", navWork:"项目与研究", navContact:"联系方式", navVideo:"出镜作品",
+    heroEyebrow:"泰国芭堤雅 · 宗提恩",
+    heroLede:"经济学在读生，用四种语言出镜介绍芭堤雅房产——泳池别墅与高端公寓。",
+    videoIntro:"为中介机构频道出镜拍摄的八支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓及海景公寓，其中一支以缅甸语拍摄。",
+    videoNote:"画面进入视区时自动播放，离开时暂停。",
+    factDegree:"学历", factRole:"近期职位", factRoleV:"安家房地产 实习生",
+    factLang:"语言", factBase:"所在地", factBaseV:"泰国芭堤雅",
+    ctaContact:"联系我", ctaCv:"下载简历",
+    langIntro:"四种工作语言，服务泰国最国际化的房地产市场。",
+    thLang:"语言", thSpeak:"口语", thWrite:"读写", thUse:"应用场景",
+    useEn:"全英文授课学位；国际客户",
+    useTh:"本地市场、大学与文件处理",
+    useZh:"华语买家与投资者",
+    eduNote:"全英文授课。该专业培养学生分析国家、区域及全球层面的经济形势、趋势与机遇，就业方向包括国际贸易与投资分析。",
+    lblCourses:"主要课程：", lblThesis:"论文 / 研究：", lblHonours:"荣誉 / 成绩：",
+    expInternTitle:"实习生",
+    kitAnalysis:"经济分析", kitData:"数据与工具", kitProperty:"房地产与市场", kitComms:"沟通表达",
+    typeThesis:"毕业论文", typeProject:"课程项目", typeReport:"实习报告", typeOther:"课外活动",
+    contactIntro:"正在寻找经济分析、贸易与投资研究，以及区域房地产顾问方向的应届岗位。",
+    footNote:"泰国芭堤雅"
+  },
+  th:{
+    railRole:"เศรษฐศาสตร์ · อสังหาริมทรัพย์",
+    navAbout:"เกี่ยวกับ", navLang:"ภาษา", navEdu:"การศึกษา", navExp:"ประสบการณ์",
+    navKit:"ทักษะ", navWork:"ผลงานและงานวิจัย", navContact:"ติดต่อ", navVideo:"ผลงานหน้ากล้อง",
+    heroEyebrow:"พัทยา · จอมเทียน · ประเทศไทย",
+    heroLede:"นักศึกษาเศรษฐศาสตร์ นำเสนออสังหาริมทรัพย์พัทยาหน้ากล้อง — พูลวิลล่าและคอนโดระดับพรีเมียม ในสี่ภาษา",
+    videoIntro:"วิดีโอพาชมอสังหาริมทรัพย์แปดรายการที่นำเสนอหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน โดยหนึ่งในนั้นถ่ายทำเป็นภาษาเมียนมา",
+    videoNote:"วิดีโอจะเล่นเมื่ออยู่ในหน้าจอ และหยุดเมื่อเลื่อนผ่าน",
+    factDegree:"วุฒิการศึกษา", factRole:"ตำแหน่งล่าสุด", factRoleV:"นักศึกษาฝึกงาน Anjia Property",
+    factLang:"ภาษา", factBase:"ฐานที่ตั้ง", factBaseV:"พัทยา ประเทศไทย",
+    ctaContact:"ติดต่อฉัน", ctaCv:"ดาวน์โหลดเรซูเม่",
+    langIntro:"สี่ภาษาสำหรับตลาดอสังหาริมทรัพย์ที่เป็นสากลที่สุดของไทย",
+    thLang:"ภาษา", thSpeak:"การพูด", thWrite:"การอ่านและเขียน", thUse:"ใช้สำหรับ",
+    useEn:"หลักสูตรสอนเป็นภาษาอังกฤษ; ลูกค้าต่างชาติ",
+    useTh:"ตลาดท้องถิ่น มหาวิทยาลัย และงานเอกสาร",
+    useZh:"ผู้ซื้อและนักลงทุนที่พูดภาษาจีน",
+    eduNote:"สอนเป็นภาษาอังกฤษ หลักสูตรมุ่งผลิตบัณฑิตที่วิเคราะห์สถานการณ์ แนวโน้ม และโอกาสทางเศรษฐกิจได้ทั้งระดับประเทศ ภูมิภาค และระดับโลก โดยมีเส้นทางอาชีพด้านการวิเคราะห์การค้าและการลงทุนระหว่างประเทศ",
+    lblCourses:"รายวิชาที่เลือก:", lblThesis:"วิทยานิพนธ์ / งานวิจัย:", lblHonours:"เกียรตินิยม / เกรดเฉลี่ย:",
+    expInternTitle:"นักศึกษาฝึกงาน",
+    kitAnalysis:"การวิเคราะห์เศรษฐกิจ", kitData:"ข้อมูลและเครื่องมือ", kitProperty:"อสังหาริมทรัพย์และตลาด", kitComms:"การสื่อสาร",
+    typeThesis:"วิทยานิพนธ์", typeProject:"โครงงานรายวิชา", typeReport:"รายงานฝึกงาน", typeOther:"กิจกรรม",
+    contactIntro:"เปิดรับโอกาสงานด้านการวิเคราะห์เศรษฐกิจ การค้าและการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในภูมิภาค",
+    footNote:"พัทยา ประเทศไทย"
+  },
+  my:{
+    railRole:"စီးပွားရေးပညာ · အိမ်ခြံမြေ",
+    navAbout:"အကြောင်း", navLang:"ဘာသာစကားများ", navEdu:"ပညာရေး", navExp:"အလုပ်အတွေ့အကြုံ",
+    navKit:"ကျွမ်းကျင်မှုများ", navWork:"လုပ်ငန်းနှင့် သုတေသန", navContact:"ဆက်သွယ်ရန်", navVideo:"ကင်မရာရှေ့ လုပ်ငန်း",
+    heroEyebrow:"ပတ္တရာ · ဂျွန်တီယန် · ထိုင်းနိုင်ငံ",
+    heroLede:"ဘာသာစကား လေးမျိုးဖြင့် ပတ္တရာ အိမ်ခြံမြေများကို ကင်မရာရှေ့မှ မိတ်ဆက်ပေးနေသော စီးပွားရေးပညာ ကျောင်းသူ — ရေကူးကန်ပါ ဗီလာနှင့် အဆင့်မြင့် ကွန်ဒိုများ။",
+    videoIntro:"အေဂျင်စီ၏ ချန်နယ်အတွက် ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သော အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ရှစ်ခု — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။ တစ်ခုကို မြန်မာဘာသာဖြင့် ရိုက်ကူးထားသည်။",
+    videoNote:"မျက်နှာပြင်ပေါ် ရောက်သည်နှင့် စတင်ပြသပြီး ကျော်လွန်သွားပါက ရပ်တန့်သည်။",
+    factDegree:"ဘွဲ့", factRole:"လတ်တလော ရာထူး", factRoleV:"Anjia Property တွင် အလုပ်သင်",
+    factLang:"ဘာသာစကားများ", factBase:"နေထိုင်ရာ", factBaseV:"ပတ္တရာ၊ ထိုင်းနိုင်ငံ",
+    ctaContact:"ဆက်သွယ်ရန်", ctaCv:"CV ဒေါင်းလုဒ်",
+    langIntro:"ထိုင်းနိုင်ငံ၏ အနိုင်ငံတကာဆုံး အိမ်ခြံမြေ ဈေးကွက်အတွက် အလုပ်သုံး ဘာသာစကား လေးမျိုး။",
+    thLang:"ဘာသာစကား", thSpeak:"အပြောအဆို", thWrite:"အဖတ်နှင့် အရေး", thUse:"အသုံးပြုရာ",
+    useEn:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသော ဘွဲ့၊ နိုင်ငံတကာ ဖောက်သည်များ",
+    useTh:"ဒေသတွင်း ဈေးကွက်၊ တက္ကသိုလ်နှင့် စာရွက်စာတမ်း",
+    useZh:"တရုတ်စကားပြော ဝယ်ယူသူနှင့် ရင်းနှီးမြှုပ်နှံသူများ",
+    eduNote:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ ဤသင်တန်းသည် နိုင်ငံအဆင့်၊ ဒေသအဆင့်နှင့် ကမ္ဘာအဆင့် စီးပွားရေး အခြေအနေ၊ လမ်းကြောင်းနှင့် အခွင့်အလမ်းများကို ဆန်းစစ်နိုင်သော ဘွဲ့ရများ မွေးထုတ်ပေးပြီး နိုင်ငံတကာ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာရေး အလုပ်အကိုင် လမ်းကြောင်းများ ရှိသည်။",
+    lblCourses:"ရွေးချယ်ထားသော ဘာသာရပ်များ။", lblThesis:"ကျမ်း / သုတေသန။", lblHonours:"ဂုဏ်ထူး / GPA။",
+    expInternTitle:"အလုပ်သင်",
+    kitAnalysis:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာမှု", kitData:"ဒေတာနှင့် ကိရိယာများ", kitProperty:"အိမ်ခြံမြေနှင့် ဈေးကွက်", kitComms:"ဆက်သွယ်ပြောဆိုမှု",
+    typeThesis:"ကျမ်း", typeProject:"ဘာသာရပ် ပရောဂျက်", typeReport:"အလုပ်သင် အစီရင်ခံစာ", typeOther:"လှုပ်ရှားမှု",
+    contactIntro:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု သုတေသန၊ ဒေသတွင်း အိမ်ခြံမြေ အကြံပေး ရာထူးများအတွက် ဖွင့်လှစ်ထားပါသည်။",
+    footNote:"ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
+  }
+};
+
+function setLang(code){
+  var dict = I18N[code] || I18N.en;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var v = dict[el.getAttribute("data-i18n")];
+    if (v) el.textContent = v;
+  });
+  var root = document.documentElement;
+  root.setAttribute("lang", code === "my" ? "my" : (code === "zh" ? "zh-Hans" : code));
+  root.setAttribute("data-lang", code);
+  document.querySelectorAll("[data-lang-set]").forEach(function(b){
+    b.setAttribute("aria-pressed", String(b.getAttribute("data-lang-set") === code));
+  });
+  try { localStorage.setItem("eps-lang", code); } catch (e) {}
+}
+
+document.querySelectorAll("[data-lang-set]").forEach(function(b){
+  b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang-set")); });
+});
+
+(function init(){
+  var saved = null;
+  try { saved = localStorage.getItem("eps-lang"); } catch (e) {}
+  setLang(saved && I18N[saved] ? saved : "en");
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+
+/* ============================================================
+   VIDEO WALL
+   Drop files into ./video/ as <slug>.mp4 (+ optional <slug>.jpg poster).
+   A tile goes live as soon as its file exists; missing files stay as
+   labelled placeholders, so the section never looks broken.
+   Playback is gated on visibility — at most MAX_CONCURRENT at a time.
+   ============================================================ */
+var VIDEOS = [
+  { id:"7660508028315159815", views:3325, likes:114,
+    label:"What does $800k buy you in Pattaya?", sub:"Renoir Luxury Pool Villa" },
+  { id:"7662617021565193480", views:1281, likes:47,
+    label:"POV: you just found your dream home", sub:"Patta Cascade Arbor · from ฿14M" },
+  { id:"7664614677413940488", views:1161, likes:55,
+    label:"What if your holiday home paid you back?", sub:"Wyndham Jomtien · investment" },
+  { id:"7665730644911148296", views:1151, likes:56,
+    label:"Embassy Life — a Chanel-vibe lifestyle", sub:"Condo · from ฿2.5M" },
+  { id:"7667848131190705426", views:1150, likes:60,
+    label:"A low-rise condo that feels like home", sub:"Jomtien · 3 bed · 134 sqm · from ฿10.8M" },
+  { id:"7672054925806931208", views:802,  likes:62,
+    label:"A day in the life of a property agent", sub:"Pattaya" },
+  { id:"7657773791308680455", views:602,  likes:12, lang:"my",
+    label:"တိတ်ဆိတ်ပြီး လှပတဲ့ Jomtien beach", sub:"Presented in Burmese" },
+  { id:"7660120654959693063", views:320,  likes:13,
+    label:"Patta Cascade", sub:"Villa for sale" }
+];
+
+var MAX_CONCURRENT = 4;
+
+(function buildWall(){
+  var wall = document.getElementById("vidwall");
+  if (!wall) return;
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var playing = new Set();
+  var frag = document.createDocumentFragment();
+
+  VIDEOS.forEach(function(item){
+    var fig = document.createElement("figure");
+    fig.className = "vtile";
+
+    var media = document.createElement("div");
+    media.className = "vtile__media";
+
+    var v = document.createElement("video");
+    v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute("muted","");      // Safari needs the attribute, not just the property
+    v.setAttribute("playsinline","");
+    v.preload = "none";              // upgraded to "metadata" once the tile nears the viewport
+    v.poster = "video/" + item.id + ".jpg";
+    if (item.lang) v.setAttribute("lang", item.lang);
+
+    var src = document.createElement("source");
+    src.src  = "video/" + item.id + ".mp4";   // 8s silent loop (~400KB)
+    src.type = "video/mp4";
+    v.appendChild(src);
+
+    v.addEventListener("loadeddata", function(){ fig.classList.add("is-ready"); });
+    src.addEventListener("error",    function(){ fig.classList.remove("is-ready"); });
+
+    var pending = document.createElement("span");
+    pending.className = "vtile__pending";
+    pending.textContent = "video pending";
+
+    media.appendChild(v);
+    media.appendChild(pending);
+
+    if (item.views) {
+      var badge = document.createElement("span");
+      badge.className = "vtile__views";
+      badge.textContent = item.views.toLocaleString();
+      media.appendChild(badge);
+    }
+
+    // Keyboard/tap control. Named via aria-label so the visible <figcaption>
+    // isn't announced twice.
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "vtile__btn";
+    btn.setAttribute("aria-label", "Play full video with sound: " + item.label);
+    btn.addEventListener("click", function(){
+      // Swap the silent loop for the full cut, with sound and native controls.
+      fig.classList.add("is-full");
+      playing.delete(v);
+      v.loop = false;
+      v.muted = false;
+      v.removeAttribute("muted");
+      v.controls = true;
+      v.src = "video/full/" + item.id + ".mp4";
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+      btn.remove();                    // native controls take over from here
+    });
+    media.appendChild(btn);
+
+    var cap = document.createElement("figcaption");
+    cap.className = "vtile__cap";
+
+    var lab = document.createElement("span");
+    lab.className = "vtile__label";
+    lab.textContent = item.label;
+    if (item.lang) lab.setAttribute("lang", item.lang);
+    cap.appendChild(lab);
+
+    if (item.sub) {
+      var sub = document.createElement("span");
+      sub.className = "vtile__sub";
+      sub.textContent = item.sub;
+      cap.appendChild(sub);
+    }
+
+    fig.appendChild(media);
+    fig.appendChild(cap);
+    frag.appendChild(fig);
+  });
+
+  wall.appendChild(frag);
+
+  // No autoplay when the viewer asked for reduced motion — tiles stay click-to-play.
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target.querySelector("video");
+      if (!v) return;
+      // A tile the viewer opened for full playback is theirs to control — only
+      // pause it on the way out, never restart the loop under them.
+      if (e.target.classList.contains("is-full")) {
+        if (!e.isIntersecting) v.pause();
+        return;
+      }
+      if (e.isIntersecting) {
+        if (v.preload === "none") v.preload = "metadata";
+        if (playing.size < MAX_CONCURRENT && v.paused) {
+          var p = v.play();
+          if (p && p.then) p.then(function(){ playing.add(v); }).catch(function(){});
+          else playing.add(v);
+        }
+      } else {
+        v.pause();
+        playing.delete(v);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  wall.querySelectorAll(".vtile").forEach(function(t){ io.observe(t); });
+})();
+</script>

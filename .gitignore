@@ -1,0 +1,5 @@
+# Untouched TikTok originals (~53MB) — masters kept locally, never deployed.
+# The site only ever loads video/<id>.{jpg,mp4} and video/full/<id>.mp4.
+video/_src/
+.index.html.bak
+.DS_Store
