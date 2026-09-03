@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://mfu-hlaing.github.io/xue-portfolio/">
-<meta name="description" content="Ei Phyu Sin Thant (Xin Yu) — economics undergraduate at Mae Fah Luang University, working in Burmese, English, Thai and Mandarin. Market and trade research, data analysis and econometrics, with multilingual client-facing property experience in Pattaya. Open to graduate roles across Thailand and the wider region.">
+<meta name="description" content="Ei Phyu Sin Thant (Xin Yu) — economics undergraduate at Mae Fah Luang University, working in Burmese, English, Thai and Mandarin. Market and trade research, data analysis and econometrics, with multilingual client-facing property experience in Pattaya. Available now for full-time roles across Thailand and the wider region.">
 <meta name="author" content="Ei Phyu Sin Thant">
 
 <!-- Social preview. og:image must be an ABSOLUTE url — relative paths are
@@ -50,6 +50,11 @@
   "name": "Ei Phyu Sin Thant",
   "alternateName": ["Xin Yu", "\u8f9b\u7389"],
   "jobTitle": "Economics Undergraduate",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ESC Chinese Language Training Center",
+    "description": "Mandarin instructor since June 2020"
+  },
   "description": "Economics undergraduate at Mae Fah Luang University working in Burmese, English, Thai and Mandarin. Market and trade research, data analysis and econometrics, with multilingual client-facing property experience in Pattaya.",
   "url": "https://mfu-hlaing.github.io/xue-portfolio/",
   "image": "https://mfu-hlaing.github.io/xue-portfolio/media/portrait.jpg",
@@ -98,7 +103,7 @@
   ],
   "seeks": {
     "@type": "Demand",
-    "name": "Graduate roles in economic analysis, market and trade research, investment research, and property consulting"
+    "name": "Full-time roles in economic analysis, market and trade research, investment research, and property consulting"
   }
 }
 </script>
@@ -449,6 +454,22 @@ img{max-width:100%;height:auto}
   cursor:pointer;
   transition:background .2s,color .2s,border-color .2s,transform .3s var(--spring);
 }
+.langbtn{display:inline-flex;align-items:center;gap:.45rem}
+.langbtn__flag{
+  width:1.15rem;height:.77rem;flex:none;border-radius:3px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.14);
+  transition:transform .4s var(--spring);
+}
+.langbtn:hover .langbtn__flag{transform:scale(1.22) rotate(-9deg)}
+/* the rule starts matching the moment a language is picked, so the
+   keyframe fires exactly once per switch */
+.langbtn[aria-pressed="true"] .langbtn__flag{animation:flagpop .55s var(--spring)}
+@keyframes flagpop{
+  0%{transform:scale(1) rotate(0)}
+  35%{transform:scale(1.35) rotate(-12deg)}
+  65%{transform:scale(.94) rotate(6deg)}
+  100%{transform:scale(1) rotate(0)}
+}
 .langbtn:hover{border-color:var(--peach);color:var(--peach);transform:translateY(-2px)}
 .langbtn:active{transform:scale(.94)}
 .langbtn[aria-pressed="true"]{
@@ -715,6 +736,13 @@ section + section{border-top:1px solid var(--rule-soft)}
 :root[data-lang="zh"] .tl__date{font-family:var(--f-body);text-transform:none;letter-spacing:.02em}
 .tl__title{font-size:1.05rem;font-weight:700;margin-top:.5rem;letter-spacing:-.01em}
 .tl__org{color:var(--jade);font-size:.88rem;margin-top:.15rem;font-weight:500}
+.tl__org--logo{display:flex;align-items:center;gap:.55rem;margin-top:.4rem}
+/* logo art is black on white, so it keeps its own white chip in both themes */
+.orglogo{
+  width:2.1rem;height:2.1rem;flex:none;object-fit:contain;
+  background:#fff;border-radius:8px;padding:2px;
+  box-shadow:0 0 0 1px var(--rule);
+}
 .tl__org a{color:inherit}
 .tl__body{color:var(--ink-2);font-size:.9rem;margin-top:.65rem}
 .tl__body ul:not(.credits__key){margin:.5rem 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.45rem}
@@ -827,6 +855,25 @@ section + section{border-top:1px solid var(--rule-soft)}
 .vtile__views svg{width:.7rem;height:.7rem}
 .vtile__cap{display:flex;flex-direction:column;gap:.12rem}
 .vtile__label{font-size:.78rem;line-height:1.35;color:var(--ink);font-weight:500}
+.vtile__dur{
+  position:absolute;right:.4rem;bottom:.4rem;z-index:2;
+  font-family:var(--f-mono);font-size:.6rem;font-variant-numeric:tabular-nums;
+  padding:.2rem .4rem;border-radius:var(--r-pill);
+  color:#FFFFFF;background:rgba(20,8,4,.66);backdrop-filter:blur(4px);
+}
+.vtile__rank{
+  position:absolute;left:.4rem;top:.4rem;z-index:2;
+  font-family:var(--f-mono);font-size:.6rem;font-weight:500;
+  padding:.2rem .45rem;border-radius:var(--r-pill);
+  color:var(--on-cta);background:var(--cta);
+  box-shadow:0 2px 8px -2px rgba(0,0,0,.5);
+}
+.vtile__flag{
+  position:absolute;left:.4rem;top:.4rem;z-index:2;
+  width:1.25rem;height:.83rem;border-radius:3px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.6), 0 2px 6px -2px rgba(0,0,0,.6);
+}
+.vtile.is-full .vtile__dur,.vtile.is-full .vtile__rank{display:none}
 .vtile__chan{
   position:absolute;right:.4rem;top:.4rem;z-index:2;
   font-family:var(--f-mono);font-size:.55rem;letter-spacing:.06em;
@@ -1032,6 +1079,10 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
 <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2c4 0 4.75 2.6 4.75 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2.05 1.4-2.05 2.8V21h-4z"/></symbol>
 <symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a5 5 0 0 1-3-2.8h-3v12.1a2.9 2.9 0 1 1-2.1-2.8V9.2a6 6 0 1 0 5.1 5.9V9.4a8 8 0 0 0 4.6 1.5V7.8a4.8 4.8 0 0 1-1.6-.3z"/></symbol>
+<symbol id="f-gb" viewBox="0 0 24 16"><clipPath id="cf-gb"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-gb)"><rect width="24" height="16" fill="#012169"/><path d="M0 0 24 16M24 0 0 16" stroke="#fff" stroke-width="3.4"/><path d="M0 0 24 16M24 0 0 16" stroke="#C8102E" stroke-width="1.9"/><path d="M12 0v16M0 8h24" stroke="#fff" stroke-width="5.4"/><path d="M12 0v16M0 8h24" stroke="#C8102E" stroke-width="3.2"/></g></symbol>
+<symbol id="f-cn" viewBox="0 0 24 16"><clipPath id="cf-cn"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-cn)"><rect width="24" height="16" fill="#DE2910"/><g fill="#FFDE00"><path d="m5 2.1 1 3.1-2.6-1.9h3.2L4 5.2z"/><circle cx="9.4" cy="2.1" r=".85"/><circle cx="11.1" cy="4" r=".85"/><circle cx="11.1" cy="6.5" r=".85"/><circle cx="9.4" cy="8.3" r=".85"/></g></g></symbol>
+<symbol id="f-th" viewBox="0 0 24 16"><clipPath id="cf-th"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-th)"><rect width="24" height="16" fill="#A51931"/><rect y="2.7" width="24" height="10.6" fill="#F4F5F8"/><rect y="5.3" width="24" height="5.4" fill="#2D2A4A"/></g></symbol>
+<symbol id="f-mm" viewBox="0 0 24 16"><clipPath id="cf-mm"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-mm)"><rect width="24" height="16" fill="#FECB00"/><rect y="5.33" width="24" height="5.34" fill="#34B233"/><rect y="10.67" width="24" height="5.33" fill="#EA2839"/><path d="m12 3.6 1.55 4.77-4.06-2.95h5.02L10.45 8.37z" fill="#fff"/></g></symbol>
 <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8V3h10v5M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 14h10v7H7z"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></symbol>
 </defs></svg>
@@ -1084,10 +1135,10 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
     <div>
       <p class="grouph" data-i18n="grpLang">Language</p>
       <nav class="langbar" aria-label="Language">
-        <button class="langbtn" data-lang-set="en" aria-pressed="true">English</button>
-        <button class="langbtn" data-lang-set="zh" aria-pressed="false">简体中文</button>
-        <button class="langbtn" data-lang-set="th" aria-pressed="false">ไทย</button>
-        <button class="langbtn" data-lang-set="my" aria-pressed="false">မြန်မာ</button>
+        <button class="langbtn" data-lang-set="en" aria-pressed="true"><svg class="langbtn__flag" aria-hidden="true"><use href="#f-gb"></use></svg>English</button>
+        <button class="langbtn" data-lang-set="zh" aria-pressed="false"><svg class="langbtn__flag" aria-hidden="true"><use href="#f-cn"></use></svg>简体中文</button>
+        <button class="langbtn" data-lang-set="th" aria-pressed="false"><svg class="langbtn__flag" aria-hidden="true"><use href="#f-th"></use></svg>ไทย</button>
+        <button class="langbtn" data-lang-set="my" aria-pressed="false"><svg class="langbtn__flag" aria-hidden="true"><use href="#f-mm"></use></svg>မြန်မာ</button>
       </nav>
     </div>
 
@@ -1121,7 +1172,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
                alt="Ei Phyu Sin Thant" fetchpriority="high" decoding="async">
           <figcaption class="hero__badge">
             <span class="pip" aria-hidden="true"></span>
-            <span data-i18n="badgeOpen">Open to graduate roles</span>
+            <span data-i18n="badgeOpen">Available now · Full-time</span>
           </figcaption>
         </figure>
 
@@ -1174,6 +1225,10 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           <span class="fact__v" data-i18n="factSeekV">Economic analyst · Market &amp; trade research · Investment research · Property consultant · Mandarin–English interpreter</span>
         </div>
         <div class="fact">
+          <span class="fact__k" data-i18n="factAvail">Availability</span>
+          <span class="fact__v" data-i18n="factAvailV">Available now — full-time, permanent</span>
+        </div>
+        <div class="fact">
           <span class="fact__k" data-i18n="factBase">Based in</span>
           <span class="fact__v" data-i18n="factBaseV">Chiang Rai &amp; Pattaya, Thailand</span>
         </div>
@@ -1222,9 +1277,9 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           Chinese-, Thai-, Burmese- and English-speaking buyers.
         </p>
         <p data-reveal style="--i:4" data-i18n="ab4">
-          I am looking for graduate roles in <strong>market and trade research, investment
+          I am looking for <strong>full-time roles in market and trade research, investment
           analysis, or property consulting</strong> — work where economic method and multilingual
-          client communication pull in the same direction.
+          client communication pull in the same direction. I am available to start now.
         </p>
       </div>
     </section>
@@ -1339,6 +1394,21 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
       </div>
+
+      <div class="grid" style="margin-top:1.3rem">
+        <div class="kit card" data-reveal style="--i:1">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-spark"></use></svg></span>
+            <span data-i18n="ecoQuant">Quantitative core</span></p>
+          <p class="work__desc" data-i18n="ecoQuantD">93 of the 123 credits are specific-requirement
+            economics, built on mathematics, statistics and econometrics rather than theory alone.</p>
+        </div>
+        <div class="kit card" data-reveal style="--i:2">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-globe"></use></svg></span>
+            <span data-i18n="ecoEng">Taught in English</span></p>
+          <p class="work__desc" data-i18n="ecoEngD">The full degree is delivered in English, so economic
+            analysis, report writing and presentation all happen in a working business language.</p>
+        </div>
+      </div>
     </section>
 
     <!-- EXPERIENCE -->
@@ -1370,9 +1440,13 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <div class="tl__item" data-reveal style="--i:2">
           <span class="tl__dot"><svg aria-hidden="true"><use href="#i-user"></use></svg></span>
           <div class="tl__card">
-            <p class="tl__date" data-i18n="expEscDate">Since June 2020</p>
+            <p class="tl__date" data-i18n="expEscDate">Since June 2020 · 5 years</p>
             <h3 class="tl__title" data-i18n="expEscTitle">Mandarin instructor</h3>
-            <p class="tl__org">ESC Chinese Language Training Center</p>
+            <p class="tl__org tl__org--logo">
+              <img class="orglogo" src="media/esc-logo.png" width="300" height="293"
+                   alt="" loading="lazy" decoding="async">
+              <span>ESC Chinese Language Training Center · <span lang="zh-Hans">汉语培训中心</span></span>
+            </p>
             <div class="tl__body">
               <ul>
                 <li data-i18n="expEsc1">Teaches Mandarin to beginner students and private clients,
@@ -1487,9 +1561,9 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <h2 id="h-contact" data-i18n="navContact">Contact</h2>
       </div>
       <div class="prose">
-        <p data-reveal style="--i:1" data-i18n="contactIntro">Open to graduate roles in economic
-          analysis, market and trade research, investment research and property consulting across
-          Thailand and the wider region — and able to work in Burmese, English, Thai and Mandarin.</p>
+        <p data-reveal style="--i:1" data-i18n="contactIntro">Available now for full-time roles in
+          economic analysis, market and trade research, investment research and property consulting
+          across Thailand and the wider region — and able to work in Burmese, English, Thai and Mandarin.</p>
       </div>
       <div class="contact">
         <a class="crow" href="mailto:xinyu.mgk@icloud.com" data-reveal style="--i:1">
@@ -1562,7 +1636,7 @@ var I18N = {
     heroEyebrow:"Chiang Rai · Pattaya · Thailand",
     nativeNote:"Xin Yu — the name she teaches and films under",
     heroRole:"Economics Undergraduate · Multilingual Market & Property Research",
-    badgeOpen:"Open to graduate roles",
+    badgeOpen:"Available now · Full-time",
     heroLede:"Economics undergraduate at Mae Fah Luang University, working in four languages. Market and trade research, data analysis and econometrics — with multilingual, client-facing property experience in Pattaya.",
     statLang:"working languages",
     statTeach:"teaching Mandarin since", statFilm:"property features presented on camera",
@@ -1571,12 +1645,14 @@ var I18N = {
     factRole:"Recent role", factRoleV:"Intern, Anjia Property — Pattaya",
     factLang:"Languages",
     factSeek:"Open to",
-    factSeekV:"Economic analyst · Market & trade research · Investment research · Property consultant · Mandarin–English interpreter", factBase:"Based in", factBaseV:"Chiang Rai & Pattaya, Thailand",
+    factSeekV:"Economic analyst · Market & trade research · Investment research · Property consultant · Mandarin–English interpreter",
+    factAvail:"Availability",
+    factAvailV:"Available now — full-time, permanent", factBase:"Based in", factBaseV:"Chiang Rai & Pattaya, Thailand",
     ctaContact:"Get in touch", ctaWatch:"Watch her on camera", ctaCv:"Save as PDF",
     ab1:"I am an economics undergraduate at <strong>Mae Fah Luang University</strong>, working across the Thailand–Myanmar–China corridor in four languages — Burmese, English, Thai and Mandarin.",
     ab2:"Since June 2020 I have taught Mandarin at <strong>ESC Chinese Language Training Center</strong>, in the classroom and online, preparing students for HSK proficiency exams. Five years of client-facing teaching in a second language is where my communication skills come from.",
     ab3:"My degree is taught entirely in English under the philosophy “Economics for Future Society” — a 123-credit programme weighted toward <strong>mathematics, statistics and econometrics</strong>, alongside applied data analysis. Most recently I interned with <strong>Anjia Property</strong> in Pattaya, presenting pool villas, branded residences and beachfront condos on camera to Chinese-, Thai-, Burmese- and English-speaking buyers.",
-    ab4:"I am looking for graduate roles in <strong>market and trade research, investment analysis, or property consulting</strong> — work where economic method and multilingual client communication pull in the same direction.",
+    ab4:"I am looking for <strong>full-time roles in market and trade research, investment analysis, or property consulting</strong> — work where economic method and multilingual client communication pull in the same direction. I am available to start now.",
     videoIntro:"Nine property walk-throughs presented on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien, including one filmed in Burmese and one in Thai.",
     videoNote:"Tiles play while on screen and pause when scrolled away. Tap one for the full film.",
     langIntro:"Four working languages across the Thailand–Myanmar–China corridor — each one earning its place in her studies, her teaching, or her client work.",
@@ -1591,11 +1667,15 @@ var I18N = {
     eduNow:"In progress",
     eduNote:"Taught in English under the philosophy “Economics for Future Society.” A four-year, 123-credit degree weighted toward quantitative method — mathematics, statistics and econometrics — alongside theory and applied data analysis.",
     crGen:"General education", crSpec:"Specific requirement", crFree:"Free elective", crTotal:"credits",
+    ecoQuant:"Quantitative core",
+    ecoQuantD:"93 of the 123 credits are specific-requirement economics, built on mathematics, statistics and econometrics rather than theory alone.",
+    ecoEng:"Taught in English",
+    ecoEngD:"The full degree is delivered in English, so economic analysis, report writing and presentation all happen in a working business language.",
     expInternDate:"Most recent", expInternTitle:"Intern — property presenter",
     expIn1:"Presented nine property walk-throughs on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien.",
     expIn2:"Filmed in more than one language for different buyer audiences, including a Burmese-language feature and a Thai-language one.",
     expIn3:"The series drew over 9,900 views, led by a single villa feature at 3,300.",
-    expEscDate:"Since June 2020", expEscTitle:"Mandarin instructor",
+    expEscDate:"Since June 2020 · 5 years", expEscTitle:"Mandarin instructor",
     expEsc1:"Teaches Mandarin to beginner students and private clients, planning lessons and tracking progress toward HSK proficiency exams.",
     expEsc2:"Moved the whole caseload to remote delivery when in-person teaching stopped, retaining students throughout the transition.",
     expEsc3:"Five years of sustained client-facing communication in a second language — the groundwork for later multilingual property work.",
@@ -1617,7 +1697,7 @@ var I18N = {
     seriesLink:"Watch the series",
     teachTitle:"Mandarin instruction — ESC Chinese Language Training Center",
     teachDesc:"Instructor since June 2020, classroom and online, preparing students for HSK proficiency exams.",
-    contactIntro:"Open to graduate roles in economic analysis, market and trade research, investment research and property consulting across Thailand and the wider region — and able to work in Burmese, English, Thai and Mandarin.",
+    contactIntro:"Available now for full-time roles in economic analysis, market and trade research, investment research and property consulting across Thailand and the wider region — and able to work in Burmese, English, Thai and Mandarin.",
     footNote:"Chiang Rai & Pattaya, Thailand"
   },
 
@@ -1632,7 +1712,7 @@ var I18N = {
     heroEyebrow:"泰国清莱 · 芭堤雅",
     nativeNote:"辛玉 — 教学与出镜时使用的名字",
     heroRole:"经济学在读生 · 多语市场与房地产研究",
-    badgeOpen:"正在寻找应届岗位",
+    badgeOpen:"随时到岗 · 全职",
     heroLede:"美福大学经济学在读生，以四种语言工作。市场与贸易研究、数据分析与计量经济学，并具备多语言、面向客户的芭堤雅房地产经验。",
     statLang:"种工作语言",
     statTeach:"起教授中文", statFilm:"支出镜房产视频",
@@ -1641,12 +1721,14 @@ var I18N = {
     factRole:"近期职位", factRoleV:"安家房地产 实习生 — 芭堤雅",
     factLang:"语言",
     factSeek:"求职方向",
-    factSeekV:"经济分析 · 市场与贸易研究 · 投资研究 · 房地产顾问 · 中英口译", factBase:"所在地", factBaseV:"泰国清莱与芭堤雅",
+    factSeekV:"经济分析 · 市场与贸易研究 · 投资研究 · 房地产顾问 · 中英口译",
+    factAvail:"到岗时间",
+    factAvailV:"随时到岗 — 全职、长期", factBase:"所在地", factBaseV:"泰国清莱与芭堤雅",
     ctaContact:"联系我", ctaWatch:"观看出镜作品", ctaCv:"保存为 PDF",
     ab1:"我是<strong>美福大学</strong>经济学在读生，以缅甸语、英语、泰语和中文四种语言，在泰国—缅甸—中国走廊上工作。",
     ab2:"自 2020 年 6 月起，我在<strong>ESC 中文培训中心</strong>教授中文，课堂与线上并行，帮助学生备考 HSK。五年面向学生的第二语言教学，是我沟通能力的来源。",
     ab3:"我的学位课程全英文授课，秉持「面向未来社会的经济学」理念；123 学分，侧重<strong>数学、统计与计量经济学</strong>，并结合数据分析应用。近期我在芭堤雅的<strong>安家房地产</strong>实习，面向中文、泰语、缅甸语与英语买家出镜介绍泳池别墅、品牌公寓与海景公寓。",
-    ab4:"我希望找到<strong>市场与贸易研究、投资分析或房地产顾问</strong>方向的应届岗位——让经济学方法与多语客户沟通同时发挥作用的工作。",
+    ab4:"我正在寻找<strong>市场与贸易研究、投资分析或房地产顾问方向的全职工作</strong>——让经济学方法与多语客户沟通同时发挥作用的岗位。我可随时到岗。",
     videoIntro:"为中介机构频道出镜拍摄的九支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓及海景公寓，其中一支以缅甸语拍摄，一支以泰语拍摄。",
     videoNote:"画面进入视区时自动播放，离开时暂停。点击可观看完整视频。",
     langIntro:"泰国—缅甸—中国走廊上的四种工作语言——每一种都在学业、教学或客户工作中真正用得上。",
@@ -1661,11 +1743,15 @@ var I18N = {
     eduNow:"在读",
     eduNote:"全英文授课，秉持「面向未来社会的经济学」理念。四年制、123 学分，课程侧重数量方法——数学、统计与计量经济学，并结合理论与数据分析应用。",
     crGen:"通识教育", crSpec:"专业必修", crFree:"自由选修", crTotal:"学分",
+    ecoQuant:"数量分析核心",
+    ecoQuantD:"123 学分中有 93 学分为经济学专业必修，建立在数学、统计与计量经济学之上，而非仅有理论。",
+    ecoEng:"全英文授课",
+    ecoEngD:"整个学位以英语授课，因此经济分析、报告撰写与演示汇报均在通用商务语言环境中完成。",
     expInternDate:"最近一份", expInternTitle:"实习生 — 房产出镜介绍",
     expIn1:"为中介机构频道出镜拍摄九支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓与海景公寓。",
     expIn2:"针对不同买家群体以多种语言拍摄，其中包括一支缅甸语和一支泰语作品。",
     expIn3:"该系列累计播放量超过 9,900 次，其中单支别墅视频达 3,300 次。",
-    expEscDate:"2020 年 6 月起", expEscTitle:"中文教师",
+    expEscDate:"2020 年 6 月起 · 五年", expEscTitle:"中文教师",
     expEsc1:"教授初级学生与私人客户中文，制定课程计划并跟踪 HSK 备考进度。",
     expEsc2:"面授中断后将全部课程转为远程教学，学生留存未受影响。",
     expEsc3:"五年持续以第二语言进行客户沟通，为日后的多语房地产工作打下基础。",
@@ -1687,7 +1773,7 @@ var I18N = {
     seriesLink:"观看系列",
     teachTitle:"中文教学 · ESC 中文培训中心",
     teachDesc:"2020 年 6 月起任教，课堂与线上并行，指导学生备考 HSK。",
-    contactIntro:"正在寻找经济分析、市场与贸易研究、投资研究及房地产顾问方向的应届岗位——可使用缅甸语、英语、泰语和中文工作。",
+    contactIntro:"现可入职经济分析、市场与贸易研究、投资研究及房地产顾问方向的全职岗位，工作地点覆盖泰国及周边地区——可使用缅甸语、英语、泰语和中文工作。",
     footNote:"泰国清莱与芭堤雅"
   },
 
@@ -1702,7 +1788,7 @@ var I18N = {
     heroEyebrow:"เชียงราย · พัทยา · ประเทศไทย",
     nativeNote:"ซินอวี้ — ชื่อที่ใช้สอนและถ่ายทำ",
     heroRole:"นักศึกษาเศรษฐศาสตร์ · วิจัยตลาดและอสังหาริมทรัพย์หลายภาษา",
-    badgeOpen:"เปิดรับงานสำหรับบัณฑิตจบใหม่",
+    badgeOpen:"พร้อมเริ่มงานทันที · เต็มเวลา",
     heroLede:"นักศึกษาเศรษฐศาสตร์ มหาวิทยาลัยแม่ฟ้าหลวง ทำงานได้สี่ภาษา วิจัยตลาดและการค้า วิเคราะห์ข้อมูล และเศรษฐมิติ พร้อมประสบการณ์อสังหาริมทรัพย์ที่พัทยาซึ่งทำงานกับลูกค้าหลายภาษา",
     statLang:"ภาษาที่ใช้ทำงาน",
     statTeach:"สอนภาษาจีนตั้งแต่", statFilm:"วิดีโอนำเสนออสังหาฯ หน้ากล้อง",
@@ -1711,12 +1797,14 @@ var I18N = {
     factRole:"ตำแหน่งล่าสุด", factRoleV:"นักศึกษาฝึกงาน Anjia Property — พัทยา",
     factLang:"ภาษา",
     factSeek:"เปิดรับ",
-    factSeekV:"นักวิเคราะห์เศรษฐกิจ · วิจัยตลาดและการค้า · วิจัยการลงทุน · ที่ปรึกษาอสังหาริมทรัพย์ · ล่ามจีน–อังกฤษ", factBase:"ฐานที่ตั้ง", factBaseV:"เชียงรายและพัทยา ประเทศไทย",
+    factSeekV:"นักวิเคราะห์เศรษฐกิจ · วิจัยตลาดและการค้า · วิจัยการลงทุน · ที่ปรึกษาอสังหาริมทรัพย์ · ล่ามจีน–อังกฤษ",
+    factAvail:"ความพร้อมเริ่มงาน",
+    factAvailV:"พร้อมเริ่มงานทันที — เต็มเวลา ประจำ", factBase:"ฐานที่ตั้ง", factBaseV:"เชียงรายและพัทยา ประเทศไทย",
     ctaContact:"ติดต่อฉัน", ctaWatch:"ดูผลงานหน้ากล้อง", ctaCv:"บันทึกเป็น PDF",
     ab1:"ฉันเป็นนักศึกษาเศรษฐศาสตร์ที่<strong>มหาวิทยาลัยแม่ฟ้าหลวง</strong> ทำงานในเส้นทางไทย–เมียนมา–จีน ด้วยสี่ภาษา ได้แก่ เมียนมา อังกฤษ ไทย และจีนกลาง",
     ab2:"ตั้งแต่มิถุนายน 2020 ฉันสอนภาษาจีนที่<strong>ESC Chinese Language Training Center</strong> ทั้งในห้องเรียนและออนไลน์ เตรียมนักเรียนสอบวัดระดับ HSK ประสบการณ์สอนด้วยภาษาที่สองต่อเนื่องห้าปีคือที่มาของทักษะการสื่อสารของฉัน",
     ab3:"หลักสูตรของฉันสอนเป็นภาษาอังกฤษทั้งหมด ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” เป็นหลักสูตร 123 หน่วยกิตที่เน้น<strong>คณิตศาสตร์ สถิติ และเศรษฐมิติ</strong> ควบคู่กับการวิเคราะห์ข้อมูลเชิงประยุกต์ ล่าสุดฉันฝึกงานกับ<strong>Anjia Property</strong> ที่พัทยา นำเสนอพูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดหน้ากล้องให้ผู้ซื้อที่พูดภาษาจีน ไทย เมียนมา และอังกฤษ",
-    ab4:"ฉันกำลังมองหางานสำหรับบัณฑิตจบใหม่ด้าน<strong>การวิจัยตลาดและการค้า การวิเคราะห์การลงทุน หรือที่ปรึกษาอสังหาริมทรัพย์</strong> งานที่ใช้ทั้งวิธีทางเศรษฐศาสตร์และการสื่อสารกับลูกค้าหลายภาษาไปพร้อมกัน",
+    ab4:"ฉันกำลังมองหา<strong>งานเต็มเวลาด้านการวิจัยตลาดและการค้า การวิเคราะห์การลงทุน หรือที่ปรึกษาอสังหาริมทรัพย์</strong> งานที่ใช้ทั้งวิธีทางเศรษฐศาสตร์และการสื่อสารกับลูกค้าหลายภาษาไปพร้อมกัน และพร้อมเริ่มงานได้ทันที",
     videoIntro:"วิดีโอพาชมอสังหาริมทรัพย์เก้ารายการที่นำเสนอหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน โดยหนึ่งเรื่องถ่ายเป็นภาษาเมียนมา และอีกหนึ่งเรื่องเป็นภาษาไทย",
     videoNote:"วิดีโอจะเล่นเมื่ออยู่ในหน้าจอ และหยุดเมื่อเลื่อนผ่าน แตะเพื่อดูฉบับเต็ม",
     langIntro:"สี่ภาษาสำหรับการทำงานในเส้นทางไทย–เมียนมา–จีน แต่ละภาษาล้วนได้ใช้จริงในการเรียน การสอน หรืองานกับลูกค้า",
@@ -1731,11 +1819,15 @@ var I18N = {
     eduNow:"กำลังศึกษา",
     eduNote:"สอนเป็นภาษาอังกฤษ ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” หลักสูตร 4 ปี 123 หน่วยกิต เน้นวิธีเชิงปริมาณ — คณิตศาสตร์ สถิติ และเศรษฐมิติ ควบคู่กับทฤษฎีและการวิเคราะห์ข้อมูลเชิงประยุกต์",
     crGen:"หมวดศึกษาทั่วไป", crSpec:"หมวดวิชาเฉพาะ", crFree:"หมวดวิชาเลือกเสรี", crTotal:"หน่วยกิต",
+    ecoQuant:"แกนเชิงปริมาณ",
+    ecoQuantD:"93 จาก 123 หน่วยกิตเป็นวิชาเฉพาะทางเศรษฐศาสตร์ ซึ่งวางอยู่บนคณิตศาสตร์ สถิติ และเศรษฐมิติ ไม่ใช่เพียงทฤษฎี",
+    ecoEng:"สอนเป็นภาษาอังกฤษ",
+    ecoEngD:"หลักสูตรทั้งหมดสอนเป็นภาษาอังกฤษ การวิเคราะห์เศรษฐกิจ การเขียนรายงาน และการนำเสนอจึงทำในภาษาที่ใช้ทำงานจริง",
     expInternDate:"ล่าสุด", expInternTitle:"นักศึกษาฝึกงาน — ผู้นำเสนออสังหาริมทรัพย์",
     expIn1:"นำเสนอวิดีโอพาชมอสังหาริมทรัพย์เก้ารายการหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน",
     expIn2:"ถ่ายทำมากกว่าหนึ่งภาษาเพื่อกลุ่มผู้ซื้อที่ต่างกัน รวมถึงเรื่องภาษาเมียนมาและภาษาไทยอย่างละหนึ่งเรื่อง",
     expIn3:"ซีรีส์นี้มียอดชมรวมกว่า 9,900 ครั้ง นำโดยวิดีโอวิลล่าเดียวที่ 3,300 ครั้ง",
-    expEscDate:"ตั้งแต่มิถุนายน 2020", expEscTitle:"ครูสอนภาษาจีน",
+    expEscDate:"ตั้งแต่มิถุนายน 2020 · 5 ปี", expEscTitle:"ครูสอนภาษาจีน",
     expEsc1:"สอนภาษาจีนให้ผู้เรียนระดับต้นและลูกค้าส่วนตัว วางแผนบทเรียนและติดตามความคืบหน้าสู่การสอบ HSK",
     expEsc2:"ย้ายการสอนทั้งหมดไปเป็นรูปแบบทางไกลเมื่อการเรียนในห้องเรียนหยุดลง และรักษาผู้เรียนไว้ได้ตลอดช่วงเปลี่ยนผ่าน",
     expEsc3:"ห้าปีของการสื่อสารกับลูกค้าด้วยภาษาที่สองอย่างต่อเนื่อง เป็นพื้นฐานของงานอสังหาริมทรัพย์หลายภาษาในเวลาต่อมา",
@@ -1757,7 +1849,7 @@ var I18N = {
     seriesLink:"ดูซีรีส์ทั้งหมด",
     teachTitle:"การสอนภาษาจีน · ESC Chinese Language Training Center",
     teachDesc:"ครูผู้สอนตั้งแต่มิถุนายน 2020 ทั้งในห้องเรียนและออนไลน์ เตรียมผู้เรียนสอบวัดระดับ HSK",
-    contactIntro:"เปิดรับโอกาสงานด้านการวิเคราะห์เศรษฐกิจ การวิจัยตลาดและการค้า การวิจัยการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในประเทศไทยและภูมิภาค — ทำงานได้ทั้งภาษาเมียนมา อังกฤษ ไทย และจีน",
+    contactIntro:"พร้อมเริ่มงานเต็มเวลาด้านการวิเคราะห์เศรษฐกิจ การวิจัยตลาดและการค้า การวิจัยการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในประเทศไทยและภูมิภาค — ทำงานได้ทั้งภาษาเมียนมา อังกฤษ ไทย และจีน",
     footNote:"เชียงรายและพัทยา ประเทศไทย"
   },
 
@@ -1772,7 +1864,7 @@ var I18N = {
     heroEyebrow:"ချင်းရိုင် · ပတ္တရာ · ထိုင်းနိုင်ငံ",
     nativeNote:"Xin Yu — သင်ကြားရာနှင့် ရိုက်ကူးရာတွင် သုံးသော အမည်",
     heroRole:"စီးပွားရေးပညာ ကျောင်းသူ · ဘာသာစုံ ဈေးကွက်နှင့် အိမ်ခြံမြေ သုတေသန",
-    badgeOpen:"ဘွဲ့ရ ရာထူးများအတွက် ဖွင့်လှစ်ထားသည်",
+    badgeOpen:"ယခုချက်ချင်း စတင်နိုင် · အချိန်ပြည့်",
     heroLede:"Mae Fah Luang တက္ကသိုလ်မှ စီးပွားရေးပညာ ကျောင်းသူ၊ ဘာသာစကား လေးမျိုးဖြင့် လုပ်ကိုင်သည်။ ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ဒေတာ ခွဲခြမ်းစိတ်ဖြာမှုနှင့် စီးပွားရေး တိုင်းတာမှုပညာ — ပတ္တရာတွင် ဘာသာစုံ ဖောက်သည်နှင့် တိုက်ရိုက် ထိတွေ့သော အိမ်ခြံမြေ အတွေ့အကြုံနှင့်အတူ။",
     statLang:"အလုပ်သုံး ဘာသာစကား",
     statTeach:"မှစ၍ တရုတ်စာ သင်ကြား", statFilm:"ကင်မရာရှေ့ အိမ်ခြံမြေ ဗီဒီယို",
@@ -1781,12 +1873,14 @@ var I18N = {
     factRole:"လတ်တလော ရာထူး", factRoleV:"Anjia Property တွင် အလုပ်သင် — ပတ္တရာ",
     factLang:"ဘာသာစကားများ",
     factSeek:"လက်ခံသော ရာထူး",
-    factSeekV:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာသူ · ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန · ရင်းနှီးမြှုပ်နှံမှု သုတေသန · အိမ်ခြံမြေ အကြံပေး · တရုတ်–အင်္ဂလိပ် စကားပြန်", factBase:"နေထိုင်ရာ", factBaseV:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ",
+    factSeekV:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာသူ · ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန · ရင်းနှီးမြှုပ်နှံမှု သုတေသန · အိမ်ခြံမြေ အကြံပေး · တရုတ်–အင်္ဂလိပ် စကားပြန်",
+    factAvail:"စတင်နိုင်ချိန်",
+    factAvailV:"ယခုချက်ချင်း စတင်နိုင် — အချိန်ပြည့်၊ အမြဲတမ်း", factBase:"နေထိုင်ရာ", factBaseV:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ",
     ctaContact:"ဆက်သွယ်ရန်", ctaWatch:"ကင်မရာရှေ့ လုပ်ငန်း ကြည့်ရန်", ctaCv:"PDF အဖြစ် သိမ်းရန်",
     ab1:"ကျွန်မသည် <strong>Mae Fah Luang တက္ကသိုလ်</strong>မှ စီးပွားရေးပညာ ကျောင်းသူဖြစ်ပြီး မြန်မာ၊ အင်္ဂလိပ်၊ ထိုင်းနှင့် တရုတ် ဘာသာစကား လေးမျိုးဖြင့် ထိုင်း–မြန်မာ–တရုတ် စင်္ကြံတစ်လျှောက် လုပ်ကိုင်နေပါသည်။",
     ab2:"၂၀၂၀ ခုနှစ် ဇွန်လမှစ၍ <strong>ESC Chinese Language Training Center</strong> တွင် စာသင်ခန်းနှင့် အွန်လိုင်း နှစ်မျိုးလုံးဖြင့် တရုတ်စာ သင်ကြားပေးကာ ကျောင်းသားများကို HSK စာမေးပွဲအတွက် ပြင်ဆင်ပေးခဲ့သည်။ ဒုတိယဘာသာစကားဖြင့် ငါးနှစ်ကြာ သင်ကြားပေးခဲ့ခြင်းသည် ကျွန်မ၏ ဆက်သွယ်ပြောဆိုမှု စွမ်းရည် အခြေခံဖြစ်သည်။",
     ab3:"ကျွန်မ၏ ဘွဲ့သင်တန်းကို “အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် အပြည့်အဝ သင်ကြားသည်။ ၁၂၃ ခရက်ဒစ် ရှိပြီး <strong>သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ</strong> ကို အလေးပေးကာ ဒေတာ ခွဲခြမ်းစိတ်ဖြာမှု အသုံးချမှုနှင့် တွဲဖက်ထားသည်။ မကြာသေးမီက ပတ္တရာရှိ <strong>Anjia Property</strong> တွင် အလုပ်သင်အဖြစ် တရုတ်၊ ထိုင်း၊ မြန်မာနှင့် အင်္ဂလိပ် စကားပြော ဝယ်ယူသူများအတွက် ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများကို ကင်မရာရှေ့မှ မိတ်ဆက်ခဲ့သည်။",
-    ab4:"<strong>ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာမှု သို့မဟုတ် အိမ်ခြံမြေ အကြံပေးလုပ်ငန်း</strong> ဘွဲ့ရ ရာထူးများကို ရှာဖွေနေပါသည် — စီးပွားရေး နည်းစနစ်နှင့် ဘာသာစုံ ဖောက်သည် ဆက်သွယ်ရေး နှစ်ခုလုံး အသုံးဝင်မည့် အလုပ်။",
+    ab4:"<strong>ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာမှု သို့မဟုတ် အိမ်ခြံမြေ အကြံပေးလုပ်ငန်း အချိန်ပြည့် ရာထူးများ</strong> ကို ရှာဖွေနေပါသည် — စီးပွားရေး နည်းစနစ်နှင့် ဘာသာစုံ ဖောက်သည် ဆက်သွယ်ရေး နှစ်ခုလုံး အသုံးဝင်မည့် အလုပ်။ ယခုချက်ချင်း စတင်နိုင်ပါသည်။",
     videoIntro:"အေဂျင်စီ၏ ချန်နယ်အတွက် ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သော အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ကိုးခု — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။ တစ်ခုကို မြန်မာဘာသာဖြင့်၊ တစ်ခုကို ထိုင်းဘာသာဖြင့် ရိုက်ကူးထားသည်။",
     videoNote:"မျက်နှာပြင်ပေါ် ရောက်သည်နှင့် စတင်ပြသပြီး ကျော်လွန်သွားပါက ရပ်တန့်သည်။ ဗီဒီယို အပြည့်အစုံကို တစ်ချက်နှိပ်၍ ကြည့်နိုင်သည်။",
     langIntro:"ထိုင်း–မြန်မာ–တရုတ် စင်္ကြံတစ်လျှောက် အလုပ်သုံး ဘာသာစကား လေးမျိုး — တစ်မျိုးစီသည် ပညာသင်ကြားရေး၊ သင်ကြားပေးမှု သို့မဟုတ် ဖောက်သည် လုပ်ငန်းတွင် အမှန်တကယ် အသုံးဝင်သည်။",
@@ -1801,11 +1895,15 @@ var I18N = {
     eduNow:"တက်ရောက်ဆဲ",
     eduNote:"“အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ လေးနှစ်တာ ၁၂၃ ခရက်ဒစ် ဘွဲ့ဖြစ်ပြီး သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ စသည့် အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အလေးပေးသည်။",
     crGen:"အထွေထွေ ပညာရေး", crSpec:"အထူးပြု လိုအပ်ချက်", crFree:"လွတ်လပ် ရွေးချယ်မှု", crTotal:"ခရက်ဒစ်",
+    ecoQuant:"အရေအတွက်ဆိုင်ရာ အခြေခံ",
+    ecoQuantD:"၁၂၃ ခရက်ဒစ်အနက် ၉၃ ခရက်ဒစ်မှာ အထူးပြု စီးပွားရေးပညာ ဖြစ်ပြီး သီအိုရီသက်သက် မဟုတ်ဘဲ သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာအပေါ် အခြေခံထားသည်။",
+    ecoEng:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြား",
+    ecoEngD:"ဘွဲ့တစ်ခုလုံးကို အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသဖြင့် စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာမှု၊ အစီရင်ခံစာ ရေးသားမှုနှင့် တင်ဆက်မှု အားလုံးကို အလုပ်သုံး စီးပွားရေး ဘာသာစကားဖြင့် ဆောင်ရွက်သည်။",
     expInternDate:"လတ်တလော", expInternTitle:"အလုပ်သင် — အိမ်ခြံမြေ တင်ဆက်သူ",
     expIn1:"အေဂျင်စီ၏ ချန်နယ်အတွက် အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ကိုးခုကို ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သည် — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။",
     expIn2:"ဝယ်ယူသူ အမျိုးမျိုးအတွက် ဘာသာစကား တစ်မျိုးထက်ပို၍ ရိုက်ကူးခဲ့ပြီး မြန်မာဘာသာ တစ်ခုနှင့် ထိုင်းဘာသာ တစ်ခု ပါဝင်သည်။",
     expIn3:"ဤစီးရီးသည် ကြည့်ရှုမှု ၉,၉၀၀ ကျော် ရရှိခဲ့ပြီး ဗီလာ ဗီဒီယို တစ်ခုတည်းက ၃,၃၀၀ ဖြင့် ရှေ့ဆုံးမှ ဦးဆောင်ခဲ့သည်။",
-    expEscDate:"၂၀၂၀ ဇွန်လမှစ၍", expEscTitle:"တရုတ်စာ ဆရာမ",
+    expEscDate:"၂၀၂၀ ဇွန်လမှစ၍ · ၅ နှစ်", expEscTitle:"တရုတ်စာ ဆရာမ",
     expEsc1:"အခြေခံအဆင့် ကျောင်းသားများနှင့် ကိုယ်ပိုင် ဖောက်သည်များကို တရုတ်စာ သင်ကြားပေးပြီး သင်ခန်းစာ စီစဉ်ကာ HSK စာမေးပွဲအတွက် တိုးတက်မှုကို စောင့်ကြည့်သည်။",
     expEsc2:"လူကိုယ်တိုင် သင်ကြားမှု ရပ်တန့်သွားချိန်တွင် သင်ကြားမှု အားလုံးကို အဝေးမှ ပို့ချသည့် ပုံစံသို့ ပြောင်းလဲပြီး ကူးပြောင်းချိန်တစ်လျှောက် ကျောင်းသားများကို ဆက်လက် ထိန်းသိမ်းနိုင်ခဲ့သည်။",
     expEsc3:"ဒုတိယဘာသာစကားဖြင့် ငါးနှစ်ကြာ ဖောက်သည်နှင့် ဆက်သွယ်ပြောဆိုခဲ့ခြင်းသည် နောက်ပိုင်း ဘာသာစုံ အိမ်ခြံမြေ လုပ်ငန်း၏ အခြေခံဖြစ်သည်။",
@@ -1827,7 +1925,7 @@ var I18N = {
     seriesLink:"စီးရီး ကြည့်ရန်",
     teachTitle:"တရုတ်စာ သင်ကြားရေး · ESC Chinese Language Training Center",
     teachDesc:"၂၀၂၀ ဇွန်လမှစ၍ ဆရာမ။ စာသင်ခန်းနှင့် အွန်လိုင်း နှစ်မျိုးလုံးတွင် ကျောင်းသားများကို HSK စာမေးပွဲအတွက် ပြင်ဆင်ပေးသည်။",
-    contactIntro:"ထိုင်းနိုင်ငံနှင့် ဒေသတွင်း စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု သုတေသနနှင့် အိမ်ခြံမြေ အကြံပေး ရာထူးများအတွက် ဖွင့်လှစ်ထားပါသည် — မြန်မာ၊ အင်္ဂလိပ်၊ ထိုင်းနှင့် တရုတ်ဘာသာဖြင့် လုပ်ကိုင်နိုင်ပါသည်။",
+    contactIntro:"ထိုင်းနိုင်ငံနှင့် ဒေသတွင်း စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု သုတေသနနှင့် အိမ်ခြံမြေ အကြံပေး အချိန်ပြည့် ရာထူးများအတွက် ယခုချက်ချင်း စတင်နိုင်ပါသည် — မြန်မာ၊ အင်္ဂလိပ်၊ ထိုင်းနှင့် တရုတ်ဘာသာဖြင့် လုပ်ကိုင်နိုင်ပါသည်။",
     footNote:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
   }
 };
@@ -2047,23 +2145,23 @@ totop.addEventListener("click", function(){
    section never looks broken. Playback is gated on visibility.
    ============================================================ */
 var VIDEOS = [
-  { id:"7660508028315159815", views:3325, likes:114,
+  { id:"7660508028315159815", views:3325, likes:114, dur:"1:13", rank:1,
     label:"What does $800k buy you in Pattaya?", sub:"Renoir Luxury Pool Villa" },
-  { id:"7662617021565193480", views:1281, likes:47,
+  { id:"7662617021565193480", views:1281, likes:47,  dur:"1:15", rank:2,
     label:"POV: you just found your dream home", sub:"Patta Cascade Arbor · from ฿14M" },
-  { id:"7664614677413940488", views:1161, likes:55,
+  { id:"7664614677413940488", views:1161, likes:55,  dur:"0:58", rank:3,
     label:"What if your holiday home paid you back?", sub:"Wyndham Jomtien · investment" },
-  { id:"7665730644911148296", views:1151, likes:56,
+  { id:"7665730644911148296", views:1151, likes:56,  dur:"0:36",
     label:"Embassy Life — a Chanel-vibe lifestyle", sub:"Condo · from ฿2.5M" },
-  { id:"7667848131190705426", views:1150, likes:60,
+  { id:"7667848131190705426", views:1150, likes:60,  dur:"1:25",
     label:"A low-rise condo that feels like home", sub:"Jomtien · 3 bed · 134 sqm · from ฿10.8M" },
-  { id:"7672054925806931208", views:802,  likes:62,
+  { id:"7672054925806931208", views:802,  likes:62,  dur:"1:21",
     label:"A day in the life of a property agent", sub:"Pattaya" },
-  { id:"7657773791308680455", views:602,  likes:12, lang:"my",
+  { id:"7657773791308680455", views:602,  likes:12,  dur:"0:09", lang:"my", flag:"#f-mm",
     label:"တိတ်ဆိတ်ပြီး လှပတဲ့ Jomtien beach", sub:"Presented in Burmese" },
-  { id:"7673903460072361223", views:332,  likes:20, lang:"th", channel:"Anjia channel",
+  { id:"7673903460072361223", views:332,  likes:20,  dur:"1:20", lang:"th", flag:"#f-th", channel:"Anjia channel",
     label:"Embassy World Pattaya", sub:"Jomtien · Tech &amp; Wellness · in Thai" },
-  { id:"7660120654959693063", views:320,  likes:13,
+  { id:"7660120654959693063", views:320,  likes:13,  dur:"0:43",
     label:"Patta Cascade", sub:"Villa for sale" }
 ];
 
@@ -2112,6 +2210,30 @@ var MAX_CONCURRENT = 4;
       badge.innerHTML =
         '<svg aria-hidden="true"><use href="#i-eye"></use></svg>' + item.views.toLocaleString();
       media.appendChild(badge);
+    }
+
+    if (item.dur) {
+      var dur = document.createElement("span");
+      dur.className = "vtile__dur";
+      dur.textContent = item.dur;
+      media.appendChild(dur);
+    }
+    // Top three by views earn a rank chip — the numbers are the portfolio.
+    if (item.rank) {
+      var rk = document.createElement("span");
+      rk.className = "vtile__rank";
+      rk.textContent = "#" + item.rank;
+      media.appendChild(rk);
+    }
+    // A flag says which language it was filmed in, at a glance.
+    if (item.flag) {
+      var fl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      fl.setAttribute("class", "vtile__flag");
+      fl.setAttribute("aria-hidden", "true");
+      var u = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      u.setAttribute("href", item.flag);
+      fl.appendChild(u);
+      media.appendChild(fl);
     }
 
     // Keyboard/tap control. Named via aria-label so the visible <figcaption>
