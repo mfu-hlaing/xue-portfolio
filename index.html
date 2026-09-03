@@ -321,6 +321,34 @@ tbody tr:last-child td{border-bottom:0}
 .work__desc{font-size:.9rem;color:var(--ink-2);margin-top:.4rem}
 
 /* ============================================================
+   CREDIT BREAKDOWN — the real MFU curriculum split, to scale
+   ============================================================ */
+.credits{margin-top:1rem}
+.credits__bar{
+  display:flex;height:.5rem;overflow:hidden;
+  border:1px solid var(--rule);background:var(--panel);
+}
+.credits__seg{display:block;min-width:2px}
+.credits__seg--gen{background:var(--jade)}
+.credits__seg--spec{background:var(--brass)}
+.credits__seg--free{background:var(--muted)}
+.credits__key{
+  list-style:none;margin:.65rem 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;
+  font-size:.72rem;color:var(--muted);
+}
+.credits__key li{display:flex;align-items:center;gap:.35rem}
+.credits__key b{
+  font-family:var(--f-mono);font-variant-numeric:tabular-nums;
+  color:var(--ink);font-weight:500;
+}
+.dot{width:.5rem;height:.5rem;border-radius:50%;display:inline-block;flex:none}
+.dot--gen{background:var(--jade)}
+.dot--spec{background:var(--brass)}
+.dot--free{background:var(--muted)}
+.credits__total{margin-left:auto;padding-left:.7rem;border-left:1px solid var(--rule)}
+
+/* ============================================================
    VIDEO WALL — 9:16 tiles that play only while on screen
    ============================================================ */
 .vidwall{
@@ -620,10 +648,26 @@ footer{
           <p class="tl__org">Mae Fah Luang University — School of Management, Chiang Rai</p>
           <div class="tl__body">
             <p data-i18n="eduNote">
-              Taught in English. The programme trains graduates to analyse economic situations,
-              trends and opportunities at national, regional and global level, with career tracks
-              in international trade and investment analysis.
+              Taught in English under the philosophy <em>"Economics for Future Society."</em>
+              A four-year, 123-credit degree weighted toward quantitative method — mathematics,
+              statistics and econometrics — alongside theory and applied data analysis.
             </p>
+
+            <!-- Real curriculum structure, from the MFU programme specification -->
+            <div class="credits" role="img"
+                 aria-label="123 credits total: 24 general education, 93 specific requirement, 6 free elective">
+              <div class="credits__bar">
+                <span class="credits__seg credits__seg--gen"  style="flex:24"></span>
+                <span class="credits__seg credits__seg--spec" style="flex:93"></span>
+                <span class="credits__seg credits__seg--free" style="flex:6"></span>
+              </div>
+              <ul class="credits__key">
+                <li><span class="dot dot--gen"></span><b>24</b> <span data-i18n="crGen">General education</span></li>
+                <li><span class="dot dot--spec"></span><b>93</b> <span data-i18n="crSpec">Specific requirement</span></li>
+                <li><span class="dot dot--free"></span><b>6</b> <span data-i18n="crFree">Free elective</span></li>
+                <li class="credits__total"><b>123</b> <span data-i18n="crTotal">credits</span></li>
+              </ul>
+            </div>
             <ul>
               <li><strong data-i18n="lblCourses">Selected coursework:</strong> <span class="ph">[list 4–6 courses]</span></li>
               <li><strong data-i18n="lblThesis">Thesis / research:</strong> <span class="ph">[title and one-line summary]</span></li>
@@ -736,8 +780,18 @@ footer{
           <p class="work__desc"><span class="ph">[Two lines.]</span></p>
         </article>
         <article class="work">
+          <p class="work__type" data-i18n="typeCert">Certificate</p>
+          <h3 class="work__title">Time Series Analysis for Beginners</h3>
+          <p class="work__desc">
+            <span data-i18n="certDesc">SkillUp by Simplilearn — completed 2026. The quantitative
+            side of the economics degree, applied to forecasting real series.</span>
+            <span class="ph">[confirm month]</span>
+          </p>
+        </article>
+
+        <article class="work">
           <p class="work__type" data-i18n="typeOther">Activity</p>
-          <h3 class="work__title"><span class="ph">[Club, volunteering, competition, certificate]</span></h3>
+          <h3 class="work__title"><span class="ph">[Club, volunteering, competition]</span></h3>
           <p class="work__desc"><span class="ph">[Two lines.]</span></p>
         </article>
       </div>
@@ -753,7 +807,12 @@ footer{
         trade and investment research, and property consulting across the region.</p></div>
       <div class="contact">
         <div class="crow"><span class="crow__k">Email</span><span class="ph">[email address]</span></div>
-        <div class="crow"><span class="crow__k">LinkedIn</span><span class="ph">[profile URL]</span></div>
+        <div class="crow"><span class="crow__k">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/ei-phyu-sin-thant-2239822b9/"
+             target="_blank" rel="noopener noreferrer">ei-phyu-sin-thant</a></div>
+        <div class="crow"><span class="crow__k">TikTok</span>
+          <a href="https://www.tiktok.com/@xinxin.property.pattaya"
+             target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya</a></div>
         <div class="crow"><span class="crow__k">Phone</span><span class="ph">[number, or leave out]</span></div>
         <div class="crow"><span class="crow__k">LINE</span><span class="ph">[LINE ID]</span></div>
         <div class="crow"><span class="crow__k">WeChat</span><span class="ph">[WeChat ID]</span></div>
@@ -792,11 +851,14 @@ var I18N = {
     useEn:"Degree taught in English; international clients",
     useTh:"Local market, university, documentation",
     useZh:"Chinese-speaking buyers and investors",
-    eduNote:"Taught in English. The programme trains graduates to analyse economic situations, trends and opportunities at national, regional and global level, with career tracks in international trade and investment analysis.",
+    eduNote:"Taught in English under the philosophy “Economics for Future Society.” A four-year, 123-credit degree weighted toward quantitative method — mathematics, statistics and econometrics — alongside theory and applied data analysis.",
+    crGen:"General education", crSpec:"Specific requirement", crFree:"Free elective", crTotal:"credits",
     lblCourses:"Selected coursework:", lblThesis:"Thesis / research:", lblHonours:"Honours / GPA:",
     expInternTitle:"Intern",
     kitAnalysis:"Economic analysis", kitData:"Data & tools", kitProperty:"Property & market", kitComms:"Communication",
     typeThesis:"Thesis", typeProject:"Course project", typeReport:"Internship report", typeOther:"Activity",
+    typeCert:"Certificate",
+    certDesc:"SkillUp by Simplilearn — completed 2026. The quantitative side of the economics degree, applied to forecasting real series.",
     contactIntro:"Open to graduate roles in economic analysis, trade and investment research, and property consulting across the region.",
     footNote:"Pattaya, Thailand"
   },
@@ -816,11 +878,14 @@ var I18N = {
     useEn:"全英文授课学位；国际客户",
     useTh:"本地市场、大学与文件处理",
     useZh:"华语买家与投资者",
-    eduNote:"全英文授课。该专业培养学生分析国家、区域及全球层面的经济形势、趋势与机遇，就业方向包括国际贸易与投资分析。",
+    eduNote:"全英文授课，秉持「面向未来社会的经济学」理念。四年制、123 学分，课程侧重数量方法——数学、统计与计量经济学，并结合理论与数据分析应用。",
+    crGen:"通识教育", crSpec:"专业必修", crFree:"自由选修", crTotal:"学分",
     lblCourses:"主要课程：", lblThesis:"论文 / 研究：", lblHonours:"荣誉 / 成绩：",
     expInternTitle:"实习生",
     kitAnalysis:"经济分析", kitData:"数据与工具", kitProperty:"房地产与市场", kitComms:"沟通表达",
     typeThesis:"毕业论文", typeProject:"课程项目", typeReport:"实习报告", typeOther:"课外活动",
+    typeCert:"证书",
+    certDesc:"Simplilearn 旗下 SkillUp — 2026 年结业。将经济学学位中的数量分析方法应用于真实时间序列预测。",
     contactIntro:"正在寻找经济分析、贸易与投资研究，以及区域房地产顾问方向的应届岗位。",
     footNote:"泰国芭堤雅"
   },
@@ -840,11 +905,14 @@ var I18N = {
     useEn:"หลักสูตรสอนเป็นภาษาอังกฤษ; ลูกค้าต่างชาติ",
     useTh:"ตลาดท้องถิ่น มหาวิทยาลัย และงานเอกสาร",
     useZh:"ผู้ซื้อและนักลงทุนที่พูดภาษาจีน",
-    eduNote:"สอนเป็นภาษาอังกฤษ หลักสูตรมุ่งผลิตบัณฑิตที่วิเคราะห์สถานการณ์ แนวโน้ม และโอกาสทางเศรษฐกิจได้ทั้งระดับประเทศ ภูมิภาค และระดับโลก โดยมีเส้นทางอาชีพด้านการวิเคราะห์การค้าและการลงทุนระหว่างประเทศ",
+    eduNote:"สอนเป็นภาษาอังกฤษ ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” หลักสูตร 4 ปี 123 หน่วยกิต เน้นวิธีเชิงปริมาณ — คณิตศาสตร์ สถิติ และเศรษฐมิติ ควบคู่กับทฤษฎีและการวิเคราะห์ข้อมูลเชิงประยุกต์",
+    crGen:"หมวดศึกษาทั่วไป", crSpec:"หมวดวิชาเฉพาะ", crFree:"หมวดวิชาเลือกเสรี", crTotal:"หน่วยกิต",
     lblCourses:"รายวิชาที่เลือก:", lblThesis:"วิทยานิพนธ์ / งานวิจัย:", lblHonours:"เกียรตินิยม / เกรดเฉลี่ย:",
     expInternTitle:"นักศึกษาฝึกงาน",
     kitAnalysis:"การวิเคราะห์เศรษฐกิจ", kitData:"ข้อมูลและเครื่องมือ", kitProperty:"อสังหาริมทรัพย์และตลาด", kitComms:"การสื่อสาร",
     typeThesis:"วิทยานิพนธ์", typeProject:"โครงงานรายวิชา", typeReport:"รายงานฝึกงาน", typeOther:"กิจกรรม",
+    typeCert:"ประกาศนียบัตร",
+    certDesc:"SkillUp โดย Simplilearn — สำเร็จปี 2026 การประยุกต์วิธีเชิงปริมาณจากหลักสูตรเศรษฐศาสตร์กับการพยากรณ์อนุกรมเวลาจริง",
     contactIntro:"เปิดรับโอกาสงานด้านการวิเคราะห์เศรษฐกิจ การค้าและการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในภูมิภาค",
     footNote:"พัทยา ประเทศไทย"
   },
@@ -864,11 +932,14 @@ var I18N = {
     useEn:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသော ဘွဲ့၊ နိုင်ငံတကာ ဖောက်သည်များ",
     useTh:"ဒေသတွင်း ဈေးကွက်၊ တက္ကသိုလ်နှင့် စာရွက်စာတမ်း",
     useZh:"တရုတ်စကားပြော ဝယ်ယူသူနှင့် ရင်းနှီးမြှုပ်နှံသူများ",
-    eduNote:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ ဤသင်တန်းသည် နိုင်ငံအဆင့်၊ ဒေသအဆင့်နှင့် ကမ္ဘာအဆင့် စီးပွားရေး အခြေအနေ၊ လမ်းကြောင်းနှင့် အခွင့်အလမ်းများကို ဆန်းစစ်နိုင်သော ဘွဲ့ရများ မွေးထုတ်ပေးပြီး နိုင်ငံတကာ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာရေး အလုပ်အကိုင် လမ်းကြောင်းများ ရှိသည်။",
+    eduNote:"“အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ လေးနှစ်တာ ၁၂၃ ခရက်ဒစ် ဘွဲ့ဖြစ်ပြီး သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ စသည့် အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အလေးပေးသည်။",
+    crGen:"အထွေထွေ ပညာရေး", crSpec:"အထူးပြု လိုအပ်ချက်", crFree:"လွတ်လပ် ရွေးချယ်မှု", crTotal:"ခရက်ဒစ်",
     lblCourses:"ရွေးချယ်ထားသော ဘာသာရပ်များ။", lblThesis:"ကျမ်း / သုတေသန။", lblHonours:"ဂုဏ်ထူး / GPA။",
     expInternTitle:"အလုပ်သင်",
     kitAnalysis:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာမှု", kitData:"ဒေတာနှင့် ကိရိယာများ", kitProperty:"အိမ်ခြံမြေနှင့် ဈေးကွက်", kitComms:"ဆက်သွယ်ပြောဆိုမှု",
     typeThesis:"ကျမ်း", typeProject:"ဘာသာရပ် ပရောဂျက်", typeReport:"အလုပ်သင် အစီရင်ခံစာ", typeOther:"လှုပ်ရှားမှု",
+    typeCert:"လက်မှတ်",
+    certDesc:"Simplilearn ၏ SkillUp — ၂၀၂၆ ပြီးဆုံး။ စီးပွားရေးပညာ ဘွဲ့မှ အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အချိန်စဉ်ဆက် ခန့်မှန်းချက်တွင် အသုံးချခြင်း။",
     contactIntro:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု သုတေသန၊ ဒေသတွင်း အိမ်ခြံမြေ အကြံပေး ရာထူးများအတွက် ဖွင့်လှစ်ထားပါသည်။",
     footNote:"ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
   }
