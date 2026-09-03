@@ -2506,7 +2506,15 @@ function onScroll(){
 window.addEventListener("scroll", function(){
   if (ticking) return;
   ticking = true;
-  requestAnimationFrame(function(){ onScroll(); ticking = false; });
+  requestAnimationFrame(function(){
+    onScroll();
+    // Safety net: nothing the reader has already scrolled to stays invisible,
+    // whatever happened to its observer registration.
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach(function(el){
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-in");
+    });
+    ticking = false;
+  });
 }, { passive:true });
 onScroll();
 totop.addEventListener("click", function(){
@@ -2679,6 +2687,16 @@ var MAX_CONCURRENT = 4;
   });
 
   wall.appendChild(frag);
+
+  // Tiles are created after the reveal observer collected its elements, so
+  // they have to be handed to it explicitly — otherwise they stay at
+  // opacity 0 and the whole wall renders as blank space.
+  var fresh = wall.querySelectorAll("[data-reveal]");
+  if (typeof revealIO !== "undefined" && revealIO) {
+    fresh.forEach(function(el){ revealIO.observe(el); });
+  } else {
+    fresh.forEach(function(el){ el.classList.add("is-in"); });
+  }
 
   // No autoplay when the viewer asked for reduced motion — tiles stay click-to-play.
   if (reduceMotion || !("IntersectionObserver" in window)) return;
