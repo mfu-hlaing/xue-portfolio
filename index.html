@@ -293,13 +293,32 @@ img{max-width:100%;height:auto}
 }
 .intro.is-out{opacity:0;transform:scale(1.04);pointer-events:none}
 .is-intro,.is-intro body{overflow:hidden}
-.intro__mark{
-  width:5rem;height:5rem;border-radius:1.4rem;
-  display:grid;place-items:center;
+/* the same gradient ring the hero portrait sits in, so the curtain hands
+   straight over to the page rather than cutting to something unrelated */
+.intro__ring{
+  position:relative;width:7rem;height:7rem;display:grid;place-items:center;
+  animation:markIn .9s var(--spring) both;
+}
+.intro__ring::before{
+  content:"";position:absolute;inset:-.55rem;border-radius:50%;
+  background:conic-gradient(from 210deg,var(--peach),var(--gold),var(--jade),var(--sky),var(--peach));
+  animation:blobspin 3.4s linear infinite;
+}
+.intro__face{
+  position:relative;width:7rem;height:7rem;border-radius:50%;object-fit:cover;
+  object-position:50% 18%;border:4px solid var(--paper);box-shadow:var(--shadow);
+}
+.intro__seal{
+  position:absolute;z-index:2;right:-.35rem;bottom:-.15rem;
+  width:2.1rem;height:2.1rem;border-radius:.7rem;display:grid;place-items:center;
   background:var(--cta);color:var(--on-cta);
-  font-family:var(--f-display);font-size:2.6rem;font-weight:600;line-height:1;
-  box-shadow:var(--shadow);
-  animation:markIn .85s var(--spring) both;
+  font-family:var(--f-display);font-size:1.1rem;font-weight:600;line-height:1;
+  box-shadow:0 0 0 3px var(--paper);
+  animation:markIn .7s var(--spring) .3s both;
+}
+.intro__sub{
+  font-size:.82rem;color:var(--muted);margin-top:-.7rem;
+  animation:rise .7s var(--spring) .32s both;
 }
 .intro__name{
   font-family:var(--f-display);font-size:1.15rem;font-weight:600;
@@ -836,6 +855,13 @@ section + section{border-top:1px solid var(--rule-soft)}
 .tl__title{font-size:1.05rem;font-weight:700;margin-top:.5rem;letter-spacing:-.01em}
 .tl__org{color:var(--jade);font-size:.88rem;margin-top:.15rem;font-weight:500}
 .tl__org--logo{display:flex;align-items:center;gap:.55rem;margin-top:.4rem}
+/* Anjia's own brand orange, sampled from their stylesheet, used only on the
+   card for the role they gave her — her palette stays hers everywhere else. */
+.tl__item--anjia{--brand:#FF9418}
+.tl__item--anjia .tl__dot{border-color:var(--brand);color:var(--brand)}
+.tl__item--anjia .tl__card{border-left:3px solid var(--brand)}
+.tl__item--anjia:hover .tl__card{border-color:var(--rule);border-left-color:var(--brand)}
+
 /* logo art is black on white, so it keeps its own white chip in both themes */
 .orglogo{
   width:2.1rem;height:2.1rem;flex:none;object-fit:contain;
@@ -1235,8 +1261,12 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
      inline script below, so no-JS and crawlers never see it at all, and a
      script failure can never leave the page covered. -->
 <div class="intro" id="intro" aria-hidden="true">
-  <div class="intro__mark"><span lang="zh-Hans">辛</span></div>
+  <div class="intro__ring">
+    <img class="intro__face" src="media/portrait-sm.jpg" width="320" height="320" alt="" decoding="async">
+    <span class="intro__seal" lang="zh-Hans">辛</span>
+  </div>
   <p class="intro__name">Ei Phyu Sin Thant</p>
+  <p class="intro__sub">辛玉 · Xin Yu</p>
   <div class="intro__bar"><span></span></div>
 </div>
 <script>
@@ -1629,12 +1659,16 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <h2 id="h-exp" data-i18n="navExp">Experience</h2>
       </div>
       <div class="tl">
-        <div class="tl__item" data-reveal style="--i:1">
+        <div class="tl__item tl__item--anjia" data-reveal style="--i:1">
           <span class="tl__dot"><svg aria-hidden="true"><use href="#i-case"></use></svg></span>
           <div class="tl__card">
             <p class="tl__date" data-i18n="expInternDate">Most recent</p>
             <h3 class="tl__title" data-i18n="expInternTitle">Intern — property presenter</h3>
-            <p class="tl__org"><a href="https://www.anjia-home.net/" target="_blank" rel="noopener noreferrer">Anjia Property</a> — Pattaya</p>
+            <p class="tl__org tl__org--logo">
+              <img class="orglogo" src="media/anjia-logo.png" width="240" height="240"
+                   alt="" loading="lazy" decoding="async">
+              <span><a href="https://www.anjia-home.net/" target="_blank" rel="noopener noreferrer">Anjia Property</a> — Pattaya</span>
+            </p>
             <div class="tl__body">
               <ul>
                 <li data-i18n="expIn1">Presented nine property walk-throughs on camera for the agency's
