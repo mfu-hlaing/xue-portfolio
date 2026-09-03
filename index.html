@@ -643,12 +643,39 @@ section + section{border-top:1px solid var(--rule-soft)}
   background:var(--panel);border:1px solid var(--rule);
   border-radius:var(--r-lg);padding:.4rem 1.1rem;
 }
-.fact{display:flex;gap:.9rem;font-size:.9rem;align-items:baseline;padding:.65rem 0}
+/* Label above value, not beside it: a fixed label column squeezed every
+   value into a narrow, heavily-wrapped strip on a phone. */
+.fact{display:flex;gap:.75rem;font-size:.9rem;align-items:flex-start;padding:.7rem 0}
 .fact + .fact{border-top:1px solid var(--rule-soft)}
-.fact__k{
-  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);flex:0 0 6.2rem;
+.fact__i{
+  width:1.9rem;height:1.9rem;flex:none;border-radius:9px;
+  display:grid;place-items:center;background:var(--sunk);color:var(--muted);
+  transition:background .25s,color .25s;
 }
+.fact__i svg{width:.95rem;height:.95rem}
+.fact:hover .fact__i{background:var(--peach-wash);color:var(--peach-ink)}
+.fact__i--live{background:var(--jade-wash)}
+.fact__i--live .pip{
+  width:.5rem;height:.5rem;border-radius:50%;background:var(--jade);
+  animation:pop 2.6s ease-in-out infinite;
+}
+.fact:hover .fact__i--live{background:var(--jade-wash)}
+.fact__b{display:flex;flex-direction:column;gap:.15rem;min-width:0;flex:1}
+.fact__k{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+.fact__flags{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .7rem}
+.fact__flags .fx{width:1.05rem;height:.7rem;border-radius:2px;margin-right:-.1rem;
+  box-shadow:0 0 0 1px rgba(0,0,0,.14)}
+.roles{list-style:none;margin:.3rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+.roles li{
+  font-size:.78rem;line-height:1.3;color:var(--ink-2);
+  padding:.28rem .6rem;border-radius:var(--r-pill);
+  background:var(--sunk);border:1px solid transparent;
+  transition:transform .3s var(--spring),border-color .2s,color .2s;
+}
+.roles li:hover{transform:translateY(-2px);border-color:var(--peach);color:var(--ink)}
 :root[data-lang="my"] .fact__k,
 :root[data-lang="th"] .fact__k,
 :root[data-lang="zh"] .fact__k{font-family:var(--f-body);text-transform:none;letter-spacing:.03em;font-size:.76rem}
@@ -677,15 +704,22 @@ section + section{border-top:1px solid var(--rule-soft)}
 .lang{
   display:flex;gap:.95rem;align-items:flex-start;
   background:var(--panel);border:1px solid var(--rule);
-  border-radius:var(--r-lg);padding:1.05rem 1.1rem;
+  border-radius:var(--r-lg);padding:.9rem 1rem;
   transition:transform .4s var(--spring),box-shadow .3s,border-color .25s;
 }
 .lang:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--peach)}
 .lang__glyph{
-  flex:none;width:3rem;height:3rem;border-radius:var(--r);
+  position:relative;flex:none;width:2.9rem;height:2.9rem;border-radius:var(--r);
   display:grid;place-items:center;
-  font-family:var(--f-body);font-size:1.35rem;font-weight:700;line-height:1;
+  font-family:var(--f-body);font-size:1.3rem;font-weight:700;line-height:1;
 }
+.lang__flag{
+  position:absolute;right:-.3rem;bottom:-.3rem;
+  width:1.15rem;height:.77rem;border-radius:2px;
+  box-shadow:0 0 0 1.5px var(--panel);
+  transition:transform .4s var(--spring);
+}
+.lang:hover .lang__flag{transform:scale(1.2) rotate(-8deg)}
 .lang:nth-child(1) .lang__glyph{background:var(--peach-wash);color:var(--peach-ink)}
 .lang:nth-child(2) .lang__glyph{background:var(--jade-wash);color:var(--jade-ink)}
 .lang:nth-child(3) .lang__glyph{background:var(--sky-wash);color:var(--sky)}
@@ -753,7 +787,12 @@ section + section{border-top:1px solid var(--rule-soft)}
 }
 
 /* credit breakdown — the real MFU curriculum split, to scale */
-.credits{margin-top:1rem}
+.credits{margin-top:.5rem}
+.credits__lead{display:flex;align-items:baseline;gap:.45rem;margin-top:1rem;font-size:.82rem;color:var(--muted)}
+.credits__lead b{
+  font-family:var(--f-display);font-size:1.7rem;font-weight:700;
+  color:var(--peach);line-height:1;letter-spacing:-.02em;
+}
 .credits__bar{display:flex;height:.6rem;overflow:hidden;border-radius:var(--r-pill);background:var(--sunk)}
 .credits__seg{display:block;min-width:2px;transition:flex-grow .9s var(--ease)}
 .credits__seg--gen{background:var(--jade)}
@@ -788,12 +827,12 @@ section + section{border-top:1px solid var(--rule-soft)}
 .kit:nth-child(4) .kit__h .ico{background:var(--gold-wash);color:var(--gold)}
 .kit__h .ico svg{width:.95rem;height:.95rem}
 .kit ul{
-  list-style:none;margin:.8rem 0 0;padding:0;
-  display:flex;flex-wrap:wrap;gap:.4rem;
+  list-style:none;margin:.7rem 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:.32rem;
 }
 .kit li{
-  font-size:.82rem;color:var(--ink-2);
-  padding:.35rem .7rem;border-radius:var(--r-pill);
+  font-size:.76rem;line-height:1.3;color:var(--ink-2);
+  padding:.3rem .6rem;border-radius:var(--r-pill);
   background:var(--sunk);border:1px solid transparent;
   transition:transform .3s var(--spring),border-color .2s,color .2s;
 }
@@ -820,6 +859,11 @@ section + section{border-top:1px solid var(--rule-soft)}
 /* ============================================================
    VIDEO WALL — 9:16 tiles that play only while on screen
    ============================================================ */
+.vidnote{
+  display:flex;align-items:center;gap:.5rem;margin-top:1rem;
+  font-size:.78rem;color:var(--muted);
+}
+.vidnote svg{width:1rem;height:1rem;flex:none;color:var(--peach)}
 .vidwall{
   display:grid;gap:.9rem;
   grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));
@@ -1018,8 +1062,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
     background:color-mix(in srgb,var(--paper-2) 70%,transparent);
   }
   .main{padding:clamp(2.5rem,5vw,4rem) clamp(2rem,6vw,4.5rem) 4rem}
-  .fact__k{flex-basis:7.5rem}
-  html{scroll-padding-top:2rem}
+    html{scroll-padding-top:2rem}
   .langgrid{grid-template-columns:1fr 1fr}
   .totop{right:2rem;bottom:2rem}
 }
@@ -1083,6 +1126,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 <symbol id="f-cn" viewBox="0 0 24 16"><clipPath id="cf-cn"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-cn)"><rect width="24" height="16" fill="#DE2910"/><g fill="#FFDE00"><path d="m5 2.1 1 3.1-2.6-1.9h3.2L4 5.2z"/><circle cx="9.4" cy="2.1" r=".85"/><circle cx="11.1" cy="4" r=".85"/><circle cx="11.1" cy="6.5" r=".85"/><circle cx="9.4" cy="8.3" r=".85"/></g></g></symbol>
 <symbol id="f-th" viewBox="0 0 24 16"><clipPath id="cf-th"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-th)"><rect width="24" height="16" fill="#A51931"/><rect y="2.7" width="24" height="10.6" fill="#F4F5F8"/><rect y="5.3" width="24" height="5.4" fill="#2D2A4A"/></g></symbol>
 <symbol id="f-mm" viewBox="0 0 24 16"><clipPath id="cf-mm"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-mm)"><rect width="24" height="16" fill="#FECB00"/><rect y="5.33" width="24" height="5.34" fill="#34B233"/><rect y="10.67" width="24" height="5.33" fill="#EA2839"/><path d="m12 3.6 1.55 4.77-4.06-2.95h5.02L10.45 8.37z" fill="#fff"/></g></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
 <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8V3h10v5M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 14h10v7H7z"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></symbol>
 </defs></svg>
@@ -1209,28 +1253,57 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 
       <div class="facts" data-reveal style="--i:6">
         <div class="fact">
-          <span class="fact__k" data-i18n="factDegree">Degree</span>
-          <span class="fact__v" data-i18n="factDegreeV">BEcon, Mae Fah Luang University — in progress</span>
+          <span class="fact__i"><svg aria-hidden="true"><use href="#i-cap"></use></svg></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factDegree">Degree</span>
+            <span class="fact__v" data-i18n="factDegreeV">BEcon, Mae Fah Luang University — in progress</span>
+          </span>
         </div>
         <div class="fact">
-          <span class="fact__k" data-i18n="factRole">Recent role</span>
-          <span class="fact__v" data-i18n="factRoleV">Intern, Anjia Property — Pattaya</span>
+          <span class="fact__i"><svg aria-hidden="true"><use href="#i-case"></use></svg></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factRole">Recent role</span>
+            <span class="fact__v" data-i18n="factRoleV">Intern, Anjia Property — Pattaya</span>
+          </span>
         </div>
         <div class="fact">
-          <span class="fact__k" data-i18n="factLang">Languages</span>
-          <span class="fact__v">မြန်မာ · English · ไทย · 中文</span>
+          <span class="fact__i"><svg aria-hidden="true"><use href="#i-globe"></use></svg></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factLang">Languages</span>
+            <span class="fact__v fact__flags">
+              <svg class="fx" aria-hidden="true"><use href="#f-mm"></use></svg>မြန်မာ
+              <svg class="fx" aria-hidden="true"><use href="#f-gb"></use></svg>English
+              <svg class="fx" aria-hidden="true"><use href="#f-th"></use></svg>ไทย
+              <svg class="fx" aria-hidden="true"><use href="#f-cn"></use></svg>中文
+            </span>
+          </span>
+        </div>
+        <div class="fact fact--wide">
+          <span class="fact__i"><svg aria-hidden="true"><use href="#i-spark"></use></svg></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factSeek">Open to</span>
+            <ul class="roles">
+              <li data-i18n="role1">Economic analyst</li>
+              <li data-i18n="role2">Market &amp; trade research</li>
+              <li data-i18n="role3">Investment research</li>
+              <li data-i18n="role4">Property consultant</li>
+              <li data-i18n="role5">Mandarin–English interpreter</li>
+            </ul>
+          </span>
         </div>
         <div class="fact">
-          <span class="fact__k" data-i18n="factSeek">Open to</span>
-          <span class="fact__v" data-i18n="factSeekV">Economic analyst · Market &amp; trade research · Investment research · Property consultant · Mandarin–English interpreter</span>
+          <span class="fact__i fact__i--live"><span class="pip" aria-hidden="true"></span></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factAvail">Availability</span>
+            <span class="fact__v" data-i18n="factAvailV">Available now — full-time, permanent</span>
+          </span>
         </div>
         <div class="fact">
-          <span class="fact__k" data-i18n="factAvail">Availability</span>
-          <span class="fact__v" data-i18n="factAvailV">Available now — full-time, permanent</span>
-        </div>
-        <div class="fact">
-          <span class="fact__k" data-i18n="factBase">Based in</span>
-          <span class="fact__v" data-i18n="factBaseV">Chiang Rai &amp; Pattaya, Thailand</span>
+          <span class="fact__i"><svg aria-hidden="true"><use href="#i-pin"></use></svg></span>
+          <span class="fact__b">
+            <span class="fact__k" data-i18n="factBase">Based in</span>
+            <span class="fact__v" data-i18n="factBaseV">Chiang Rai &amp; Pattaya, Thailand</span>
+          </span>
         </div>
       </div>
 
@@ -1298,10 +1371,11 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 
       <div class="vidwall" id="vidwall" data-reveal style="--i:2"></div>
 
-      <p class="eyebrow" style="margin-top:1.1rem" data-reveal>
-        <span data-i18n="videoNote">Tiles play while on screen and pause when scrolled away. Tap one for the full film.</span>
+      <p class="vidnote" data-reveal>
+        <svg aria-hidden="true"><use href="#i-tt"></use></svg>
+        <span><span data-i18n="videoNote">Tap any tile for the full film.</span>
         <a href="https://www.tiktok.com/@xinxin.property.pattaya"
-           target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya&nbsp;↗</a>
+           target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya&nbsp;↗</a></span>
       </p>
     </section>
 
@@ -1320,7 +1394,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 
       <div class="langgrid">
         <div class="lang" data-reveal style="--i:1">
-          <span class="lang__glyph" aria-hidden="true">မ</span>
+          <span class="lang__glyph" aria-hidden="true">မ<svg class="lang__flag"><use href="#f-mm"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">မြန်မာ <span>Burmese</span></p>
             <p class="lang__role" data-i18n="langMyRole">First language.</p>
@@ -1328,7 +1402,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:2">
-          <span class="lang__glyph" aria-hidden="true">中</span>
+          <span class="lang__glyph" aria-hidden="true">中<svg class="lang__flag"><use href="#f-cn"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">中文 <span>Mandarin Chinese</span></p>
             <p class="lang__role" data-i18n="langZhRole">The language she teaches.</p>
@@ -1336,7 +1410,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:3">
-          <span class="lang__glyph" aria-hidden="true">A</span>
+          <span class="lang__glyph" aria-hidden="true">A<svg class="lang__flag"><use href="#f-gb"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">English <span>English</span></p>
             <p class="lang__role" data-i18n="langEnRole">The language of her degree.</p>
@@ -1344,7 +1418,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:4">
-          <span class="lang__glyph" aria-hidden="true">ก</span>
+          <span class="lang__glyph" aria-hidden="true">ก<svg class="lang__flag"><use href="#f-th"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">ไทย <span>Thai</span></p>
             <p class="lang__role" data-i18n="langThRole">Daily and market language.</p>
@@ -1376,7 +1450,8 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
               </p>
 
               <!-- Real curriculum structure, from the MFU programme specification -->
-              <div class="credits" role="img"
+              <p class="credits__lead"><b>123</b> <span data-i18n="crLead">credits, weighted to method</span></p>
+            <div class="credits" role="img"
                    aria-label="123 credits total: 24 general education, 93 specific requirement, 6 free elective">
                 <div class="credits__bar">
                   <span class="credits__seg credits__seg--gen"  style="flex:24"></span>
@@ -1645,7 +1720,11 @@ var I18N = {
     factRole:"Recent role", factRoleV:"Intern, Anjia Property — Pattaya",
     factLang:"Languages",
     factSeek:"Open to",
-    factSeekV:"Economic analyst · Market & trade research · Investment research · Property consultant · Mandarin–English interpreter",
+    role1:"Economic analyst",
+    role2:"Market & trade research",
+    role3:"Investment research",
+    role4:"Property consultant",
+    role5:"Mandarin–English interpreter",
     factAvail:"Availability",
     factAvailV:"Available now — full-time, permanent", factBase:"Based in", factBaseV:"Chiang Rai & Pattaya, Thailand",
     ctaContact:"Get in touch", ctaWatch:"Watch her on camera", ctaCv:"Save as PDF",
@@ -1654,7 +1733,7 @@ var I18N = {
     ab3:"My degree is taught entirely in English under the philosophy “Economics for Future Society” — a 123-credit programme weighted toward <strong>mathematics, statistics and econometrics</strong>, alongside applied data analysis. Most recently I interned with <strong>Anjia Property</strong> in Pattaya, presenting pool villas, branded residences and beachfront condos on camera to Chinese-, Thai-, Burmese- and English-speaking buyers.",
     ab4:"I am looking for <strong>full-time roles in market and trade research, investment analysis, or property consulting</strong> — work where economic method and multilingual client communication pull in the same direction. I am available to start now.",
     videoIntro:"Nine property walk-throughs presented on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien, including one filmed in Burmese and one in Thai.",
-    videoNote:"Tiles play while on screen and pause when scrolled away. Tap one for the full film.",
+    videoNote:"Tap any tile for the full film.",
     langIntro:"Four working languages across the Thailand–Myanmar–China corridor — each one earning its place in her studies, her teaching, or her client work.",
     langMyRole:"First language.",
     langMyProof:"Native fluency · presented a property feature in Burmese",
@@ -1667,6 +1746,7 @@ var I18N = {
     eduNow:"In progress",
     eduNote:"Taught in English under the philosophy “Economics for Future Society.” A four-year, 123-credit degree weighted toward quantitative method — mathematics, statistics and econometrics — alongside theory and applied data analysis.",
     crGen:"General education", crSpec:"Specific requirement", crFree:"Free elective", crTotal:"credits",
+    crLead:"credits, weighted to method",
     ecoQuant:"Quantitative core",
     ecoQuantD:"93 of the 123 credits are specific-requirement economics, built on mathematics, statistics and econometrics rather than theory alone.",
     ecoEng:"Taught in English",
@@ -1721,7 +1801,11 @@ var I18N = {
     factRole:"近期职位", factRoleV:"安家房地产 实习生 — 芭堤雅",
     factLang:"语言",
     factSeek:"求职方向",
-    factSeekV:"经济分析 · 市场与贸易研究 · 投资研究 · 房地产顾问 · 中英口译",
+    role1:"经济分析师",
+    role2:"市场与贸易研究",
+    role3:"投资研究",
+    role4:"房地产顾问",
+    role5:"中英口译",
     factAvail:"到岗时间",
     factAvailV:"随时到岗 — 全职、长期", factBase:"所在地", factBaseV:"泰国清莱与芭堤雅",
     ctaContact:"联系我", ctaWatch:"观看出镜作品", ctaCv:"保存为 PDF",
@@ -1730,7 +1814,7 @@ var I18N = {
     ab3:"我的学位课程全英文授课，秉持「面向未来社会的经济学」理念；123 学分，侧重<strong>数学、统计与计量经济学</strong>，并结合数据分析应用。近期我在芭堤雅的<strong>安家房地产</strong>实习，面向中文、泰语、缅甸语与英语买家出镜介绍泳池别墅、品牌公寓与海景公寓。",
     ab4:"我正在寻找<strong>市场与贸易研究、投资分析或房地产顾问方向的全职工作</strong>——让经济学方法与多语客户沟通同时发挥作用的岗位。我可随时到岗。",
     videoIntro:"为中介机构频道出镜拍摄的九支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓及海景公寓，其中一支以缅甸语拍摄，一支以泰语拍摄。",
-    videoNote:"画面进入视区时自动播放，离开时暂停。点击可观看完整视频。",
+    videoNote:"点击任意画面观看完整视频。",
     langIntro:"泰国—缅甸—中国走廊上的四种工作语言——每一种都在学业、教学或客户工作中真正用得上。",
     langMyRole:"母语。",
     langMyProof:"母语水平 · 一支缅甸语房产视频",
@@ -1743,6 +1827,7 @@ var I18N = {
     eduNow:"在读",
     eduNote:"全英文授课，秉持「面向未来社会的经济学」理念。四年制、123 学分，课程侧重数量方法——数学、统计与计量经济学，并结合理论与数据分析应用。",
     crGen:"通识教育", crSpec:"专业必修", crFree:"自由选修", crTotal:"学分",
+    crLead:"学分，侧重方法论",
     ecoQuant:"数量分析核心",
     ecoQuantD:"123 学分中有 93 学分为经济学专业必修，建立在数学、统计与计量经济学之上，而非仅有理论。",
     ecoEng:"全英文授课",
@@ -1797,7 +1882,11 @@ var I18N = {
     factRole:"ตำแหน่งล่าสุด", factRoleV:"นักศึกษาฝึกงาน Anjia Property — พัทยา",
     factLang:"ภาษา",
     factSeek:"เปิดรับ",
-    factSeekV:"นักวิเคราะห์เศรษฐกิจ · วิจัยตลาดและการค้า · วิจัยการลงทุน · ที่ปรึกษาอสังหาริมทรัพย์ · ล่ามจีน–อังกฤษ",
+    role1:"นักวิเคราะห์เศรษฐกิจ",
+    role2:"วิจัยตลาดและการค้า",
+    role3:"วิจัยการลงทุน",
+    role4:"ที่ปรึกษาอสังหาริมทรัพย์",
+    role5:"ล่ามจีน–อังกฤษ",
     factAvail:"ความพร้อมเริ่มงาน",
     factAvailV:"พร้อมเริ่มงานทันที — เต็มเวลา ประจำ", factBase:"ฐานที่ตั้ง", factBaseV:"เชียงรายและพัทยา ประเทศไทย",
     ctaContact:"ติดต่อฉัน", ctaWatch:"ดูผลงานหน้ากล้อง", ctaCv:"บันทึกเป็น PDF",
@@ -1806,7 +1895,7 @@ var I18N = {
     ab3:"หลักสูตรของฉันสอนเป็นภาษาอังกฤษทั้งหมด ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” เป็นหลักสูตร 123 หน่วยกิตที่เน้น<strong>คณิตศาสตร์ สถิติ และเศรษฐมิติ</strong> ควบคู่กับการวิเคราะห์ข้อมูลเชิงประยุกต์ ล่าสุดฉันฝึกงานกับ<strong>Anjia Property</strong> ที่พัทยา นำเสนอพูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดหน้ากล้องให้ผู้ซื้อที่พูดภาษาจีน ไทย เมียนมา และอังกฤษ",
     ab4:"ฉันกำลังมองหา<strong>งานเต็มเวลาด้านการวิจัยตลาดและการค้า การวิเคราะห์การลงทุน หรือที่ปรึกษาอสังหาริมทรัพย์</strong> งานที่ใช้ทั้งวิธีทางเศรษฐศาสตร์และการสื่อสารกับลูกค้าหลายภาษาไปพร้อมกัน และพร้อมเริ่มงานได้ทันที",
     videoIntro:"วิดีโอพาชมอสังหาริมทรัพย์เก้ารายการที่นำเสนอหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน โดยหนึ่งเรื่องถ่ายเป็นภาษาเมียนมา และอีกหนึ่งเรื่องเป็นภาษาไทย",
-    videoNote:"วิดีโอจะเล่นเมื่ออยู่ในหน้าจอ และหยุดเมื่อเลื่อนผ่าน แตะเพื่อดูฉบับเต็ม",
+    videoNote:"แตะที่วิดีโอใดก็ได้เพื่อดูฉบับเต็ม",
     langIntro:"สี่ภาษาสำหรับการทำงานในเส้นทางไทย–เมียนมา–จีน แต่ละภาษาล้วนได้ใช้จริงในการเรียน การสอน หรืองานกับลูกค้า",
     langMyRole:"ภาษาแม่",
     langMyProof:"ระดับเจ้าของภาษา · วิดีโออสังหาฯ หนึ่งเรื่องเป็นภาษาเมียนมา",
@@ -1819,6 +1908,7 @@ var I18N = {
     eduNow:"กำลังศึกษา",
     eduNote:"สอนเป็นภาษาอังกฤษ ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” หลักสูตร 4 ปี 123 หน่วยกิต เน้นวิธีเชิงปริมาณ — คณิตศาสตร์ สถิติ และเศรษฐมิติ ควบคู่กับทฤษฎีและการวิเคราะห์ข้อมูลเชิงประยุกต์",
     crGen:"หมวดศึกษาทั่วไป", crSpec:"หมวดวิชาเฉพาะ", crFree:"หมวดวิชาเลือกเสรี", crTotal:"หน่วยกิต",
+    crLead:"หน่วยกิต เน้นระเบียบวิธี",
     ecoQuant:"แกนเชิงปริมาณ",
     ecoQuantD:"93 จาก 123 หน่วยกิตเป็นวิชาเฉพาะทางเศรษฐศาสตร์ ซึ่งวางอยู่บนคณิตศาสตร์ สถิติ และเศรษฐมิติ ไม่ใช่เพียงทฤษฎี",
     ecoEng:"สอนเป็นภาษาอังกฤษ",
@@ -1873,7 +1963,11 @@ var I18N = {
     factRole:"လတ်တလော ရာထူး", factRoleV:"Anjia Property တွင် အလုပ်သင် — ပတ္တရာ",
     factLang:"ဘာသာစကားများ",
     factSeek:"လက်ခံသော ရာထူး",
-    factSeekV:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာသူ · ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန · ရင်းနှီးမြှုပ်နှံမှု သုတေသန · အိမ်ခြံမြေ အကြံပေး · တရုတ်–အင်္ဂလိပ် စကားပြန်",
+    role1:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာသူ",
+    role2:"ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန",
+    role3:"ရင်းနှီးမြှုပ်နှံမှု သုတေသန",
+    role4:"အိမ်ခြံမြေ အကြံပေး",
+    role5:"တရုတ်–အင်္ဂလိပ် စကားပြန်",
     factAvail:"စတင်နိုင်ချိန်",
     factAvailV:"ယခုချက်ချင်း စတင်နိုင် — အချိန်ပြည့်၊ အမြဲတမ်း", factBase:"နေထိုင်ရာ", factBaseV:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ",
     ctaContact:"ဆက်သွယ်ရန်", ctaWatch:"ကင်မရာရှေ့ လုပ်ငန်း ကြည့်ရန်", ctaCv:"PDF အဖြစ် သိမ်းရန်",
@@ -1882,7 +1976,7 @@ var I18N = {
     ab3:"ကျွန်မ၏ ဘွဲ့သင်တန်းကို “အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် အပြည့်အဝ သင်ကြားသည်။ ၁၂၃ ခရက်ဒစ် ရှိပြီး <strong>သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ</strong> ကို အလေးပေးကာ ဒေတာ ခွဲခြမ်းစိတ်ဖြာမှု အသုံးချမှုနှင့် တွဲဖက်ထားသည်။ မကြာသေးမီက ပတ္တရာရှိ <strong>Anjia Property</strong> တွင် အလုပ်သင်အဖြစ် တရုတ်၊ ထိုင်း၊ မြန်မာနှင့် အင်္ဂလိပ် စကားပြော ဝယ်ယူသူများအတွက် ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများကို ကင်မရာရှေ့မှ မိတ်ဆက်ခဲ့သည်။",
     ab4:"<strong>ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာမှု သို့မဟုတ် အိမ်ခြံမြေ အကြံပေးလုပ်ငန်း အချိန်ပြည့် ရာထူးများ</strong> ကို ရှာဖွေနေပါသည် — စီးပွားရေး နည်းစနစ်နှင့် ဘာသာစုံ ဖောက်သည် ဆက်သွယ်ရေး နှစ်ခုလုံး အသုံးဝင်မည့် အလုပ်။ ယခုချက်ချင်း စတင်နိုင်ပါသည်။",
     videoIntro:"အေဂျင်စီ၏ ချန်နယ်အတွက် ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သော အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ကိုးခု — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။ တစ်ခုကို မြန်မာဘာသာဖြင့်၊ တစ်ခုကို ထိုင်းဘာသာဖြင့် ရိုက်ကူးထားသည်။",
-    videoNote:"မျက်နှာပြင်ပေါ် ရောက်သည်နှင့် စတင်ပြသပြီး ကျော်လွန်သွားပါက ရပ်တန့်သည်။ ဗီဒီယို အပြည့်အစုံကို တစ်ချက်နှိပ်၍ ကြည့်နိုင်သည်။",
+    videoNote:"ဗီဒီယို အပြည့်အစုံ ကြည့်ရန် မည်သည့်ပုံကိုမဆို နှိပ်ပါ။",
     langIntro:"ထိုင်း–မြန်မာ–တရုတ် စင်္ကြံတစ်လျှောက် အလုပ်သုံး ဘာသာစကား လေးမျိုး — တစ်မျိုးစီသည် ပညာသင်ကြားရေး၊ သင်ကြားပေးမှု သို့မဟုတ် ဖောက်သည် လုပ်ငန်းတွင် အမှန်တကယ် အသုံးဝင်သည်။",
     langMyRole:"မိခင်ဘာသာစကား။",
     langMyProof:"မိခင်ဘာသာစကား အဆင့် · အိမ်ခြံမြေ ဗီဒီယို တစ်ခုကို မြန်မာဘာသာဖြင့်",
@@ -1895,6 +1989,7 @@ var I18N = {
     eduNow:"တက်ရောက်ဆဲ",
     eduNote:"“အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ လေးနှစ်တာ ၁၂၃ ခရက်ဒစ် ဘွဲ့ဖြစ်ပြီး သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ စသည့် အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အလေးပေးသည်။",
     crGen:"အထွေထွေ ပညာရေး", crSpec:"အထူးပြု လိုအပ်ချက်", crFree:"လွတ်လပ် ရွေးချယ်မှု", crTotal:"ခရက်ဒစ်",
+    crLead:"ခရက်ဒစ်၊ နည်းစနစ်ကို အလေးပေး",
     ecoQuant:"အရေအတွက်ဆိုင်ရာ အခြေခံ",
     ecoQuantD:"၁၂၃ ခရက်ဒစ်အနက် ၉၃ ခရက်ဒစ်မှာ အထူးပြု စီးပွားရေးပညာ ဖြစ်ပြီး သီအိုရီသက်သက် မဟုတ်ဘဲ သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာအပေါ် အခြေခံထားသည်။",
     ecoEng:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြား",
