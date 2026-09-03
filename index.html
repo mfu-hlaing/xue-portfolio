@@ -11,7 +11,7 @@
      silently dropped by every scraper. -->
 <meta property="og:type"        content="profile">
 <meta property="og:site_name"   content="Ei Phyu Sin Thant · 辛玉">
-<meta property="og:title"       content="Ei Phyu Sin Thant — economics graduate, multilingual market &amp; property research">
+<meta property="og:title"       content="Ei Phyu Sin Thant — final-year economics student, multilingual market &amp; property research">
 <meta property="og:description" content="Economics undergraduate at Mae Fah Luang University. Mandarin instructor since 2020, and on-camera property presenter in Pattaya — working in Burmese, English, Thai and Mandarin.">
 <meta property="og:url"         content="https://mfu-hlaing.github.io/xue-portfolio/">
 <meta property="og:image"       content="https://mfu-hlaing.github.io/xue-portfolio/media/og.jpg">
@@ -26,7 +26,7 @@
 <meta property="profile:last_name"  content="Thant">
 
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Ei Phyu Sin Thant — economics graduate, multilingual market &amp; property research">
+<meta name="twitter:title"       content="Ei Phyu Sin Thant — final-year economics student, multilingual market &amp; property research">
 <meta name="twitter:description" content="Economics undergraduate working in four languages — market and trade research, data analysis, and multilingual client-facing property experience.">
 <meta name="twitter:image"       content="https://mfu-hlaing.github.io/xue-portfolio/media/og.jpg">
 
@@ -38,7 +38,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E8663F'/%3E%3Ctext x='32' y='45' font-size='38' font-family='serif' fill='%23FFF6F0' text-anchor='middle'%3E辛%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="media/portrait-sm.jpg">
 
-<title>Ei Phyu Sin Thant (Xin Yu) — Economics Graduate | Multilingual Market &amp; Property Research</title>
+<title>Ei Phyu Sin Thant (Xin Yu) — Final-Year Economics Student | Multilingual Market &amp; Property Research</title>
 
 <!-- Structured data: lets search engines file her as a person with an
      occupation and languages, rather than as an anonymous page. Every claim
@@ -49,7 +49,7 @@
   "@type": "Person",
   "name": "Ei Phyu Sin Thant",
   "alternateName": ["Xin Yu", "\u8f9b\u7389"],
-  "jobTitle": "Economics Undergraduate",
+  "jobTitle": "Economics Student (Final Year)",
   "worksFor": {
     "@type": "Organization",
     "name": "ESC Chinese Language Training Center",
@@ -76,7 +76,7 @@
     { "@type": "Language", "name": "Mandarin Chinese", "alternateName": "zh" }
   ],
   "knowsAbout": [
-    "Economics", "Microeconomics", "Macroeconomics", "Econometrics", "Statistics",
+    "Economics", "R Programming", "Microeconomics", "Macroeconomics", "Econometrics", "Statistics",
     "Time Series Analysis", "Market Research", "Trade Research", "Data Analysis",
     "Real Estate", "Property Consulting", "Translation", "Interpreting",
     "Mandarin Language Teaching"
@@ -96,8 +96,18 @@
     },
     {
       "@type": "EducationalOccupationalCredential",
+      "name": "R Programming for Beginners",
+      "credentialCategory": "certificate",
+      "identifier": "9932209",
+      "dateCreated": "2026-03-07",
+      "recognizedBy": { "@type": "Organization", "name": "SkillUp by Simplilearn" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
       "name": "Time Series Analysis for Beginners",
       "credentialCategory": "certificate",
+      "identifier": "9933444",
+      "dateCreated": "2026-03-08",
       "recognizedBy": { "@type": "Organization", "name": "SkillUp by Simplilearn" }
     }
   ],
@@ -272,6 +282,52 @@ a:hover{color:var(--peach)}
 h1,h2,h3{text-wrap:balance;margin:0}
 p{margin:0}
 img{max-width:100%;height:auto}
+
+/* ---- intro curtain ---- */
+.intro{display:none}
+.intro.is-on{
+  display:flex;position:fixed;inset:0;z-index:200;
+  flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;
+  background:var(--paper);
+  transition:opacity .55s ease,transform .55s var(--ease);
+}
+.intro.is-out{opacity:0;transform:scale(1.04);pointer-events:none}
+.is-intro,.is-intro body{overflow:hidden}
+.intro__mark{
+  width:5rem;height:5rem;border-radius:1.4rem;
+  display:grid;place-items:center;
+  background:var(--cta);color:var(--on-cta);
+  font-family:var(--f-display);font-size:2.6rem;font-weight:600;line-height:1;
+  box-shadow:var(--shadow);
+  animation:markIn .85s var(--spring) both;
+}
+.intro__name{
+  font-family:var(--f-display);font-size:1.15rem;font-weight:600;
+  letter-spacing:-.01em;color:var(--ink);
+  animation:rise .7s var(--spring) .22s both;
+}
+.intro__bar{
+  width:8rem;height:3px;border-radius:2px;overflow:hidden;background:var(--sunk);
+}
+.intro__bar span{
+  display:block;height:100%;width:100%;transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--peach),var(--jade));
+  animation:barFill 1.5s var(--ease) both;
+}
+@keyframes markIn{
+  0%{opacity:0;transform:scale(.5) rotate(-14deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes barFill{ from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+/* reading-progress rail; one transform per frame, nothing else */
+.scrollbar{position:fixed;inset:0 0 auto 0;height:3px;z-index:120;pointer-events:none}
+.scrollbar span{
+  display:block;height:100%;width:100%;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--peach),var(--gold),var(--jade));
+}
+@media (prefers-reduced-motion:reduce){.scrollbar{display:none}}
 
 .skip{
   position:absolute;left:.5rem;top:-4rem;z-index:200;
@@ -489,6 +545,17 @@ img{max-width:100%;height:auto}
 .themebtn svg{width:1rem;height:1rem}
 .themebtn[aria-pressed="true"]{background:var(--panel);color:var(--peach);box-shadow:var(--shadow-sm)}
 
+.clockline{
+  display:flex;align-items:center;gap:.45rem;margin-top:.6rem;
+  font-size:.75rem;color:var(--muted);
+}
+.clockline svg{width:.95rem;height:.95rem;flex:none;color:var(--gold);
+  transition:transform .5s var(--spring)}
+.clockline:hover svg{transform:rotate(20deg) scale(1.15)}
+.clockline b{
+  font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:500;
+  color:var(--ink-2);letter-spacing:.02em;
+}
 .railsocial{display:flex;gap:.5rem;margin-top:auto;padding-top:.5rem}
 .railsocial a{
   width:2.75rem;height:2.75rem;display:grid;place-items:center;
@@ -711,15 +778,13 @@ section + section{border-top:1px solid var(--rule-soft)}
 .lang__glyph{
   position:relative;flex:none;width:2.9rem;height:2.9rem;border-radius:var(--r);
   display:grid;place-items:center;
-  font-family:var(--f-body);font-size:1.3rem;font-weight:700;line-height:1;
 }
 .lang__flag{
-  position:absolute;right:-.3rem;bottom:-.3rem;
-  width:1.15rem;height:.77rem;border-radius:2px;
-  box-shadow:0 0 0 1.5px var(--panel);
-  transition:transform .4s var(--spring);
+  width:1.85rem;height:1.24rem;border-radius:3px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.16), 0 2px 6px -3px rgba(0,0,0,.45);
+  transition:transform .45s var(--spring);
 }
-.lang:hover .lang__flag{transform:scale(1.2) rotate(-8deg)}
+.lang:hover .lang__flag{transform:scale(1.16) rotate(-7deg)}
 .lang:nth-child(1) .lang__glyph{background:var(--peach-wash);color:var(--peach-ink)}
 .lang:nth-child(2) .lang__glyph{background:var(--jade-wash);color:var(--jade-ink)}
 .lang:nth-child(3) .lang__glyph{background:var(--sky-wash);color:var(--sky)}
@@ -838,6 +903,24 @@ section + section{border-top:1px solid var(--rule-soft)}
 }
 .kit li:hover{transform:translateY(-2px);border-color:var(--peach);color:var(--ink)}
 
+.card--cert{display:flex;flex-direction:column}
+.certshot{
+  display:block;margin:-.35rem 0 .9rem;border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--rule);background:#fff;line-height:0;
+  transition:transform .4s var(--spring),box-shadow .3s;
+}
+.certshot:hover{transform:scale(1.02) rotate(-.5deg);box-shadow:var(--shadow)}
+.certshot img{width:100%;height:auto;display:block}
+.credline{
+  margin-top:auto;padding-top:.7rem;font-family:var(--f-mono);font-size:.68rem;
+  color:var(--muted);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;
+}
+.credline b{color:var(--ink);font-weight:500}
+.credline a{margin-left:auto;font-weight:500;text-decoration:none}
+.credline a:hover{text-decoration:underline}
+:root[data-lang="my"] .credline,
+:root[data-lang="th"] .credline,
+:root[data-lang="zh"] .credline{font-family:var(--f-body)}
 .work__type{
   display:inline-block;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold);
@@ -1006,6 +1089,19 @@ section + section{border-top:1px solid var(--rule-soft)}
   background:var(--peach-wash);color:var(--peach-ink);
 }
 .crow:nth-child(2) .crow__ico{background:var(--sky-wash);color:var(--sky)}
+.crow:nth-child(4) .crow__ico{background:var(--jade-wash);color:var(--jade-ink)}
+.crow:nth-child(5) .crow__ico{background:var(--jade-wash);color:var(--jade-ink)}
+.crow:nth-child(6) .crow__ico{background:var(--gold-wash);color:var(--gold)}
+.crow--copy{font:inherit;text-align:left;cursor:pointer;width:100%}
+.crow__copy{
+  margin-left:auto;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);
+  padding:.25rem .5rem;border-radius:var(--r-pill);background:var(--sunk);flex:none;
+}
+.crow--copy.is-copied .crow__copy{background:var(--jade);color:var(--paper)}
+:root[data-lang="my"] .crow__copy,
+:root[data-lang="th"] .crow__copy,
+:root[data-lang="zh"] .crow__copy{font-family:var(--f-body);text-transform:none}
 .crow:nth-child(3) .crow__ico{background:var(--jade-wash);color:var(--jade-ink)}
 .crow__ico svg{width:1.05rem;height:1.05rem}
 .crow__k{
@@ -1075,7 +1171,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         --ink:#000;--ink-2:#222;--muted:#555;--rule:#bbb;--rule-soft:#ddd;
         --peach:#8a3616;--peach-ink:#8a3616;--jade:#0C5A4A;--shadow:none;--shadow-sm:none}
   body{background:#fff}
-  .rail,.topbar,.actions,.totop,.greet,.vidwall,.scrim,.skip{display:none}
+  .rail,.topbar,.actions,.totop,.greet,.vidwall,.scrim,.skip,.scrollbar{display:none}
   /* the badge is absolutely positioned and overflowed the shrunken figure;
      "Open to" is already a row in the facts table, so it is redundant here */
   .hero__badge,.hero__blob{display:none}
@@ -1126,10 +1222,44 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 <symbol id="f-cn" viewBox="0 0 24 16"><clipPath id="cf-cn"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-cn)"><rect width="24" height="16" fill="#DE2910"/><g fill="#FFDE00"><path d="m5 2.1 1 3.1-2.6-1.9h3.2L4 5.2z"/><circle cx="9.4" cy="2.1" r=".85"/><circle cx="11.1" cy="4" r=".85"/><circle cx="11.1" cy="6.5" r=".85"/><circle cx="9.4" cy="8.3" r=".85"/></g></g></symbol>
 <symbol id="f-th" viewBox="0 0 24 16"><clipPath id="cf-th"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-th)"><rect width="24" height="16" fill="#A51931"/><rect y="2.7" width="24" height="10.6" fill="#F4F5F8"/><rect y="5.3" width="24" height="5.4" fill="#2D2A4A"/></g></symbol>
 <symbol id="f-mm" viewBox="0 0 24 16"><clipPath id="cf-mm"><rect width="24" height="16" rx="2.6"/></clipPath><g clip-path="url(#cf-mm)"><rect width="24" height="16" fill="#FECB00"/><rect y="5.33" width="24" height="5.34" fill="#34B233"/><rect y="10.67" width="24" height="5.33" fill="#EA2839"/><path d="m12 3.6 1.55 4.77-4.06-2.95h5.02L10.45 8.37z" fill="#fff"/></g></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.46 1.34 4.97L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01a9.9 9.9 0 0 0 9.9-9.9A9.9 9.9 0 0 0 12.04 2zm5.8 14.1c-.24.68-1.42 1.3-1.96 1.34-.5.05-1.13.07-1.83-.11a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.8-4.17-4.94-4.36-.15-.2-1.19-1.58-1.19-3.02s.76-2.14 1.03-2.44c.27-.3.58-.37.78-.37h.56c.18 0 .42-.7.66.5.24.58.82 2 .89 2.14.7.15.12.32.02.51-.1.2-.15.32-.29.49l-.44.51c-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.3.15.47.12.64-.7.17-.2.73-.86.93-1.15.2-.3.39-.25.66-.15.27.1 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></symbol>
+<symbol id="i-line" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.2 2 1.5 5.82 1.5 10.52c0 4.21 3.72 7.74 8.75 8.41.34.07.8.22.92.51.11.27.07.68.04.95l-.15.9c-.05.27-.21 1.05.92.57s6.09-3.59 8.31-6.14c1.53-1.68 2.26-3.38 2.26-5.2C22.55 5.82 17.8 2 12 2zM7.7 13.3H5.62a.55.55 0 0 1-.55-.55V8.6a.55.55 0 1 1 1.1 0v3.6H7.7a.55.55 0 1 1 0 1.1zm2.16-.55a.55.55 0 1 1-1.1 0V8.6a.55.55 0 1 1 1.1 0v4.15zm5-.0a.55.55 0 0 1-.99.33l-2.13-2.9v2.57a.55.55 0 1 1-1.1 0V8.6a.55.55 0 0 1 .99-.33l2.13 2.9V8.6a.55.55 0 1 1 1.1 0v4.15zm3.55-2.63a.55.55 0 0 1 0 1.1h-1.53v.98h1.53a.55.55 0 1 1 0 1.1h-2.08a.55.55 0 0 1-.55-.55V8.6a.55.55 0 0 1 .55-.55h2.08a.55.55 0 1 1 0 1.1h-1.53v.97h1.53z"/></symbol>
+<symbol id="i-wechat" viewBox="0 0 24 24" fill="currentColor"><path d="M8.7 3C4.9 3 1.8 5.6 1.8 8.8c0 1.8 1 3.4 2.6 4.5l-.65 2 2.3-1.15c.82.23 1.7.35 2.6.35h.45a5.4 5.4 0 0 1-.2-1.45c0-3.1 3-5.6 6.7-5.6h.5C15.4 4.9 12.4 3 8.7 3zM6.3 7.6a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8zm4.8 0a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"/><path d="M22.2 13.05c0-2.65-2.6-4.8-5.8-4.8s-5.8 2.15-5.8 4.8 2.6 4.8 5.8 4.8c.72 0 1.4-.1 2.05-.3l1.9.95-.52-1.6c1.44-.88 2.37-2.25 2.37-3.85zm-7.75-.85a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zm3.9 0a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
 <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8V3h10v5M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 14h10v7H7z"/></symbol>
 <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></symbol>
 </defs></svg>
+
+<!-- Intro curtain. Hidden in CSS by default and only switched on by the
+     inline script below, so no-JS and crawlers never see it at all, and a
+     script failure can never leave the page covered. -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__mark"><span lang="zh-Hans">辛</span></div>
+  <p class="intro__name">Ei Phyu Sin Thant</p>
+  <div class="intro__bar"><span></span></div>
+</div>
+<script>
+(function(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  try { if (sessionStorage.getItem("eps-seen")) return; } catch (e) {}
+  var el = document.getElementById("intro");
+  el.classList.add("is-on");
+  document.documentElement.classList.add("is-intro");
+  var done = false;
+  function end(){
+    if (done) return; done = true;
+    el.classList.add("is-out");
+    document.documentElement.classList.remove("is-intro");
+    setTimeout(function(){ el.remove(); }, 620);
+    try { sessionStorage.setItem("eps-seen", "1"); } catch (e) {}
+  }
+  addEventListener("load", function(){ setTimeout(end, 260); });
+  setTimeout(end, 2200);            // hard cap: never outstay a slow network
+})();
+</script>
+
+<div class="scrollbar" id="scrollbar" aria-hidden="true"><span></span></div>
 
 <div class="shell">
 
@@ -1192,7 +1322,13 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <button class="themebtn" data-theme-set="auto"  type="button" aria-pressed="true"  aria-label="System theme" data-i18n-aria="ariaAuto"><svg aria-hidden="true"><use href="#i-auto"></use></svg></button>
         <button class="themebtn" data-theme-set="light" type="button" aria-pressed="false" aria-label="Light theme"  data-i18n-aria="ariaLight"><svg aria-hidden="true"><use href="#i-sun"></use></svg></button>
         <button class="themebtn" data-theme-set="dark"  type="button" aria-pressed="false" aria-label="Dark theme"   data-i18n-aria="ariaDark"><svg aria-hidden="true"><use href="#i-moon"></use></svg></button>
+        <button class="themebtn" data-theme-set="time"  type="button" aria-pressed="false" aria-label="Follow local time" data-i18n-aria="ariaTime"><svg aria-hidden="true"><use href="#i-clock"></use></svg></button>
       </div>
+      <p class="clockline" id="clockline">
+        <svg aria-hidden="true"><use href="#i-sun" id="clockIcon"></use></svg>
+        <b id="clockTime">--:--</b>
+        <span id="clockGreet"></span>
+      </p>
     </div>
 
     <div class="railsocial">
@@ -1229,7 +1365,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
             <b lang="zh-Hans">辛玉</b> <span data-i18n="nativeNote">Xin Yu — the name she teaches and films under</span>
           </p>
           <p class="hero__role" data-reveal style="--i:3" data-i18n="heroRole">
-            Economics Undergraduate · Multilingual Market &amp; Property Research
+            4th-Year Economics Student · Multilingual Market &amp; Property Research
           </p>
           <p class="hero__lede" data-reveal style="--i:4" data-i18n="heroLede">
             Economics undergraduate at Mae Fah Luang University, working in four languages.
@@ -1394,7 +1530,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
 
       <div class="langgrid">
         <div class="lang" data-reveal style="--i:1">
-          <span class="lang__glyph" aria-hidden="true">မ<svg class="lang__flag"><use href="#f-mm"></use></svg></span>
+          <span class="lang__glyph" aria-hidden="true"><svg class="lang__flag"><use href="#f-mm"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">မြန်မာ <span>Burmese</span></p>
             <p class="lang__role" data-i18n="langMyRole">First language.</p>
@@ -1402,7 +1538,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:2">
-          <span class="lang__glyph" aria-hidden="true">中<svg class="lang__flag"><use href="#f-cn"></use></svg></span>
+          <span class="lang__glyph" aria-hidden="true"><svg class="lang__flag"><use href="#f-cn"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">中文 <span>Mandarin Chinese</span></p>
             <p class="lang__role" data-i18n="langZhRole">The language she teaches.</p>
@@ -1410,7 +1546,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:3">
-          <span class="lang__glyph" aria-hidden="true">A<svg class="lang__flag"><use href="#f-gb"></use></svg></span>
+          <span class="lang__glyph" aria-hidden="true"><svg class="lang__flag"><use href="#f-gb"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">English <span>English</span></p>
             <p class="lang__role" data-i18n="langEnRole">The language of her degree.</p>
@@ -1418,7 +1554,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </div>
         </div>
         <div class="lang" data-reveal style="--i:4">
-          <span class="lang__glyph" aria-hidden="true">ก<svg class="lang__flag"><use href="#f-th"></use></svg></span>
+          <span class="lang__glyph" aria-hidden="true"><svg class="lang__flag"><use href="#f-th"></use></svg></span>
           <div class="lang__body">
             <p class="lang__name">ไทย <span>Thai</span></p>
             <p class="lang__role" data-i18n="langThRole">Daily and market language.</p>
@@ -1439,7 +1575,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <div class="tl__item" data-reveal style="--i:1">
           <span class="tl__dot"><svg aria-hidden="true"><use href="#i-cap"></use></svg></span>
           <div class="tl__card">
-            <p class="tl__date" data-i18n="eduNow">In progress</p>
+            <p class="tl__date" data-i18n="eduNow">4th year · final year</p>
             <h3 class="tl__title">Bachelor of Economics (BEcon)</h3>
             <p class="tl__org">Mae Fah Luang University — School of Management, Chiang Rai</p>
             <div class="tl__body">
@@ -1554,6 +1690,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
             <li data-i18n="kitA4">Statistics</li>
             <li data-i18n="kitA5">Econometrics</li>
             <li data-i18n="kitA6">Time series &amp; forecasting</li>
+            <li data-i18n="kitA7">R (statistical computing)</li>
           </ul>
         </div>
         <div class="kit card" data-reveal style="--i:2">
@@ -1595,21 +1732,41 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
         <h2 id="h-work" data-i18n="navWork">Certifications &amp; projects</h2>
       </div>
       <div class="grid">
-        <article class="card" data-reveal style="--i:1">
+        <article class="card card--cert" data-reveal style="--i:1">
+          <a class="certshot" href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxNzI2IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTkzMjIwOV8xMDIyMDUwMl8xNzcyOTAwNjE5OTQ3LnBuZyIsInVzZXJuYW1lIjoiRWkgUGh5dSBTaW4gVGhhbnQifQ%3D%3D" target="_blank" rel="noopener noreferrer"
+             aria-label="Verify the R Programming certificate on Simplilearn">
+            <img src="media/cert-r-programming.jpg" width="640" height="453" loading="lazy"
+                 decoding="async" alt="Simplilearn SkillUp certificate of completion, R Programming for Beginners.">
+          </a>
           <p class="work__type" data-i18n="typeCert">Certificate</p>
-          <h3 class="work__title">Time Series Analysis for Beginners</h3>
-          <p class="work__desc" data-i18n="certDesc">SkillUp by Simplilearn — completed 2026.
-            The quantitative side of the economics degree, applied to forecasting real series.</p>
+          <h3 class="work__title">R Programming for Beginners</h3>
+          <p class="work__desc" data-i18n="certRDesc">SkillUp by Simplilearn — 7 March 2026.
+            The statistical language economists actually model in.</p>
+          <p class="credline"><span data-i18n="credCode">Credential</span> <b>9932209</b>
+            <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxNzI2IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTkzMjIwOV8xMDIyMDUwMl8xNzcyOTAwNjE5OTQ3LnBuZyIsInVzZXJuYW1lIjoiRWkgUGh5dSBTaW4gVGhhbnQifQ%3D%3D" target="_blank" rel="noopener noreferrer" data-i18n="credVerify">Verify&nbsp;↗</a></p>
         </article>
 
-        <article class="card" data-reveal style="--i:2">
+        <article class="card card--cert" data-reveal style="--i:2">
+          <a class="certshot" href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxOTQyIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTkzMzQ0NF8xMDIyMDUwMl8xNzcyOTQ1NjI5OTQzLnBuZyIsInVzZXJuYW1lIjoiRWkgUGh5dSBTaW4gVGhhbnQifQ%3D%3D" target="_blank" rel="noopener noreferrer"
+             aria-label="Verify the Time Series Analysis certificate on Simplilearn">
+            <img src="media/cert-time-series.jpg" width="640" height="453" loading="lazy"
+                 decoding="async" alt="Simplilearn SkillUp certificate of completion, Time Series Analysis for Beginners.">
+          </a>
+          <p class="work__type" data-i18n="typeCert">Certificate</p>
+          <h3 class="work__title">Time Series Analysis for Beginners</h3>
+          <p class="work__desc" data-i18n="certDesc">SkillUp by Simplilearn — 8 March 2026. Forecasting real series: the quantitative side of the degree, applied.</p>
+          <p class="credline"><span data-i18n="credCode">Credential</span> <b>9933444</b>
+            <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIxOTQyIiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTkzMzQ0NF8xMDIyMDUwMl8xNzcyOTQ1NjI5OTQzLnBuZyIsInVzZXJuYW1lIjoiRWkgUGh5dSBTaW4gVGhhbnQifQ%3D%3D" target="_blank" rel="noopener noreferrer" data-i18n="credVerify">Verify&nbsp;↗</a></p>
+        </article>
+
+        <article class="card" data-reveal style="--i:3">
           <p class="work__type" data-i18n="typeCert">Certificate</p>
           <h3 class="work__title" data-i18n="hskCardTitle">HSK Level 3 — 297 / 300</h3>
           <p class="work__desc" data-i18n="hskCardDesc">Hanyu Shuiping Kaoshi, the standard Chinese
             proficiency examination. Pass mark 180; scored 297.</p>
         </article>
 
-        <article class="card" data-reveal style="--i:3">
+        <article class="card" data-reveal style="--i:4">
           <p class="work__type" data-i18n="typeSeries">Video series</p>
           <h3 class="work__title" data-i18n="seriesTitle">Pattaya property, in four languages</h3>
           <p class="work__desc" data-i18n="seriesDesc">Nine on-camera walk-throughs for Anjia Property's
@@ -1620,7 +1777,7 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           </a>
         </article>
 
-        <article class="card" data-reveal style="--i:4">
+        <article class="card" data-reveal style="--i:5">
           <p class="work__type" data-i18n="typeTeaching">Teaching</p>
           <h3 class="work__title" data-i18n="teachTitle">Mandarin instruction — ESC Chinese Language Training Center</h3>
           <p class="work__desc" data-i18n="teachDesc">Instructor since June 2020, classroom and online,
@@ -1655,6 +1812,22 @@ footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wra
           <span class="crow__ico"><svg aria-hidden="true"><use href="#i-tt"></use></svg></span>
           <span><span class="crow__k">TikTok</span><span class="crow__v">@xinxin.property.pattaya</span></span>
         </a>
+        <a class="crow" href="https://wa.me/66957842151" target="_blank" rel="noopener noreferrer"
+           data-reveal style="--i:4">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-wa"></use></svg></span>
+          <span><span class="crow__k">WhatsApp</span><span class="crow__v" data-i18n="cWa">Message on WhatsApp</span></span>
+        </a>
+        <a class="crow" href="https://line.me/ti/p/OwZOhhtCJY" target="_blank" rel="noopener noreferrer"
+           data-reveal style="--i:5">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-line"></use></svg></span>
+          <span><span class="crow__k">LINE</span><span class="crow__v" data-i18n="cLine">Add on LINE</span></span>
+        </a>
+        <button class="crow crow--copy" type="button" id="wechatCopy" data-copy="xinyangyu_999"
+                data-reveal style="--i:6">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-wechat"></use></svg></span>
+          <span><span class="crow__k">WeChat</span><span class="crow__v">xinyangyu_999</span></span>
+          <span class="crow__copy" data-i18n="cCopy">Copy</span>
+        </button>
       </div>
     </section>
 
@@ -1707,10 +1880,15 @@ var I18N = {
     navKit:"Skills", navWork:"Certifications & projects", navContact:"Contact", navVideo:"On camera",
     grpLang:"Language", grpTheme:"Appearance",
     ariaTheme:"Switch theme", ariaMenu:"Open menu", ariaClose:"Close menu",
-    ariaAuto:"System theme", ariaLight:"Light theme", ariaDark:"Dark theme", ariaTop:"Back to top",
+    ariaAuto:"System theme", ariaLight:"Light theme", ariaDark:"Dark theme",
+    ariaTime:"Follow local time",
+    greetMorning:"Good morning",
+    greetAfternoon:"Good afternoon",
+    greetEvening:"Good evening",
+    greetNight:"Late night", ariaTop:"Back to top",
     heroEyebrow:"Chiang Rai · Pattaya · Thailand",
     nativeNote:"Xin Yu — the name she teaches and films under",
-    heroRole:"Economics Undergraduate · Multilingual Market & Property Research",
+    heroRole:"4th-Year Economics Student · Multilingual Market & Property Research",
     badgeOpen:"Available now · Full-time",
     heroLede:"Economics undergraduate at Mae Fah Luang University, working in four languages. Market and trade research, data analysis and econometrics — with multilingual, client-facing property experience in Pattaya.",
     statLang:"working languages",
@@ -1743,7 +1921,7 @@ var I18N = {
     langEnProof:"MFU economics taught entirely in English",
     langThRole:"Daily and market language.",
     langThProof:"Living and studying in Thailand · one property film in Thai",
-    eduNow:"In progress",
+    eduNow:"4th year · final year",
     eduNote:"Taught in English under the philosophy “Economics for Future Society.” A four-year, 123-credit degree weighted toward quantitative method — mathematics, statistics and econometrics — alongside theory and applied data analysis.",
     crGen:"General education", crSpec:"Specific requirement", crFree:"Free elective", crTotal:"credits",
     crLead:"credits, weighted to method",
@@ -1762,6 +1940,7 @@ var I18N = {
     kitAnalysis:"Economics & method",
     kitA1:"Microeconomics", kitA2:"Macroeconomics", kitA3:"Mathematics for economists",
     kitA4:"Statistics", kitA5:"Econometrics", kitA6:"Time series & forecasting",
+    kitA7:"R (statistical computing)",
     kitComms:"Languages & client work",
     kitC1:"Four-language client liaison", kitC2:"Interpreting", kitC3:"Translation", kitC4:"Teaching & tutoring",
     kitCamera:"On camera",
@@ -1769,7 +1948,10 @@ var I18N = {
     kitProperty:"Property & market",
     kitP1:"Listing presentation", kitP2:"Pattaya & Jomtien market", kitP3:"Buyer-facing communication",
     typeCert:"Certificate", typeSeries:"Video series", typeTeaching:"Teaching",
-    certDesc:"SkillUp by Simplilearn — completed 2026. The quantitative side of the economics degree, applied to forecasting real series.",
+    certDesc:"SkillUp by Simplilearn — 8 March 2026. Forecasting real series: the quantitative side of the degree, applied.",
+    certRDesc:"SkillUp by Simplilearn — 7 March 2026. The statistical language economists actually model in.",
+    credCode:"Credential",
+    credVerify:"Verify ↗",
     hskCardTitle:"HSK Level 3 — 297 / 300",
     hskCardDesc:"Hanyu Shuiping Kaoshi, the standard Chinese proficiency examination. Pass mark 180; scored 297.",
     seriesTitle:"Pattaya property, in four languages",
@@ -1778,6 +1960,10 @@ var I18N = {
     teachTitle:"Mandarin instruction — ESC Chinese Language Training Center",
     teachDesc:"Instructor since June 2020, classroom and online, preparing students for HSK proficiency exams.",
     contactIntro:"Available now for full-time roles in economic analysis, market and trade research, investment research and property consulting across Thailand and the wider region — and able to work in Burmese, English, Thai and Mandarin.",
+    cWa:"Message on WhatsApp",
+    cLine:"Add on LINE",
+    cCopy:"Copy",
+    cCopied:"Copied",
     footNote:"Chiang Rai & Pattaya, Thailand"
   },
 
@@ -1788,10 +1974,15 @@ var I18N = {
     navKit:"专业技能", navWork:"证书与项目", navContact:"联系方式", navVideo:"出镜作品",
     grpLang:"语言", grpTheme:"外观",
     ariaTheme:"切换主题", ariaMenu:"打开菜单", ariaClose:"关闭菜单",
-    ariaAuto:"跟随系统", ariaLight:"浅色模式", ariaDark:"深色模式", ariaTop:"回到顶部",
+    ariaAuto:"跟随系统", ariaLight:"浅色模式", ariaDark:"深色模式",
+    ariaTime:"跟随当地时间",
+    greetMorning:"早上好",
+    greetAfternoon:"下午好",
+    greetEvening:"晚上好",
+    greetNight:"夜深了", ariaTop:"回到顶部",
     heroEyebrow:"泰国清莱 · 芭堤雅",
     nativeNote:"辛玉 — 教学与出镜时使用的名字",
-    heroRole:"经济学在读生 · 多语市场与房地产研究",
+    heroRole:"经济学大四在读 · 多语市场与房地产研究",
     badgeOpen:"随时到岗 · 全职",
     heroLede:"美福大学经济学在读生，以四种语言工作。市场与贸易研究、数据分析与计量经济学，并具备多语言、面向客户的芭堤雅房地产经验。",
     statLang:"种工作语言",
@@ -1824,7 +2015,7 @@ var I18N = {
     langEnProof:"美福大学经济学全英文授课",
     langThRole:"日常与市场语言。",
     langThProof:"在泰国生活与学习 · 一支泰语房产视频",
-    eduNow:"在读",
+    eduNow:"大四 · 最后一学年",
     eduNote:"全英文授课，秉持「面向未来社会的经济学」理念。四年制、123 学分，课程侧重数量方法——数学、统计与计量经济学，并结合理论与数据分析应用。",
     crGen:"通识教育", crSpec:"专业必修", crFree:"自由选修", crTotal:"学分",
     crLead:"学分，侧重方法论",
@@ -1843,6 +2034,7 @@ var I18N = {
     kitAnalysis:"经济学与方法",
     kitA1:"微观经济学", kitA2:"宏观经济学", kitA3:"经济数学",
     kitA4:"统计学", kitA5:"计量经济学", kitA6:"时间序列与预测",
+    kitA7:"R（统计计算）",
     kitComms:"语言与客户工作",
     kitC1:"四语客户对接", kitC2:"口译", kitC3:"笔译", kitC4:"教学与辅导",
     kitCamera:"出镜与内容",
@@ -1850,7 +2042,10 @@ var I18N = {
     kitProperty:"房地产与市场",
     kitP1:"房源介绍", kitP2:"芭堤雅与宗提恩市场", kitP3:"面向买家的沟通",
     typeCert:"证书", typeSeries:"视频系列", typeTeaching:"教学",
-    certDesc:"Simplilearn 旗下 SkillUp — 2026 年结业。将经济学学位中的数量分析方法应用于真实时间序列预测。",
+    certDesc:"Simplilearn 旗下 SkillUp — 2026 年 3 月 8 日。真实时间序列预测：学位中数量分析方法的实际应用。",
+    certRDesc:"Simplilearn 旗下 SkillUp — 2026 年 3 月 7 日。经济学建模实际使用的统计语言。",
+    credCode:"证书编号",
+    credVerify:"验证 ↗",
     hskCardTitle:"HSK 三级 — 297 / 300",
     hskCardDesc:"汉语水平考试（HSK），中文能力标准测评。及格线 180 分，得分 297 分。",
     seriesTitle:"四种语言介绍芭堤雅房产",
@@ -1859,6 +2054,10 @@ var I18N = {
     teachTitle:"中文教学 · ESC 中文培训中心",
     teachDesc:"2020 年 6 月起任教，课堂与线上并行，指导学生备考 HSK。",
     contactIntro:"现可入职经济分析、市场与贸易研究、投资研究及房地产顾问方向的全职岗位，工作地点覆盖泰国及周边地区——可使用缅甸语、英语、泰语和中文工作。",
+    cWa:"通过 WhatsApp 联系",
+    cLine:"添加 LINE",
+    cCopy:"复制",
+    cCopied:"已复制",
     footNote:"泰国清莱与芭堤雅"
   },
 
@@ -1869,10 +2068,15 @@ var I18N = {
     navKit:"ทักษะ", navWork:"วุฒิบัตรและผลงาน", navContact:"ติดต่อ", navVideo:"ผลงานหน้ากล้อง",
     grpLang:"ภาษา", grpTheme:"ธีมการแสดงผล",
     ariaTheme:"สลับธีม", ariaMenu:"เปิดเมนู", ariaClose:"ปิดเมนู",
-    ariaAuto:"ตามระบบ", ariaLight:"ธีมสว่าง", ariaDark:"ธีมมืด", ariaTop:"กลับขึ้นด้านบน",
+    ariaAuto:"ตามระบบ", ariaLight:"ธีมสว่าง", ariaDark:"ธีมมืด",
+    ariaTime:"ตามเวลาท้องถิ่น",
+    greetMorning:"อรุณสวัสดิ์",
+    greetAfternoon:"สวัสดีตอนบ่าย",
+    greetEvening:"สวัสดีตอนเย็น",
+    greetNight:"ดึกแล้ว", ariaTop:"กลับขึ้นด้านบน",
     heroEyebrow:"เชียงราย · พัทยา · ประเทศไทย",
     nativeNote:"ซินอวี้ — ชื่อที่ใช้สอนและถ่ายทำ",
-    heroRole:"นักศึกษาเศรษฐศาสตร์ · วิจัยตลาดและอสังหาริมทรัพย์หลายภาษา",
+    heroRole:"นักศึกษาเศรษฐศาสตร์ชั้นปีที่ 4 · วิจัยตลาดและอสังหาริมทรัพย์หลายภาษา",
     badgeOpen:"พร้อมเริ่มงานทันที · เต็มเวลา",
     heroLede:"นักศึกษาเศรษฐศาสตร์ มหาวิทยาลัยแม่ฟ้าหลวง ทำงานได้สี่ภาษา วิจัยตลาดและการค้า วิเคราะห์ข้อมูล และเศรษฐมิติ พร้อมประสบการณ์อสังหาริมทรัพย์ที่พัทยาซึ่งทำงานกับลูกค้าหลายภาษา",
     statLang:"ภาษาที่ใช้ทำงาน",
@@ -1905,7 +2109,7 @@ var I18N = {
     langEnProof:"เศรษฐศาสตร์ ม.แม่ฟ้าหลวง สอนเป็นภาษาอังกฤษทั้งหมด",
     langThRole:"ภาษาในชีวิตประจำวันและในตลาด",
     langThProof:"ใช้ชีวิตและเรียนในประเทศไทย · วิดีโออสังหาฯ หนึ่งเรื่องเป็นภาษาไทย",
-    eduNow:"กำลังศึกษา",
+    eduNow:"ชั้นปีที่ 4 · ปีสุดท้าย",
     eduNote:"สอนเป็นภาษาอังกฤษ ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” หลักสูตร 4 ปี 123 หน่วยกิต เน้นวิธีเชิงปริมาณ — คณิตศาสตร์ สถิติ และเศรษฐมิติ ควบคู่กับทฤษฎีและการวิเคราะห์ข้อมูลเชิงประยุกต์",
     crGen:"หมวดศึกษาทั่วไป", crSpec:"หมวดวิชาเฉพาะ", crFree:"หมวดวิชาเลือกเสรี", crTotal:"หน่วยกิต",
     crLead:"หน่วยกิต เน้นระเบียบวิธี",
@@ -1924,6 +2128,7 @@ var I18N = {
     kitAnalysis:"เศรษฐศาสตร์และระเบียบวิธี",
     kitA1:"เศรษฐศาสตร์จุลภาค", kitA2:"เศรษฐศาสตร์มหภาค", kitA3:"คณิตศาสตร์สำหรับเศรษฐศาสตร์",
     kitA4:"สถิติ", kitA5:"เศรษฐมิติ", kitA6:"อนุกรมเวลาและการพยากรณ์",
+    kitA7:"R (การคำนวณเชิงสถิติ)",
     kitComms:"ภาษาและงานลูกค้า",
     kitC1:"ประสานงานลูกค้าสี่ภาษา", kitC2:"ล่าม", kitC3:"งานแปล", kitC4:"การสอนและติว",
     kitCamera:"งานหน้ากล้อง",
@@ -1931,7 +2136,10 @@ var I18N = {
     kitProperty:"อสังหาริมทรัพย์และตลาด",
     kitP1:"การนำเสนอทรัพย์", kitP2:"ตลาดพัทยาและจอมเทียน", kitP3:"การสื่อสารกับผู้ซื้อ",
     typeCert:"ประกาศนียบัตร", typeSeries:"ซีรีส์วิดีโอ", typeTeaching:"การสอน",
-    certDesc:"SkillUp โดย Simplilearn — สำเร็จปี 2026 การประยุกต์วิธีเชิงปริมาณจากหลักสูตรเศรษฐศาสตร์กับการพยากรณ์อนุกรมเวลาจริง",
+    certDesc:"SkillUp โดย Simplilearn — 8 มีนาคม 2026 การพยากรณ์อนุกรมเวลาจริง: การประยุกต์ด้านปริมาณของหลักสูตร",
+    certRDesc:"SkillUp โดย Simplilearn — 7 มีนาคม 2026 ภาษาสถิติที่นักเศรษฐศาสตร์ใช้สร้างแบบจำลองจริง",
+    credCode:"รหัสวุฒิบัตร",
+    credVerify:"ตรวจสอบ ↗",
     hskCardTitle:"HSK ระดับ 3 — 297 / 300",
     hskCardDesc:"Hanyu Shuiping Kaoshi การสอบวัดระดับภาษาจีนมาตรฐาน เกณฑ์ผ่าน 180 คะแนน ได้ 297 คะแนน",
     seriesTitle:"อสังหาริมทรัพย์พัทยา ในสี่ภาษา",
@@ -1940,6 +2148,10 @@ var I18N = {
     teachTitle:"การสอนภาษาจีน · ESC Chinese Language Training Center",
     teachDesc:"ครูผู้สอนตั้งแต่มิถุนายน 2020 ทั้งในห้องเรียนและออนไลน์ เตรียมผู้เรียนสอบวัดระดับ HSK",
     contactIntro:"พร้อมเริ่มงานเต็มเวลาด้านการวิเคราะห์เศรษฐกิจ การวิจัยตลาดและการค้า การวิจัยการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในประเทศไทยและภูมิภาค — ทำงานได้ทั้งภาษาเมียนมา อังกฤษ ไทย และจีน",
+    cWa:"ทักทาง WhatsApp",
+    cLine:"เพิ่มเพื่อนใน LINE",
+    cCopy:"คัดลอก",
+    cCopied:"คัดลอกแล้ว",
     footNote:"เชียงรายและพัทยา ประเทศไทย"
   },
 
@@ -1950,10 +2162,15 @@ var I18N = {
     navKit:"ကျွမ်းကျင်မှုများ", navWork:"လက်မှတ်နှင့် လုပ်ငန်းများ", navContact:"ဆက်သွယ်ရန်", navVideo:"ကင်မရာရှေ့ လုပ်ငန်း",
     grpLang:"ဘာသာစကား", grpTheme:"အသွင်အပြင်",
     ariaTheme:"အသွင်အပြင် ပြောင်းရန်", ariaMenu:"မီနူး ဖွင့်ရန်", ariaClose:"မီနူး ပိတ်ရန်",
-    ariaAuto:"စနစ်အလိုက်", ariaLight:"အလင်းရောင်", ariaDark:"အမှောင်ရောင်", ariaTop:"အပေါ်သို့ ပြန်တက်ရန်",
+    ariaAuto:"စနစ်အလိုက်", ariaLight:"အလင်းရောင်", ariaDark:"အမှောင်ရောင်",
+    ariaTime:"ဒေသစံတော်ချိန်အလိုက်",
+    greetMorning:"မင်္ဂလာနံနက်ခင်းပါ",
+    greetAfternoon:"မင်္ဂလာနေ့လယ်ခင်းပါ",
+    greetEvening:"မင်္ဂလာညနေခင်းပါ",
+    greetNight:"ညနက်ပြီ", ariaTop:"အပေါ်သို့ ပြန်တက်ရန်",
     heroEyebrow:"ချင်းရိုင် · ပတ္တရာ · ထိုင်းနိုင်ငံ",
     nativeNote:"Xin Yu — သင်ကြားရာနှင့် ရိုက်ကူးရာတွင် သုံးသော အမည်",
-    heroRole:"စီးပွားရေးပညာ ကျောင်းသူ · ဘာသာစုံ ဈေးကွက်နှင့် အိမ်ခြံမြေ သုတေသန",
+    heroRole:"စီးပွားရေးပညာ စတုတ္ထနှစ် ကျောင်းသူ · ဘာသာစုံ ဈေးကွက်နှင့် အိမ်ခြံမြေ သုတေသန",
     badgeOpen:"ယခုချက်ချင်း စတင်နိုင် · အချိန်ပြည့်",
     heroLede:"Mae Fah Luang တက္ကသိုလ်မှ စီးပွားရေးပညာ ကျောင်းသူ၊ ဘာသာစကား လေးမျိုးဖြင့် လုပ်ကိုင်သည်။ ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ဒေတာ ခွဲခြမ်းစိတ်ဖြာမှုနှင့် စီးပွားရေး တိုင်းတာမှုပညာ — ပတ္တရာတွင် ဘာသာစုံ ဖောက်သည်နှင့် တိုက်ရိုက် ထိတွေ့သော အိမ်ခြံမြေ အတွေ့အကြုံနှင့်အတူ။",
     statLang:"အလုပ်သုံး ဘာသာစကား",
@@ -1986,7 +2203,7 @@ var I18N = {
     langEnProof:"MFU စီးပွားရေးပညာကို အင်္ဂလိပ်ဘာသာဖြင့် အပြည့်အဝ သင်ကြားသည်",
     langThRole:"နေ့စဉ်နှင့် ဈေးကွက် ဘာသာစကား။",
     langThProof:"ထိုင်းနိုင်ငံတွင် နေထိုင်သင်ယူနေသည် · အိမ်ခြံမြေ ဗီဒီယို တစ်ခုကို ထိုင်းဘာသာဖြင့်",
-    eduNow:"တက်ရောက်ဆဲ",
+    eduNow:"စတုတ္ထနှစ် · နောက်ဆုံးနှစ်",
     eduNote:"“အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ လေးနှစ်တာ ၁၂၃ ခရက်ဒစ် ဘွဲ့ဖြစ်ပြီး သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ စသည့် အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အလေးပေးသည်။",
     crGen:"အထွေထွေ ပညာရေး", crSpec:"အထူးပြု လိုအပ်ချက်", crFree:"လွတ်လပ် ရွေးချယ်မှု", crTotal:"ခရက်ဒစ်",
     crLead:"ခရက်ဒစ်၊ နည်းစနစ်ကို အလေးပေး",
@@ -2005,6 +2222,7 @@ var I18N = {
     kitAnalysis:"စီးပွားရေးပညာနှင့် နည်းစနစ်",
     kitA1:"အသေးစား စီးပွားရေးပညာ", kitA2:"အကြီးစား စီးပွားရေးပညာ", kitA3:"စီးပွားရေး သင်္ချာ",
     kitA4:"စာရင်းအင်း", kitA5:"စီးပွားရေး တိုင်းတာမှုပညာ", kitA6:"အချိန်စဉ်ဆက်နှင့် ခန့်မှန်းချက်",
+    kitA7:"R (စာရင်းအင်း တွက်ချက်မှု)",
     kitComms:"ဘာသာစကားနှင့် ဖောက်သည် လုပ်ငန်း",
     kitC1:"ဘာသာစကား လေးမျိုးဖြင့် ဖောက်သည် ဆက်သွယ်ရေး", kitC2:"စကားပြန်", kitC3:"ဘာသာပြန်", kitC4:"သင်ကြားရေးနှင့် ကျူရှင်",
     kitCamera:"ကင်မရာရှေ့",
@@ -2012,7 +2230,10 @@ var I18N = {
     kitProperty:"အိမ်ခြံမြေနှင့် ဈေးကွက်",
     kitP1:"အိမ်ခြံမြေ တင်ဆက်မှု", kitP2:"ပတ္တရာနှင့် ဂျွန်တီယန် ဈေးကွက်", kitP3:"ဝယ်ယူသူနှင့် ဆက်သွယ်ပြောဆိုမှု",
     typeCert:"လက်မှတ်", typeSeries:"ဗီဒီယို စီးရီး", typeTeaching:"သင်ကြားရေး",
-    certDesc:"Simplilearn ၏ SkillUp — ၂၀၂၆ ပြီးဆုံး။ စီးပွားရေးပညာ ဘွဲ့မှ အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အချိန်စဉ်ဆက် ခန့်မှန်းချက်တွင် အသုံးချခြင်း။",
+    certDesc:"Simplilearn ၏ SkillUp — ၂၀၂၆ မတ် ၈။ အချိန်စဉ်ဆက် ခန့်မှန်းချက်— ဘွဲ့၏ အရေအတွက်ဆိုင်ရာ အပိုင်းကို လက်တွေ့ အသုံးချခြင်း။",
+    certRDesc:"Simplilearn ၏ SkillUp — ၂၀၂၆ မတ် ၇။ စီးပွားရေးပညာရှင်များ အမှန်တကယ် မော်ဒယ်တည်ဆောက်ရာတွင် သုံးသော စာရင်းအင်း ဘာသာစကား။",
+    credCode:"လက်မှတ်နံပါတ်",
+    credVerify:"အတည်ပြုရန် ↗",
     hskCardTitle:"HSK အဆင့် ၃ — ၂၉၇ / ၃၀၀",
     hskCardDesc:"Hanyu Shuiping Kaoshi — တရုတ်ဘာသာ ကျွမ်းကျင်မှု စံ စာမေးပွဲ။ အောင်မှတ် ၁၈၀၊ ရမှတ် ၂၉၇။",
     seriesTitle:"ပတ္တရာ အိမ်ခြံမြေ၊ ဘာသာစကား လေးမျိုးဖြင့်",
@@ -2021,6 +2242,10 @@ var I18N = {
     teachTitle:"တရုတ်စာ သင်ကြားရေး · ESC Chinese Language Training Center",
     teachDesc:"၂၀၂၀ ဇွန်လမှစ၍ ဆရာမ။ စာသင်ခန်းနှင့် အွန်လိုင်း နှစ်မျိုးလုံးတွင် ကျောင်းသားများကို HSK စာမေးပွဲအတွက် ပြင်ဆင်ပေးသည်။",
     contactIntro:"ထိုင်းနိုင်ငံနှင့် ဒေသတွင်း စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု သုတေသနနှင့် အိမ်ခြံမြေ အကြံပေး အချိန်ပြည့် ရာထူးများအတွက် ယခုချက်ချင်း စတင်နိုင်ပါသည် — မြန်မာ၊ အင်္ဂလိပ်၊ ထိုင်းနှင့် တရုတ်ဘာသာဖြင့် လုပ်ကိုင်နိုင်ပါသည်။",
+    cWa:"WhatsApp မှ ဆက်သွယ်ရန်",
+    cLine:"LINE တွင် ထည့်ရန်",
+    cCopy:"ကူးရန်",
+    cCopied:"ကူးပြီး",
     footNote:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
   }
 };
@@ -2051,6 +2276,7 @@ function setLang(code){
     b.setAttribute("aria-pressed", String(b.getAttribute("data-lang-set") === code));
   });
   try { localStorage.setItem("eps-lang", code); } catch (e) {}
+  if (typeof tickClock === "function") tickClock();
 }
 
 document.querySelectorAll("[data-lang-set]").forEach(function(b){
@@ -2064,17 +2290,21 @@ document.querySelectorAll("[data-lang-set]").forEach(function(b){
    THEME — auto / light / dark, remembered. "auto" means no
    data-theme attribute at all, so prefers-color-scheme decides.
    ============================================================ */
-var THEME_ICON = { auto:"#i-auto", light:"#i-sun", dark:"#i-moon" };
+var THEME_ICON = { auto:"#i-auto", light:"#i-sun", dark:"#i-moon", time:"#i-clock" };
 var themeMeta = document.createElement("meta");
 themeMeta.name = "theme-color";
 document.head.appendChild(themeMeta);
 
+// Dark from 18:00 to 06:00 in the viewer's own timezone.
+function isNightNow(){ var h = new Date().getHours(); return h >= 18 || h < 6; }
+
 function applyTheme(mode){
   var root = document.documentElement;
   if (mode === "light" || mode === "dark") root.setAttribute("data-theme", mode);
+  else if (mode === "time") root.setAttribute("data-theme", isNightNow() ? "dark" : "light");
   else root.removeAttribute("data-theme");
 
-  var dark = mode === "dark" ||
+  var dark = mode === "dark" || (mode === "time" && isNightNow()) ||
     (mode === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
   themeMeta.setAttribute("content", dark ? "#191315" : "#FFFBF7");
 
@@ -2097,13 +2327,59 @@ document.querySelectorAll("[data-theme-set]").forEach(function(b){
 document.getElementById("printCv").addEventListener("click", function(){ window.print(); });
 
 document.getElementById("themeQuick").addEventListener("click", function(){
-  var order = ["auto","light","dark"];
-  themeMode = applyTheme(order[(order.indexOf(themeMode) + 1) % 3]);
+  var order = ["auto","light","dark","time"];
+  themeMode = applyTheme(order[(order.indexOf(themeMode) + 1) % order.length]);
 });
+
+/* ============================================================
+   COZY CLOCK — the viewer's own local time, and the greeting that
+   goes with it. Also drives the "time" theme so the page turns
+   itself down after dark.
+   ============================================================ */
+function tickClock(){
+  var d = new Date(), h = d.getHours();
+  var t = document.getElementById("clockTime");
+  var g = document.getElementById("clockGreet");
+  var ic = document.querySelector("#clockline use");
+  if (!t) return;
+  t.textContent = String(h).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+  var dict = I18N[document.documentElement.getAttribute("data-lang")] || I18N.en;
+  var key = h < 5 ? "greetNight" : h < 12 ? "greetMorning" : h < 18 ? "greetAfternoon" : "greetEvening";
+  g.textContent = dict[key] || "";
+  if (ic) ic.setAttribute("href", isNightNow() ? "#i-moon" : "#i-sun");
+  if (themeMode === "time") applyTheme("time");   // crosses 18:00 without a reload
+}
+setInterval(tickClock, 20000);
 // Keep the status-bar colour honest when the OS flips while we're on "auto".
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
   if (themeMode === "auto") applyTheme("auto");
 });
+
+var wechat = document.getElementById("wechatCopy");
+if (wechat) {
+  wechat.addEventListener("click", function(){
+    var id = wechat.getAttribute("data-copy");
+    var done = function(){
+      wechat.classList.add("is-copied");
+      var lab = wechat.querySelector(".crow__copy");
+      var dict = I18N[document.documentElement.getAttribute("data-lang")] || I18N.en;
+      lab.textContent = dict.cCopied;
+      setTimeout(function(){
+        wechat.classList.remove("is-copied");
+        lab.textContent = dict.cCopy;
+      }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(id).then(done).catch(function(){});
+    } else {                                   // older Safari / insecure origins
+      var ta = document.createElement("textarea");
+      ta.value = id; ta.setAttribute("readonly",""); ta.style.position = "fixed";
+      ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  });
+}
 
 /* ============================================================
    DRAWER
@@ -2209,10 +2485,30 @@ if ("IntersectionObserver" in window && sections.length) {
   sections.forEach(function(s){ spyIO.observe(s); });
 }
 
-var totop = document.getElementById("totop");
+var totop   = document.getElementById("totop");
+var bar     = document.querySelector("#scrollbar span");
+var heroFig = document.querySelector(".hero__figure");
+var ticking = false;
+
+function onScroll(){
+  var y = window.scrollY;
+  totop.classList.toggle("is-on", y > 600);
+  if (bar) {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+  }
+  // Portrait drifts slower than the page, capped so it never detaches from
+  // the layout on a long scroll.
+  if (heroFig && !reduceMotion) {
+    heroFig.style.transform = "translate3d(0," + Math.min(y * 0.12, 46) + "px,0)";
+  }
+}
 window.addEventListener("scroll", function(){
-  totop.classList.toggle("is-on", window.scrollY > 600);
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(function(){ onScroll(); ticking = false; });
 }, { passive:true });
+onScroll();
 totop.addEventListener("click", function(){
   window.scrollTo({ top:0, behavior: reduceMotion ? "auto" : "smooth" });
 });
@@ -2238,8 +2534,9 @@ totop.addEventListener("click", function(){
 (function init(){
   var savedLang = null, savedTheme = null;
   try { savedLang = localStorage.getItem("eps-lang"); savedTheme = localStorage.getItem("eps-theme"); } catch (e) {}
-  themeMode = applyTheme(["auto","light","dark"].indexOf(savedTheme) > -1 ? savedTheme : "auto");
+  themeMode = applyTheme(["auto","light","dark","time"].indexOf(savedTheme) > -1 ? savedTheme : "auto");
   setLang(savedLang && I18N[savedLang] ? savedLang : "en");
+  tickClock();
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 
@@ -2283,6 +2580,8 @@ var MAX_CONCURRENT = 4;
   VIDEOS.forEach(function(item, idx){
     var fig = document.createElement("figure");
     fig.className = "vtile";
+    fig.setAttribute("data-reveal", "");
+    fig.style.setProperty("--i", idx % 4);   // stagger by column, not by index
 
     var media = document.createElement("div");
     media.className = "vtile__media";
