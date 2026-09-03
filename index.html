@@ -2074,8 +2074,19 @@ if ("IntersectionObserver" in window) {
       e.target.querySelectorAll("[data-count]").forEach(runCount);
       revealIO.unobserve(e.target);
     });
-  }, { threshold:.12, rootMargin:"0px 0px -8% 0px" });
+  }, { threshold:0, rootMargin:"0px 0px -8% 0px" });
   document.querySelectorAll("[data-reveal]").forEach(function(el){ revealIO.observe(el); });
+
+  window.addEventListener("load", function(){
+    setTimeout(function(){
+      document.querySelectorAll("[data-reveal]:not(.is-in)").forEach(function(el){
+        if (el.getBoundingClientRect().top < window.innerHeight * 1.15) {
+          el.classList.add("is-in");
+          el.querySelectorAll("[data-count]").forEach(runCount);
+        }
+      });
+    }, 1200);
+  });
 
 } else {
   document.querySelectorAll("[data-reveal]").forEach(function(el){ el.classList.add("is-in"); });
