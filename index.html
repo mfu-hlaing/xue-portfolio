@@ -1,20 +1,21 @@
+<!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Draft about a real person, still carrying placeholders: keep it out of search
-     results until the real content lands. Remove this line to go properly public. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Real content now, but going live in search is her call, not the build's.
+     Delete this line when she's happy for recruiters to find it cold. -->
 <meta name="robots" content="noindex, nofollow">
 
 <!-- Social preview. og:image must be an ABSOLUTE url — relative paths are
      silently dropped by every scraper. -->
 <meta property="og:type"        content="profile">
-<meta property="og:site_name"   content="Ei Phyu Sin Thant">
-<meta property="og:title"       content="Ei Phyu Sin Thant — economics and property, in four languages">
-<meta property="og:description" content="Economics undergraduate at Mae Fah Luang University presenting Pattaya property on camera in English, Chinese, Thai and Burmese.">
+<meta property="og:site_name"   content="Ei Phyu Sin Thant · 辛玉">
+<meta property="og:title"       content="Ei Phyu Sin Thant — economics, property, four languages">
+<meta property="og:description" content="Economics undergraduate at Mae Fah Luang University. HSK 3 at nine, teaching Chinese since 2020, presenting Pattaya property on camera in English, Chinese, Thai and Burmese.">
 <meta property="og:url"         content="https://mfu-hlaing.github.io/xue-portfolio/">
-<meta property="og:image"       content="https://mfu-hlaing.github.io/xue-portfolio/video/og.jpg">
+<meta property="og:image"       content="https://mfu-hlaing.github.io/xue-portfolio/media/og.jpg">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt"   content="Ei Phyu Sin Thant presenting to camera, beside a Pattaya pool villa.">
+<meta property="og:image:alt"   content="Ei Phyu Sin Thant — economics undergraduate working in four languages.">
 <meta property="og:locale"      content="en_US">
 <meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:locale:alternate" content="th_TH">
@@ -23,102 +24,194 @@
 <meta property="profile:last_name"  content="Thant">
 
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Ei Phyu Sin Thant — economics and property, in four languages">
-<meta name="twitter:description" content="Economics undergraduate at Mae Fah Luang University presenting Pattaya property on camera in English, Chinese, Thai and Burmese.">
-<meta name="twitter:image"       content="https://mfu-hlaing.github.io/xue-portfolio/video/og.jpg">
+<meta name="twitter:title"       content="Ei Phyu Sin Thant — economics, property, four languages">
+<meta name="twitter:description" content="Economics undergraduate at Mae Fah Luang University, working across Thailand, Myanmar and China in four languages.">
+<meta name="twitter:image"       content="https://mfu-hlaing.github.io/xue-portfolio/media/og.jpg">
 
-<meta name="theme-color" content="#14201D">
-<link rel="icon" href="video/portrait.jpg">
-<title>Pattaya in Four Languages</title>
+<!-- theme-color per scheme so the phone's status bar matches the page -->
+<meta name="theme-color" content="#FFFBF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191315" media="(prefers-color-scheme: dark)">
+
+<!-- Inline SVG mark: a peach seal with 辛. Scales, themes, weighs nothing. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23E8663F'/%3E%3Ctext x='32' y='45' font-size='38' font-family='serif' fill='%23FFF6F0' text-anchor='middle'%3E辛%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="media/portrait-sm.jpg">
+
+<title>Ei Phyu Sin Thant · 辛玉 — Economics in Four Languages</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Sans+SC:wght@400;600&family=Noto+Sans+Myanmar:wght@400;600&display=swap">
+<link rel="preload" as="image" href="media/portrait.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Myanmar:wght@400;600&display=swap">
 
 <style>
 /* ============================================================
-   TOKENS — light is the complete palette; dark redefines tokens only
+   TOKENS
+   Light is the complete palette. Dark redefines tokens only, and is
+   declared twice: once under prefers-color-scheme (guarded so an
+   explicit light choice wins) and once under [data-theme="dark"].
    ============================================================ */
 :root{
-  --paper:#EDEEEA;
-  --panel:#E4E6E1;
-  --ink:#14201D;
-  --ink-2:#3A4A45;
-  --muted:#5A6863;
-  --rule:#CDD3CE;
-  --rule-soft:#DDE1DC;
-  --jade:#1B6B57;
-  --jade-ink:#0F4838;
-  --jade-wash:#DBE7E1;
-  --brass:#79601F;
-  --focus:#1B6B57;
+  /* surfaces — warm cream, not clinical white */
+  --paper:#FFFBF7;
+  --paper-2:#FFF5EC;
+  --panel:#FFFFFF;
+  --panel-2:#FFF1E6;
+  --sunk:#FBEADC;
 
-  --f-display:"Newsreader","Iowan Old Style",Georgia,serif;
+  /* text */
+  --ink:#2B2220;
+  --ink-2:#5C4B45;
+  --muted:#786259;
+
+  /* lines */
+  --rule:#F1DECF;
+  --rule-soft:#F8ECE2;
+
+  /* accents — peach carries the warmth, jade the credibility */
+  --peach:#DE5B34;
+  --peach-ink:#B8431F;
+  --peach-wash:#FFE7DC;
+  --jade:#127964;
+  --jade-ink:#0C5A4A;
+  --jade-wash:#DCF0E9;
+  --gold:#8A6212;
+  --gold-wash:#FBEFD6;
+  --sky:#2F6DB5;
+  --sky-wash:#E2EDFB;
+
+  --cta:#C2461E;
+  --cta-hover:#A2380F;
+  --on-cta:#FFFFFF;
+  --focus:#DE5B34;
+  --bloom-1:#FFE1D0;
+  --bloom-2:#DDF1E9;
+  --shadow:14px 30px 60px -32px rgba(88,44,26,.34);
+  --shadow-sm:0 6px 18px -10px rgba(88,44,26,.30);
+
+  --f-display:"Fraunces","Iowan Old Style",Georgia,serif;
   --f-body:"IBM Plex Sans","IBM Plex Sans Thai","Noto Sans SC","Noto Sans Myanmar",
            -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono","SF Mono",ui-monospace,Menlo,monospace;
 
-  --rail:15.5rem;
-  --measure:38rem;
-  --gap:clamp(1rem,3vw,2rem);
+  --rail:17.5rem;
+  --measure:42rem;
+  --gap:clamp(1.1rem,3.5vw,2.25rem);
+  --topbar:3.9rem;
+
+  /* rounding is the single biggest "friendly" lever in the whole sheet */
+  --r:14px;
+  --r-lg:24px;
+  --r-pill:999px;
+
+  /* the overshoot curve everything springy shares */
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#0E1614;
-    --panel:#16211E;
-    --ink:#E8EDE9;
-    --ink-2:#B6C3BE;
-    --muted:#83948E;
-    --rule:#2A3733;
-    --rule-soft:#1E2A27;
-    --jade:#6DC4A6;
-    --jade-ink:#8FD8BE;
-    --jade-wash:#16302A;
-    --brass:#C9A45C;
-    --focus:#6DC4A6;
+    --paper:#191315;
+    --paper-2:#20181A;
+    --panel:#241B1E;
+    --panel-2:#2C2126;
+    --sunk:#332529;
+    --ink:#F7EDE7;
+    --ink-2:#D6C4BC;
+    --muted:#A08D86;
+    --rule:#3C2D31;
+    --rule-soft:#2A1F22;
+    --peach:#FF9670;
+    --peach-ink:#FFB496;
+    --peach-wash:#3A2119;
+    --jade:#5CD0AF;
+    --jade-ink:#84DEC4;
+    --jade-wash:#14322B;
+    --gold:#E3B75F;
+    --gold-wash:#372B15;
+    --sky:#7FB0EC;
+    --sky-wash:#182838;
+    --cta:#FF9670;
+    --cta-hover:#FFB496;
+    --on-cta:#2A1512;
+    --focus:#FF9670;
+    --bloom-1:#271A1B;
+    --bloom-2:#141F1E;
+    --shadow:14px 30px 60px -30px rgba(0,0,0,.75);
+    --shadow-sm:0 6px 18px -10px rgba(0,0,0,.6);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0E1614;
-  --panel:#16211E;
-  --ink:#E8EDE9;
-  --ink-2:#B6C3BE;
-  --muted:#83948E;
-  --rule:#2A3733;
-  --rule-soft:#1E2A27;
-  --jade:#6DC4A6;
-  --jade-ink:#8FD8BE;
-  --jade-wash:#16302A;
-  --brass:#C9A45C;
-  --focus:#6DC4A6;
+  --paper:#191315;
+  --paper-2:#20181A;
+  --panel:#241B1E;
+  --panel-2:#2C2126;
+  --sunk:#332529;
+  --ink:#F7EDE7;
+  --ink-2:#D6C4BC;
+  --muted:#A08D86;
+  --rule:#3C2D31;
+  --rule-soft:#2A1F22;
+  --peach:#FF9670;
+  --peach-ink:#FFB496;
+  --peach-wash:#3A2119;
+  --jade:#5CD0AF;
+  --jade-ink:#84DEC4;
+  --jade-wash:#14322B;
+  --gold:#E3B75F;
+  --gold-wash:#372B15;
+  --sky:#7FB0EC;
+  --sky-wash:#182838;
+  --cta:#FF9670;
+  --cta-hover:#FFB496;
+  --on-cta:#2A1512;
+  --focus:#FF9670;
+  --bloom-1:#271A1B;
+  --bloom-2:#141F1E;
+  --shadow:14px 30px 60px -30px rgba(0,0,0,.75);
+  --shadow-sm:0 6px 18px -10px rgba(0,0,0,.6);
 }
 
 /* ============================================================
    BASE
    ============================================================ */
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:calc(var(--topbar) + 1rem)}
 body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
   font-family:var(--f-body);
   font-size:1rem;
-  line-height:1.6;
+  line-height:1.62;
   font-synthesis-weight:none;
+  /* a barely-there warm bloom behind the top of the page */
+  background-image:
+    radial-gradient(58rem 30rem at 82% -8rem,var(--bloom-1),transparent 70%),
+    radial-gradient(46rem 26rem at 4% 4rem,var(--bloom-2),transparent 72%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 /* Burmese stacks tall diacritics — give it air */
-:root[data-lang="my"] body{line-height:1.85}
-:root[data-lang="my"] .display{line-height:1.35}
+:root[data-lang="my"] body{line-height:1.9}
+:root[data-lang="my"] .hero__name{line-height:1.3}
 
-a{color:var(--jade);text-decoration-thickness:1px;text-underline-offset:.18em}
-a:hover{color:var(--jade-ink)}
-:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+a{color:var(--peach-ink);text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--peach)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:6px}
 
 h1,h2,h3{text-wrap:balance;margin:0}
 p{margin:0}
+img{max-width:100%;height:auto}
 
-.display{font-family:var(--f-display);font-weight:400;letter-spacing:-.015em}
+.skip{
+  position:absolute;left:.5rem;top:-4rem;z-index:200;
+  background:var(--cta);color:var(--on-cta);padding:.7rem 1.1rem;
+  border-radius:var(--r-pill);font-size:.85rem;text-decoration:none;
+  transition:top .25s var(--spring);
+}
+.skip:focus{top:.5rem;color:#fff}
+
+.display{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 
 .eyebrow{
@@ -132,74 +225,214 @@ p{margin:0}
 :root[data-lang="th"] .eyebrow,
 :root[data-lang="zh"] .eyebrow{text-transform:none;letter-spacing:.06em;font-family:var(--f-body)}
 
-/* Placeholder marker — obvious to fill, still tidy on screen */
-.ph{
-  color:var(--brass);
-  border-bottom:1px dotted currentColor;
-  font-style:normal;
+/* ============================================================
+   MOTION — one reveal system, one kill switch
+   ============================================================ */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(1.6rem) scale(.985);
+  transition:opacity .5s var(--ease),transform .75s var(--spring);
+  transition-delay:calc(var(--i,0) * 65ms);
+}
+[data-reveal].is-in{opacity:1;transform:none}
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(1.4rem) scale(.97)}
+  to{opacity:1;transform:none}
+}
+@keyframes bob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-9px)}
+}
+@keyframes blobspin{
+  0%{transform:rotate(0deg) scale(1)}
+  50%{transform:rotate(180deg) scale(1.06)}
+  100%{transform:rotate(360deg) scale(1)}
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@keyframes pop{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+  100%{transform:scale(1)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  [data-reveal]{opacity:1;transform:none}
 }
 
 /* ============================================================
-   SHELL
+   SHELL + TOP BAR (mobile) + RAIL (desktop spine / mobile drawer)
    ============================================================ */
 .shell{display:block}
 
-/* --- left rail --- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  height:var(--topbar);
+  display:flex;align-items:center;gap:.6rem;
+  padding:0 var(--gap);
+  background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid var(--rule-soft);
+}
+.topbar__id{display:flex;align-items:center;gap:.6rem;min-width:0;margin-right:auto}
+.topbar__ava{
+  width:2.1rem;height:2.1rem;border-radius:50%;object-fit:cover;object-position:50% 20%;
+  border:2px solid var(--panel);box-shadow:var(--shadow-sm);flex:none;
+}
+.topbar__name{
+  font-family:var(--f-display);font-weight:600;font-size:1rem;
+  letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* round icon button, used in the top bar and the drawer */
+.iconbtn{
+  width:2.75rem;height:2.75rem;flex:none;
+  display:grid;place-items:center;
+  border-radius:50%;border:1px solid var(--rule);
+  background:var(--panel);color:var(--ink-2);cursor:pointer;
+  transition:transform .3s var(--spring),background .2s,color .2s,border-color .2s;
+}
+.iconbtn:hover{color:var(--peach);border-color:var(--peach);transform:translateY(-2px)}
+.iconbtn:active{transform:scale(.92)}
+.iconbtn svg{width:1.15rem;height:1.15rem;display:block}
+
+.burger svg .l{transition:transform .35s var(--spring),opacity .2s}
+.burger[aria-expanded="true"] svg .l1{transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] svg .l2{opacity:0}
+.burger[aria-expanded="true"] svg .l3{transform:translateY(-5px) rotate(-45deg)}
+.burger svg .l{transform-origin:center}
+
+.scrim{
+  position:fixed;inset:0;z-index:70;
+  background:rgba(40,20,14,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;transition:opacity .3s var(--ease);
+}
+.scrim.is-on{opacity:1;pointer-events:auto}
+
+/* --- the rail itself --- */
 .rail{
-  border-bottom:1px solid var(--rule);
-  background:var(--paper);
-  padding:1.25rem var(--gap);
-  position:sticky;top:0;z-index:20;
+  position:fixed;z-index:80;inset:0 auto 0 0;
+  width:min(21rem,86vw);
+  background:var(--paper-2);
+  border-right:1px solid var(--rule);
+  padding:1.5rem 1.4rem calc(1.5rem + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:1.5rem;
+  overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(-102%);
+  transition:transform .42s var(--spring);
+  box-shadow:var(--shadow);
 }
-.rail__id{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
-.rail__name{
-  font-family:var(--f-display);
-  font-size:1.15rem;
-  letter-spacing:-.01em;
-  white-space:nowrap;
-}
-.rail__role{font-size:.75rem;color:var(--muted)}
+.rail.is-open{transform:none}
 
-.langbar{display:flex;gap:.3rem;margin-top:.85rem;flex-wrap:wrap}
+.rail__head{display:flex;align-items:center;gap:.85rem}
+.rail__ava{
+  width:3.4rem;height:3.4rem;border-radius:50%;object-fit:cover;object-position:50% 20%;
+  border:3px solid var(--panel);box-shadow:var(--shadow-sm);flex:none;
+}
+.rail__name{font-family:var(--f-display);font-weight:600;font-size:1.02rem;letter-spacing:-.015em;display:block}
+.rail__native{font-size:.82rem;color:var(--muted)}
+.rail__role{
+  display:inline-block;margin-top:.15rem;
+  font-size:.7rem;letter-spacing:.02em;
+  padding:.15rem .55rem;border-radius:var(--r-pill);
+  background:var(--jade-wash);color:var(--jade-ink);
+}
+.rail__close{margin-left:auto}
+
+.grouph{
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;
+}
+:root[data-lang="my"] .grouph,
+:root[data-lang="th"] .grouph,
+:root[data-lang="zh"] .grouph{font-family:var(--f-body);text-transform:none;letter-spacing:.05em;font-size:.72rem}
+
+.index{display:flex;flex-direction:column;gap:.1rem}
+.index a{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.92rem;color:var(--ink-2);text-decoration:none;
+  padding:.55rem .7rem;border-radius:var(--r);
+  transition:background .2s,color .2s,transform .3s var(--spring);
+}
+.index a:hover{background:var(--panel);color:var(--peach);transform:translateX(3px)}
+.index a .ico{
+  width:1.6rem;height:1.6rem;flex:none;display:grid;place-items:center;
+  border-radius:8px;background:var(--sunk);color:var(--muted);
+  transition:background .2s,color .2s;
+}
+.index a .ico svg{width:.9rem;height:.9rem}
+.index a:hover .ico,
+.index a.is-current .ico{background:var(--cta);color:var(--on-cta)}
+.index a.is-current{background:var(--panel);color:var(--ink);font-weight:600;box-shadow:var(--shadow-sm)}
+
+.langbar{display:flex;gap:.35rem;flex-wrap:wrap}
 .langbtn{
-  font-family:var(--f-body);
-  font-size:.78rem;
-  line-height:1;
-  padding:.45rem .6rem;
-  border:1px solid var(--rule);
-  background:transparent;
-  color:var(--ink-2);
+  font-family:var(--f-body);font-size:.8rem;line-height:1.35;
+  padding:.4rem .8rem;min-height:2.1rem;border-radius:var(--r-pill);
+  border:1px solid var(--rule);background:var(--panel);color:var(--ink-2);
   cursor:pointer;
-  border-radius:0;
-  transition:background .18s ease,color .18s ease,border-color .18s ease;
+  transition:background .2s,color .2s,border-color .2s,transform .3s var(--spring);
 }
-.langbtn:hover{border-color:var(--jade);color:var(--jade)}
+.langbtn:hover{border-color:var(--peach);color:var(--peach);transform:translateY(-2px)}
+.langbtn:active{transform:scale(.94)}
 .langbtn[aria-pressed="true"]{
-  background:var(--jade);
-  border-color:var(--jade);
-  color:var(--paper);
+  background:var(--cta);border-color:var(--cta);color:var(--on-cta);font-weight:600;
 }
 
-.index{display:none}
+/* three-state theme control: auto / light / dark, always showing which is on */
+.themebar{display:flex;gap:.25rem;padding:.25rem;border-radius:var(--r-pill);
+  background:var(--sunk);border:1px solid var(--rule);width:max-content}
+.themebtn{
+  display:grid;place-items:center;width:2.3rem;height:2rem;
+  border:0;border-radius:var(--r-pill);background:transparent;color:var(--muted);
+  cursor:pointer;transition:background .22s,color .22s,transform .3s var(--spring);
+}
+.themebtn:hover{color:var(--ink)}
+.themebtn:active{transform:scale(.9)}
+.themebtn svg{width:1rem;height:1rem}
+.themebtn[aria-pressed="true"]{background:var(--panel);color:var(--peach);box-shadow:var(--shadow-sm)}
 
-/* --- content --- */
-.main{padding:0 var(--gap) 4rem}
+.railsocial{display:flex;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.railsocial a{
+  width:2.75rem;height:2.75rem;display:grid;place-items:center;
+  border-radius:50%;border:1px solid var(--rule);background:var(--panel);
+  color:var(--ink-2);text-decoration:none;
+  transition:transform .3s var(--spring),color .2s,border-color .2s;
+}
+.railsocial a:hover{color:var(--peach);border-color:var(--peach);transform:translateY(-3px)}
+.railsocial svg{width:1.05rem;height:1.05rem}
+
+/* ============================================================
+   CONTENT SCAFFOLD
+   ============================================================ */
+.main{padding:0 var(--gap) 3rem}
 .wrap{max-width:var(--measure);margin:0 auto;counter-reset:sec}
 
-section{padding-block:clamp(2.5rem,6vw,4rem);border-top:1px solid var(--rule-soft)}
-section:first-of-type{border-top:0}
+section{padding-block:clamp(2.75rem,7vw,4.25rem)}
+section + section{border-top:1px solid var(--rule-soft)}
 
-.sechead{display:flex;align-items:baseline;gap:.75rem;margin-bottom:1.5rem}
+.sechead{display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem}
 .sechead h2{
   font-family:var(--f-display);
-  font-size:clamp(1.35rem,3.5vw,1.7rem);
-  font-weight:400;
+  font-size:clamp(1.5rem,4.5vw,2rem);
+  font-weight:600;letter-spacing:-.02em;
 }
 .sechead .num{
-  font-family:var(--f-mono);
-  font-size:.7rem;
-  color:var(--muted);
-  letter-spacing:.1em;
+  font-family:var(--f-mono);font-size:.68rem;color:var(--peach);
+  letter-spacing:.1em;flex:none;
+  padding:.28rem .55rem;border-radius:var(--r-pill);
+  background:var(--peach-wash);
 }
 .sechead .num::before{
   counter-increment:sec;
@@ -209,184 +442,301 @@ section:first-of-type{border-top:0}
 .prose{display:flex;flex-direction:column;gap:1rem;color:var(--ink-2)}
 .prose strong{color:var(--ink);font-weight:600}
 
-/* Standalone links sit in small type — give them a thumb-sized hit area */
-.eyebrow a,
-.tl__org a{display:inline-block;padding-block:.3rem}
+.card{
+  background:var(--panel);
+  border:1px solid var(--rule);
+  border-radius:var(--r-lg);
+  padding:1.35rem 1.4rem;
+  transition:transform .4s var(--spring),box-shadow .35s var(--ease),border-color .25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--peach)}
 
 /* ============================================================
    HERO
    ============================================================ */
-.hero{padding-top:clamp(2.5rem,7vw,4.5rem)}
-/* column-reverse puts the portrait above the name on narrow screens */
-.hero__top{display:flex;flex-direction:column-reverse;align-items:flex-start;gap:1.35rem}
-.hero__intro{min-width:0}
-.hero__portrait{
-  width:clamp(5.5rem,22vw,7rem);
-  aspect-ratio:1;object-fit:cover;object-position:50% 22%;
-  display:block;border:1px solid var(--rule);
-  background:var(--panel);
+.hero{padding-top:clamp(1.5rem,5vw,3rem)}
+.hero__top{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+
+.hero__figure{position:relative;align-self:center;padding:.9rem}
+.hero__blob{
+  position:absolute;inset:0;z-index:0;
+  background:conic-gradient(from 210deg,var(--peach),var(--gold),var(--jade),var(--sky),var(--peach));
+  border-radius:46% 54% 58% 42% / 52% 44% 56% 48%;
+  filter:blur(2px);opacity:.55;
+  animation:blobspin 22s linear infinite;
 }
-@media (min-width:48rem){
-  .hero__top{flex-direction:row;justify-content:space-between;gap:2rem}
-  .hero__intro{flex:1}
-  .hero__portrait{width:8.5rem;flex:none;margin-top:.35rem}
+.hero__portrait{
+  position:relative;z-index:1;
+  width:clamp(9.5rem,44vw,13rem);aspect-ratio:1;
+  object-fit:cover;object-position:50% 18%;
+  display:block;border-radius:50%;
+  border:5px solid var(--paper);
+  box-shadow:var(--shadow);
+  background:var(--panel-2);
+  animation:bob 7s ease-in-out infinite;
+  transition:transform .45s var(--spring);
+}
+.hero__figure:hover .hero__portrait{transform:scale(1.04)}
+.hero__badge{
+  position:absolute;z-index:2;right:-.15rem;bottom:1.15rem;
+  display:flex;align-items:center;gap:.35rem;
+  font-size:.72rem;font-weight:600;
+  padding:.4rem .7rem;border-radius:var(--r-pill);
+  background:var(--panel);color:var(--jade-ink);
+  border:1px solid var(--rule);box-shadow:var(--shadow-sm);
+  white-space:nowrap;
+}
+.hero__badge .pip{
+  width:.45rem;height:.45rem;border-radius:50%;background:var(--jade);flex:none;
+  animation:pop 2.6s ease-in-out infinite;
+}
+
+.hero__intro{min-width:0;width:100%}
+.hero__hi{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-size:.8rem;font-weight:600;color:var(--peach-ink);
+  background:var(--peach-wash);padding:.35rem .8rem;border-radius:var(--r-pill);
 }
 .hero__name{
   font-family:var(--f-display);
-  font-size:clamp(2.6rem,9vw,4.4rem);
-  font-weight:300;
-  line-height:1.02;
-  letter-spacing:-.03em;
-  margin-top:.9rem;
+  font-size:clamp(2.5rem,10vw,4rem);
+  font-weight:600;line-height:1.03;letter-spacing:-.035em;
+  margin-top:.85rem;
 }
 .hero__native{
-  margin-top:.55rem;
-  font-size:1.05rem;
-  color:var(--muted);
+  margin-top:.5rem;font-size:1.02rem;color:var(--muted);
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
 }
+.hero__native b{font-weight:600;color:var(--ink-2);font-size:1.15rem}
 .hero__lede{
-  font-family:var(--f-display);
-  font-size:clamp(1.05rem,2.6vw,1.3rem);
-  line-height:1.55;
-  color:var(--ink-2);
-  margin-top:1.4rem;
-  max-width:32ch;
+  font-size:clamp(1.02rem,2.6vw,1.18rem);
+  line-height:1.6;color:var(--ink-2);margin-top:1.15rem;max-width:36ch;
 }
-:root[data-lang="zh"] .hero__lede,
-:root[data-lang="th"] .hero__lede,
-:root[data-lang="my"] .hero__lede{font-family:var(--f-body);max-width:34ch}
+
+/* greeting marquee — the four languages saying hello, on a loop */
+.greet{
+  margin-top:1.5rem;overflow:hidden;position:relative;
+  border-block:1px solid var(--rule-soft);padding-block:.6rem;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.greet__track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.greet:hover .greet__track{animation-play-state:paused}
+.greet__item{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding-inline:1.1rem;font-family:var(--f-display);font-size:1.05rem;
+  color:var(--ink-2);white-space:nowrap;
+}
+.greet__item::after{content:"·";color:var(--peach);font-weight:700}
+
+.stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:1.6rem;
+}
+.stat{
+  background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);
+  padding:.85rem .9rem;
+  transition:transform .4s var(--spring),box-shadow .3s;
+}
+.stat:hover{transform:translateY(-3px) rotate(-.6deg);box-shadow:var(--shadow-sm)}
+.stat__n{
+  font-family:var(--f-display);font-weight:700;font-size:1.5rem;line-height:1.1;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.stat:nth-child(1) .stat__n{color:var(--peach)}
+.stat:nth-child(2) .stat__n{color:var(--jade)}
+.stat:nth-child(3) .stat__n{color:var(--gold)}
+.stat:nth-child(4) .stat__n{color:var(--sky)}
+.stat__k{font-size:.74rem;color:var(--muted);margin-top:.15rem;line-height:1.4}
 
 .facts{
-  margin-top:1.8rem;
-  display:flex;
-  flex-direction:column;
-  gap:.55rem;
-  padding-top:1.2rem;
-  border-top:1px solid var(--rule);
+  margin-top:1.5rem;display:flex;flex-direction:column;gap:.2rem;
+  background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r-lg);padding:.4rem 1.1rem;
 }
-.fact{display:flex;gap:.75rem;font-size:.88rem;align-items:baseline}
+.fact{display:flex;gap:.9rem;font-size:.9rem;align-items:baseline;padding:.65rem 0}
+.fact + .fact{border-top:1px solid var(--rule-soft)}
 .fact__k{
-  font-family:var(--f-mono);
-  font-size:.68rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-  flex:0 0 6.5rem;
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);flex:0 0 6.2rem;
 }
 :root[data-lang="my"] .fact__k,
 :root[data-lang="th"] .fact__k,
-:root[data-lang="zh"] .fact__k{font-family:var(--f-body);text-transform:none;letter-spacing:.04em}
+:root[data-lang="zh"] .fact__k{font-family:var(--f-body);text-transform:none;letter-spacing:.03em;font-size:.76rem}
 .fact__v{color:var(--ink-2)}
 
-.actions{display:flex;gap:.7rem;margin-top:1.8rem;flex-wrap:wrap}
+.actions{display:flex;gap:.65rem;margin-top:1.5rem;flex-wrap:wrap}
 .btn{
-  display:inline-block;
-  font-size:.85rem;
-  padding:.7rem 1.15rem;
-  border:1px solid var(--jade);
-  color:var(--jade);
-  text-decoration:none;
-  transition:background .18s ease,color .18s ease;
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.9rem;font-weight:600;
+  padding:.8rem 1.3rem;border-radius:var(--r-pill);
+  border:1px solid var(--peach);color:var(--peach-ink);
+  background:var(--panel);text-decoration:none;
+  transition:transform .35s var(--spring),background .2s,color .2s,box-shadow .3s;
 }
-.btn:hover{background:var(--jade-wash);color:var(--jade-ink)}
-.btn--solid{background:var(--jade);color:var(--paper);border-color:var(--jade)}
-.btn--solid:hover{background:var(--jade-ink);border-color:var(--jade-ink);color:var(--paper)}
+.btn svg{width:1rem;height:1rem;flex:none}
+.btn:hover{background:var(--peach-wash);color:var(--peach-ink);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.btn:active{transform:scale(.96)}
+.btn--solid{background:var(--cta);color:var(--on-cta);border-color:var(--cta);box-shadow:var(--shadow-sm)}
+.btn--solid:hover{background:var(--cta-hover);border-color:var(--cta-hover);color:var(--on-cta)}
 
 /* ============================================================
-   LANGUAGE MATRIX
+   LANGUAGE CARDS — a table on desktop reads as a wall of text on a
+   phone, so this is cards all the way up
    ============================================================ */
-.tablewrap{overflow-x:auto;margin-inline:calc(var(--gap) * -1);padding-inline:var(--gap)}
-table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.86rem}
-th,td{text-align:left;padding:.75rem .8rem;border-bottom:1px solid var(--rule-soft);vertical-align:top}
-thead th{
-  font-family:var(--f-mono);
-  font-size:.66rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:400;
-  border-bottom:1px solid var(--rule);
+.langgrid{display:grid;gap:.9rem;grid-template-columns:1fr;margin-top:1.2rem}
+.lang{
+  display:flex;gap:.95rem;align-items:flex-start;
+  background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r-lg);padding:1.05rem 1.1rem;
+  transition:transform .4s var(--spring),box-shadow .3s,border-color .25s;
 }
-:root[data-lang="my"] thead th,
-:root[data-lang="th"] thead th,
-:root[data-lang="zh"] thead th{font-family:var(--f-body);text-transform:none;letter-spacing:.04em;font-size:.72rem}
-tbody tr:last-child td{border-bottom:0}
-.lang-cell{font-weight:600;color:var(--ink);white-space:nowrap}
-.lang-cell span{display:block;font-weight:400;font-size:.75rem;color:var(--muted)}
+.lang:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--peach)}
+.lang__glyph{
+  flex:none;width:3rem;height:3rem;border-radius:var(--r);
+  display:grid;place-items:center;
+  font-family:var(--f-body);font-size:1.35rem;font-weight:700;line-height:1;
+}
+.lang:nth-child(1) .lang__glyph{background:var(--peach-wash);color:var(--peach-ink)}
+.lang:nth-child(2) .lang__glyph{background:var(--jade-wash);color:var(--jade-ink)}
+.lang:nth-child(3) .lang__glyph{background:var(--sky-wash);color:var(--sky)}
+.lang:nth-child(4) .lang__glyph{background:var(--gold-wash);color:var(--gold)}
+.lang__body{min-width:0}
+.lang__name{font-weight:700;font-size:1rem}
+.lang__name span{font-weight:400;color:var(--muted);font-size:.82rem;margin-left:.4rem}
+.lang__role{font-size:.85rem;color:var(--ink-2);margin-top:.25rem}
+.lang__proof{
+  display:inline-block;margin-top:.5rem;font-size:.72rem;
+  padding:.25rem .6rem;border-radius:var(--r-pill);
+  background:var(--sunk);color:var(--muted);
+}
+
+/* HSK score meter — a real number, drawn to scale */
+.meter{margin-top:1.3rem;background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r-lg);padding:1.15rem 1.2rem}
+.meter__top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.meter__lab{font-weight:600;font-size:.95rem}
+.meter__val{font-family:var(--f-display);font-weight:700;font-size:1.35rem;color:var(--jade);font-variant-numeric:tabular-nums}
+.meter__val small{font-size:.8rem;color:var(--muted);font-weight:400;font-family:var(--f-body)}
+.meter__bar{
+  margin-top:.8rem;height:.62rem;border-radius:var(--r-pill);
+  background:var(--sunk);overflow:hidden;
+}
+.meter__fill{
+  display:block;height:100%;width:0;border-radius:var(--r-pill);
+  background:linear-gradient(90deg,var(--jade),var(--peach));
+  transition:width 1.5s var(--ease) .25s;
+}
+.meter.is-in .meter__fill{width:99%}
+.meter__note{font-size:.78rem;color:var(--muted);margin-top:.6rem}
 
 /* ============================================================
    TIMELINE
    ============================================================ */
-.tl{display:flex;flex-direction:column;gap:2rem;position:relative}
+.tl{display:flex;flex-direction:column;gap:1.1rem;position:relative}
 .tl::before{
-  content:"";position:absolute;left:.3rem;top:.5rem;bottom:.5rem;
-  width:1px;background:var(--rule);
+  content:"";position:absolute;left:.72rem;top:1.2rem;bottom:1.2rem;
+  width:2px;border-radius:2px;
+  background:linear-gradient(180deg,var(--peach),var(--jade),transparent);
+  opacity:.45;
 }
-.tl__item{position:relative;padding-left:1.9rem}
+.tl__item{position:relative;padding-left:2.5rem}
 .tl__dot{
-  position:absolute;left:0;top:.42rem;width:.62rem;height:.62rem;
-  border-radius:50%;background:var(--paper);border:1.5px solid var(--jade);
+  position:absolute;left:0;top:.9rem;width:1.5rem;height:1.5rem;
+  border-radius:50%;background:var(--panel);border:2px solid var(--peach);
+  display:grid;place-items:center;color:var(--peach);z-index:1;
+  transition:transform .4s var(--spring);
 }
+.tl__dot svg{width:.8rem;height:.8rem}
+.tl__item:hover .tl__dot{transform:scale(1.15) rotate(-8deg)}
+.tl__card{
+  background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r-lg);padding:1.1rem 1.2rem;
+  transition:transform .4s var(--spring),box-shadow .3s,border-color .25s;
+}
+.tl__item:hover .tl__card{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--peach)}
 .tl__date{
-  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;
-  color:var(--brass);text-transform:uppercase;
+  display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;
+  color:var(--gold);text-transform:uppercase;
+  background:var(--gold-wash);padding:.2rem .55rem;border-radius:var(--r-pill);
 }
 :root[data-lang="my"] .tl__date,
-:root[data-lang="th"] .tl__date{font-family:var(--f-body);text-transform:none}
-.tl__title{font-size:1.02rem;font-weight:600;margin-top:.3rem}
-.tl__org{color:var(--jade);font-size:.88rem;margin-top:.12rem}
-.tl__body{color:var(--ink-2);font-size:.9rem;margin-top:.6rem}
-.tl__body ul{margin:.4rem 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+:root[data-lang="th"] .tl__date,
+:root[data-lang="zh"] .tl__date{font-family:var(--f-body);text-transform:none;letter-spacing:.02em}
+.tl__title{font-size:1.05rem;font-weight:700;margin-top:.5rem;letter-spacing:-.01em}
+.tl__org{color:var(--jade);font-size:.88rem;margin-top:.15rem;font-weight:500}
+.tl__org a{color:inherit}
+.tl__body{color:var(--ink-2);font-size:.9rem;margin-top:.65rem}
+.tl__body ul:not(.credits__key){margin:.5rem 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.tl__body ul:not(.credits__key) li{position:relative;padding-left:1.15rem}
+.tl__body ul:not(.credits__key) li::before{
+  content:"";position:absolute;left:0;top:.62em;
+  width:.4rem;height:.4rem;border-radius:50%;background:var(--peach);
+}
+
+/* credit breakdown — the real MFU curriculum split, to scale */
+.credits{margin-top:1rem}
+.credits__bar{display:flex;height:.6rem;overflow:hidden;border-radius:var(--r-pill);background:var(--sunk)}
+.credits__seg{display:block;min-width:2px;transition:flex-grow .9s var(--ease)}
+.credits__seg--gen{background:var(--jade)}
+.credits__seg--spec{background:var(--peach)}
+.credits__seg--free{background:var(--gold)}
+.credits__key{
+  list-style:none;margin:.7rem 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.73rem;color:var(--muted);
+}
+.credits__key li{display:flex;align-items:center;gap:.35rem}
+.credits__key b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
+.dot{width:.5rem;height:.5rem;border-radius:50%;display:inline-block;flex:none}
+.dot--gen{background:var(--jade)}
+.dot--spec{background:var(--peach)}
+.dot--free{background:var(--gold)}
+.credits__total{margin-left:auto;padding-left:.7rem;border-left:1px solid var(--rule)}
 
 /* ============================================================
    TOOLKIT + WORK
    ============================================================ */
-.grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+.grid{display:grid;gap:1rem;grid-template-columns:1fr}
 .kit__h{
-  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--muted);
-  padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:.55rem;
+  font-size:.8rem;font-weight:700;letter-spacing:.02em;color:var(--ink);
 }
-:root[data-lang="my"] .kit__h,
-:root[data-lang="th"] .kit__h,
-:root[data-lang="zh"] .kit__h{font-family:var(--f-body);text-transform:none;letter-spacing:.04em;font-size:.76rem}
-.kit ul{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;color:var(--ink-2)}
+.kit__h .ico{
+  width:1.75rem;height:1.75rem;flex:none;border-radius:8px;
+  display:grid;place-items:center;background:var(--peach-wash);color:var(--peach-ink);
+}
+.kit:nth-child(2) .kit__h .ico{background:var(--jade-wash);color:var(--jade-ink)}
+.kit:nth-child(3) .kit__h .ico{background:var(--sky-wash);color:var(--sky)}
+.kit:nth-child(4) .kit__h .ico{background:var(--gold-wash);color:var(--gold)}
+.kit__h .ico svg{width:.95rem;height:.95rem}
+.kit ul{
+  list-style:none;margin:.8rem 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:.4rem;
+}
+.kit li{
+  font-size:.82rem;color:var(--ink-2);
+  padding:.35rem .7rem;border-radius:var(--r-pill);
+  background:var(--sunk);border:1px solid transparent;
+  transition:transform .3s var(--spring),border-color .2s,color .2s;
+}
+.kit li:hover{transform:translateY(-2px);border-color:var(--peach);color:var(--ink)}
 
-.work{border-top:1px solid var(--rule-soft);padding-top:1.1rem}
-.work:first-child{border-top:0;padding-top:0}
-.work__type{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+.work__type{
+  display:inline-block;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);
+  background:var(--gold-wash);padding:.2rem .55rem;border-radius:var(--r-pill);
+}
 :root[data-lang="my"] .work__type,
-:root[data-lang="th"] .work__type{font-family:var(--f-body);text-transform:none}
-.work__title{font-size:1rem;font-weight:600;margin-top:.35rem}
-.work__desc{font-size:.9rem;color:var(--ink-2);margin-top:.4rem}
-
-/* ============================================================
-   CREDIT BREAKDOWN — the real MFU curriculum split, to scale
-   ============================================================ */
-.credits{margin-top:1rem}
-.credits__bar{
-  display:flex;height:.5rem;overflow:hidden;
-  border:1px solid var(--rule);background:var(--panel);
+:root[data-lang="th"] .work__type,
+:root[data-lang="zh"] .work__type{font-family:var(--f-body);text-transform:none;letter-spacing:.02em}
+.work__title{font-size:1rem;font-weight:700;margin-top:.5rem;letter-spacing:-.01em}
+.work__desc{font-size:.88rem;color:var(--ink-2);margin-top:.4rem}
+.work__link{
+  display:inline-flex;align-items:center;gap:.35rem;margin-top:.7rem;
+  font-size:.8rem;font-weight:600;text-decoration:none;color:var(--peach-ink);
 }
-.credits__seg{display:block;min-width:2px}
-.credits__seg--gen{background:var(--jade)}
-.credits__seg--spec{background:var(--brass)}
-.credits__seg--free{background:var(--muted)}
-.credits__key{
-  list-style:none;margin:.65rem 0 0;padding:0;
-  display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;
-  font-size:.72rem;color:var(--muted);
-}
-.credits__key li{display:flex;align-items:center;gap:.35rem}
-.credits__key b{
-  font-family:var(--f-mono);font-variant-numeric:tabular-nums;
-  color:var(--ink);font-weight:500;
-}
-.dot{width:.5rem;height:.5rem;border-radius:50%;display:inline-block;flex:none}
-.dot--gen{background:var(--jade)}
-.dot--spec{background:var(--brass)}
-.dot--free{background:var(--muted)}
-.credits__total{margin-left:auto;padding-left:.7rem;border-left:1px solid var(--rule)}
+.work__link:hover{text-decoration:underline}
+.work__link svg{width:.8rem;height:.8rem;transition:transform .3s var(--spring)}
+.work__link:hover svg{transform:translateX(3px)}
 
 /* ============================================================
    VIDEO WALL — 9:16 tiles that play only while on screen
@@ -396,11 +746,14 @@ tbody tr:last-child td{border-bottom:0}
   grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));
   margin-top:1.4rem;
 }
-.vtile{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.vtile{margin:0;display:flex;flex-direction:column;gap:.55rem}
 .vtile__media{
   position:relative;aspect-ratio:9/16;overflow:hidden;
-  background:var(--panel);border:1px solid var(--rule);
+  background:var(--panel-2);border:1px solid var(--rule);
+  border-radius:var(--r);
+  transition:transform .4s var(--spring),box-shadow .3s,border-color .25s;
 }
+.vtile:hover .vtile__media{transform:translateY(-5px) scale(1.02);box-shadow:var(--shadow);border-color:var(--peach)}
 .vtile__media video{
   width:100%;height:100%;object-fit:cover;display:block;
   opacity:0;transition:opacity .35s ease;
@@ -415,28 +768,39 @@ tbody tr:last-child td{border-bottom:0}
 .vtile.is-ready .vtile__pending{display:none}
 .vtile__views{
   position:absolute;left:.4rem;bottom:.4rem;z-index:2;
+  display:flex;align-items:center;gap:.25rem;
   font-family:var(--f-mono);font-size:.62rem;font-variant-numeric:tabular-nums;
-  padding:.15rem .35rem;color:#FFFFFF;background:rgba(0,0,0,.62);
+  padding:.2rem .45rem;border-radius:var(--r-pill);
+  color:#FFFFFF;background:rgba(20,8,4,.66);backdrop-filter:blur(4px);
 }
+.vtile__views svg{width:.7rem;height:.7rem}
 .vtile__cap{display:flex;flex-direction:column;gap:.12rem}
-.vtile__label{font-size:.76rem;line-height:1.35;color:var(--ink-2)}
+.vtile__label{font-size:.78rem;line-height:1.35;color:var(--ink);font-weight:500}
 .vtile__chan{
   position:absolute;right:.4rem;top:.4rem;z-index:2;
   font-family:var(--f-mono);font-size:.55rem;letter-spacing:.06em;
-  text-transform:uppercase;padding:.15rem .35rem;
-  color:#FFFFFF;background:rgba(0,0,0,.62);
+  text-transform:uppercase;padding:.2rem .45rem;border-radius:var(--r-pill);
+  color:#FFFFFF;background:rgba(20,8,4,.66);backdrop-filter:blur(4px);
 }
 .vtile.is-full .vtile__chan{display:none}
-.vtile__sub{font-size:.66rem;line-height:1.35;color:var(--muted)}
+.vtile__sub{font-size:.68rem;line-height:1.35;color:var(--muted)}
 .vtile.is-full .vtile__media video{opacity:1}
 .vtile.is-full .vtile__pending,
 .vtile.is-full .vtile__views{display:none}
 .vtile__btn{
   position:absolute;inset:0;z-index:3;width:100%;height:100%;
-  border:0;background:transparent;cursor:pointer;
-  font-size:0;color:transparent;
+  border:0;background:transparent;cursor:pointer;font-size:0;color:transparent;
 }
-.vtile__btn:focus-visible{outline:2px solid var(--focus);outline-offset:-3px}
+.vtile__btn::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:2.4rem;height:2.4rem;margin:-1.2rem 0 0 -1.2rem;border-radius:50%;
+  background:rgba(255,255,255,.9) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23DE5B34'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/1.2rem no-repeat;
+  opacity:0;transform:scale(.6);
+  transition:opacity .3s,transform .4s var(--spring);
+}
+.vtile:hover .vtile__btn::after,
+.vtile__btn:focus-visible::after{opacity:1;transform:scale(1)}
+.vtile__btn:focus-visible{outline:2px solid var(--focus);outline-offset:-3px;border-radius:var(--r)}
 :root[data-lang="my"] .vtile__views,
 :root[data-lang="th"] .vtile__views,
 :root[data-lang="my"] .vtile__pending,
@@ -452,33 +816,32 @@ tbody tr:last-child td{border-bottom:0}
 .lb{
   border:0;padding:0;margin:0;background:transparent;
   width:100%;max-width:100%;height:100%;max-height:100%;
-  overflow:hidden;color:#EDEEEA;
+  overflow:hidden;color:#FFF3EA;
 }
-.lb::backdrop{background:rgba(6,12,10,.94)}
-.lb__inner{
-  height:100%;display:grid;grid-template-rows:auto 1fr auto;
-  gap:.75rem;padding:.75rem;
-}
+.lb::backdrop{background:rgba(18,8,5,.94)}
+.lb__inner{height:100%;display:grid;grid-template-rows:auto 1fr auto;gap:.75rem;padding:.75rem}
 .lb__bar{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
 .lb__count{
-  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;
-  color:#8FA69C;font-variant-numeric:tabular-nums;
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;
+  color:#C6A899;font-variant-numeric:tabular-nums;
 }
 .lb__stage{display:flex;align-items:center;justify-content:center;min-height:0;position:relative}
 .lb__video{
   max-height:100%;max-width:100%;aspect-ratio:9/16;
-  height:100%;width:auto;background:#000;display:block;
+  height:100%;width:auto;background:#000;display:block;border-radius:var(--r);
 }
 .lb__foot{display:flex;flex-direction:column;gap:.15rem;text-align:center;padding-bottom:.35rem}
-.lb__title{font-family:var(--f-display);font-size:1rem}
-.lb__sub{font-size:.75rem;color:#8FA69C}
+.lb__title{font-family:var(--f-display);font-size:1.05rem;font-weight:600}
+.lb__sub{font-size:.78rem;color:#C6A899}
 .lb__btn{
-  min-width:44px;min-height:44px;display:grid;place-items:center;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
-  color:#EDEEEA;font-size:1.1rem;line-height:1;cursor:pointer;
+  min-width:44px;min-height:44px;display:grid;place-items:center;border-radius:50%;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);
+  color:#FFF3EA;font-size:1.05rem;line-height:1;cursor:pointer;
+  transition:background .2s,transform .3s var(--spring);
 }
-.lb__btn:hover{background:rgba(255,255,255,.16)}
-.lb__btn:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
+.lb__btn:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+.lb__btn:active{transform:scale(.92)}
+.lb__btn:focus-visible{outline:2px solid var(--peach);outline-offset:2px}
 .lb__nav{display:flex;gap:.5rem}
 @media (min-width:48rem){
   .lb__inner{padding:1.25rem}
@@ -488,187 +851,322 @@ tbody tr:last-child td{border-bottom:0}
 /* ============================================================
    CONTACT + FOOTER
    ============================================================ */
-.contact{display:flex;flex-direction:column;gap:.1rem;margin-top:1.2rem}
+.contact{display:grid;gap:.7rem;margin-top:1.2rem;grid-template-columns:1fr}
 .crow{
-  display:flex;gap:1rem;align-items:baseline;
-  padding:.8rem 0;border-bottom:1px solid var(--rule-soft);
+  display:flex;gap:.9rem;align-items:center;
+  background:var(--panel);border:1px solid var(--rule);
+  border-radius:var(--r);padding:.85rem 1rem;text-decoration:none;color:inherit;
+  transition:transform .35s var(--spring),box-shadow .3s,border-color .25s;
 }
+.crow:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--peach);color:inherit}
+.crow__ico{
+  width:2.2rem;height:2.2rem;flex:none;border-radius:10px;display:grid;place-items:center;
+  background:var(--peach-wash);color:var(--peach-ink);
+}
+.crow:nth-child(2) .crow__ico{background:var(--sky-wash);color:var(--sky)}
+.crow:nth-child(3) .crow__ico{background:var(--jade-wash);color:var(--jade-ink)}
+.crow__ico svg{width:1.05rem;height:1.05rem}
 .crow__k{
-  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);flex:0 0 5.5rem;
+  font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);display:block;
 }
 :root[data-lang="my"] .crow__k,
 :root[data-lang="th"] .crow__k,
-:root[data-lang="zh"] .crow__k{font-family:var(--f-body);text-transform:none;letter-spacing:.04em}
+:root[data-lang="zh"] .crow__k{font-family:var(--f-body);text-transform:none;letter-spacing:.03em}
+.crow__v{font-size:.92rem;font-weight:500;word-break:break-word}
 
 footer{
-  padding:2rem var(--gap) 3rem;
-  border-top:1px solid var(--rule);
-  color:var(--muted);
-  font-size:.78rem;
+  padding:2rem var(--gap) calc(3rem + env(safe-area-inset-bottom));
+  border-top:1px solid var(--rule);color:var(--muted);font-size:.8rem;
+}
+footer .wrap{display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap}
+
+/* back-to-top, appears once you're past the hero */
+.totop{
+  position:fixed;right:1rem;z-index:55;
+  bottom:calc(1rem + env(safe-area-inset-bottom));
+  width:2.8rem;height:2.8rem;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;
+  background:var(--cta);color:var(--on-cta);border:0;box-shadow:var(--shadow);
+  opacity:0;transform:translateY(1rem) scale(.8);pointer-events:none;
+  transition:opacity .3s,transform .45s var(--spring);
+}
+.totop.is-on{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:var(--cta-hover)}
+.totop:active{transform:scale(.9)}
+.totop svg{width:1.1rem;height:1.1rem}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+@media (min-width:40rem){
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .grid{grid-template-columns:1fr 1fr;gap:1.1rem}
+  .contact{grid-template-columns:1fr 1fr}
+  .hero__top{flex-direction:row-reverse;align-items:center;gap:2rem}
+  .hero__figure{align-self:flex-start;flex:none}
 }
 
 /* ============================================================
-   DESKTOP — rail becomes a fixed spine
+   DESKTOP — the drawer stops being a drawer and becomes a spine
    ============================================================ */
 @media (min-width:64rem){
+  .topbar,.scrim,.rail__close{display:none}
   .shell{display:grid;grid-template-columns:var(--rail) 1fr;align-items:start}
   .rail{
-    position:sticky;top:0;height:100vh;
-    border-bottom:0;border-right:1px solid var(--rule);
-    padding:3rem 1.75rem;
-    display:flex;flex-direction:column;gap:2rem;
+    position:sticky;inset:auto;top:0;height:100vh;width:auto;
+    transform:none;box-shadow:none;
+    padding:2.25rem 1.5rem;
+    background:color-mix(in srgb,var(--paper-2) 70%,transparent);
   }
-  .rail__id{flex-direction:column;gap:.25rem}
-  .rail__name{font-size:1.3rem;white-space:normal}
-  .langbar{margin-top:0;flex-direction:column;align-items:flex-start}
-  .langbtn{width:100%;text-align:left}
-  .index{display:flex;flex-direction:column;gap:.1rem;margin-top:auto}
-  .index a{
-    font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;
-    color:var(--muted);text-decoration:none;
-    padding-block:.3rem;            /* lifts the hit area past the 24px minimum */
-  }
-  :root[data-lang="my"] .index a,
-  :root[data-lang="th"] .index a,
-  :root[data-lang="zh"] .index a{font-family:var(--f-body);letter-spacing:0;font-size:.8rem}
-  .index a:hover{color:var(--jade)}
-  .main{padding:clamp(3rem,6vw,5rem) clamp(2rem,6vw,5rem) 5rem}
-  .grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .main{padding:clamp(2.5rem,5vw,4rem) clamp(2rem,6vw,4.5rem) 4rem}
   .fact__k{flex-basis:7.5rem}
+  html{scroll-padding-top:2rem}
+  .langgrid{grid-template-columns:1fr 1fr}
+  .totop{right:2rem;bottom:2rem}
 }
 
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
-}
-
-/* Print to PDF = a clean one-page CV */
+/* ============================================================
+   PRINT — collapses to a clean CV
+   ============================================================ */
 @media print{
-  :root{--paper:#fff;--ink:#000;--ink-2:#222;--muted:#555;--rule:#bbb;--rule-soft:#ddd;--jade:#0F4838}
-  .rail,.actions,.index{display:none}
+  :root{--paper:#fff;--panel:#fff;--panel-2:#fff;--sunk:#f4f4f4;
+        --ink:#000;--ink-2:#222;--muted:#555;--rule:#bbb;--rule-soft:#ddd;
+        --peach:#8a3616;--peach-ink:#8a3616;--jade:#0C5A4A;--shadow:none;--shadow-sm:none}
+  body{background:#fff}
+  .rail,.topbar,.actions,.totop,.greet,.vidwall,.scrim{display:none}
   .shell{display:block}
   .main{padding:0}
-  section{page-break-inside:avoid;padding-block:1.2rem}
+  section{page-break-inside:avoid;padding-block:1.1rem}
+  .card,.tl__card,.lang,.crow,.stat,.meter{box-shadow:none;border-color:#ccc}
+  [data-reveal]{opacity:1;transform:none}
 }
+
+/* Without JS nothing ever gets .is-in, so unhide everything up front */
 </style>
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important}.meter__fill{width:99%!important}</style></noscript>
+
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- Icon sprite. One definition, reused everywhere; inherits currentColor. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M7 3v18M17 3v18M2 12h20M2 7.5h5M2 16.5h5M17 7.5h5M17 16.5h5"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11.5V17c0 1.4 2.7 3 6 3s6-1.6 6-3v-5.5"/></symbol>
+<symbol id="i-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 7 9 6 9-6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+<symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+<symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2c4 0 4.75 2.6 4.75 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2.05 1.4-2.05 2.8V21h-4z"/></symbol>
+<symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a5 5 0 0 1-3-2.8h-3v12.1a2.9 2.9 0 1 1-2.1-2.8V9.2a6 6 0 1 0 5.1 5.9V9.4a8 8 0 0 0 4.6 1.5V7.8a4.8 4.8 0 0 1-1.6-.3z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.3A4 4 0 0 1 12 8a4 4 0 0 1 7 2.7C19 15.6 12 20 12 20z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+</defs></svg>
 
 <div class="shell">
 
-  <!-- =========================== RAIL =========================== -->
-  <header class="rail">
-    <div class="rail__id">
-      <span class="rail__name">Ei Phyu Sin Thant</span>
-      <span class="rail__role" data-i18n="railRole">Economics · Property</span>
+  <!-- =========================== TOP BAR (mobile only) =========================== -->
+  <div class="topbar">
+    <div class="topbar__id">
+      <img class="topbar__ava" src="media/portrait-sm.jpg" width="320" height="320" alt="" decoding="async">
+      <span class="topbar__name">Ei Phyu Sin Thant</span>
+    </div>
+    <button class="iconbtn" id="themeQuick" type="button" aria-label="Switch theme" data-i18n-aria="ariaTheme">
+      <svg aria-hidden="true"><use href="#i-sun"></use></svg>
+    </button>
+    <button class="iconbtn burger" id="burger" type="button"
+            aria-expanded="false" aria-controls="rail" aria-label="Open menu" data-i18n-aria="ariaMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path class="l l1" d="M4 7h16"/><path class="l l2" d="M4 12h16"/><path class="l l3" d="M4 17h16"/>
+      </svg>
+    </button>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- =========================== RAIL / DRAWER =========================== -->
+  <header class="rail" id="rail">
+    <div class="rail__head">
+      <img class="rail__ava" src="media/portrait-sm.jpg" width="320" height="320" alt="" decoding="async">
+      <div>
+        <span class="rail__name">Ei Phyu Sin Thant</span>
+        <span class="rail__native">辛玉 · Xin Yu</span>
+        <span class="rail__role" data-i18n="railRole">Economics · Property</span>
+      </div>
+      <button class="iconbtn rail__close" id="railClose" type="button" aria-label="Close menu" data-i18n-aria="ariaClose">
+        <svg aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
     </div>
 
-    <nav class="langbar" aria-label="Language">
-      <button class="langbtn" data-lang-set="en" aria-pressed="true">English</button>
-      <button class="langbtn" data-lang-set="zh" aria-pressed="false">简体中文</button>
-      <button class="langbtn" data-lang-set="th" aria-pressed="false">ไทย</button>
-      <button class="langbtn" data-lang-set="my" aria-pressed="false">မြန်မာ</button>
+    <nav class="index" id="index" aria-label="Sections">
+      <a href="#about"><span class="ico"><svg aria-hidden="true"><use href="#i-user"></use></svg></span><span data-i18n="navAbout">About</span></a>
+      <a href="#video"><span class="ico"><svg aria-hidden="true"><use href="#i-film"></use></svg></span><span data-i18n="navVideo">On camera</span></a>
+      <a href="#languages"><span class="ico"><svg aria-hidden="true"><use href="#i-globe"></use></svg></span><span data-i18n="navLang">Languages</span></a>
+      <a href="#education"><span class="ico"><svg aria-hidden="true"><use href="#i-cap"></use></svg></span><span data-i18n="navEdu">Education</span></a>
+      <a href="#experience"><span class="ico"><svg aria-hidden="true"><use href="#i-case"></use></svg></span><span data-i18n="navExp">Experience</span></a>
+      <a href="#toolkit"><span class="ico"><svg aria-hidden="true"><use href="#i-spark"></use></svg></span><span data-i18n="navKit">Toolkit</span></a>
+      <a href="#work"><span class="ico"><svg aria-hidden="true"><use href="#i-folder"></use></svg></span><span data-i18n="navWork">Work</span></a>
+      <a href="#contact"><span class="ico"><svg aria-hidden="true"><use href="#i-mail"></use></svg></span><span data-i18n="navContact">Contact</span></a>
     </nav>
 
-    <nav class="index" aria-label="Sections">
-      <a href="#about"      data-i18n="navAbout">About</a>
-      <a href="#video"      data-i18n="navVideo">On camera</a>
-      <a href="#languages"  data-i18n="navLang">Languages</a>
-      <a href="#education"  data-i18n="navEdu">Education</a>
-      <a href="#experience" data-i18n="navExp">Experience</a>
-      <a href="#toolkit"    data-i18n="navKit">Toolkit</a>
-      <a href="#work"       data-i18n="navWork">Work</a>
-      <a href="#contact"    data-i18n="navContact">Contact</a>
-    </nav>
+    <div>
+      <p class="grouph" data-i18n="grpLang">Language</p>
+      <nav class="langbar" aria-label="Language">
+        <button class="langbtn" data-lang-set="en" aria-pressed="true">English</button>
+        <button class="langbtn" data-lang-set="zh" aria-pressed="false">简体中文</button>
+        <button class="langbtn" data-lang-set="th" aria-pressed="false">ไทย</button>
+        <button class="langbtn" data-lang-set="my" aria-pressed="false">မြန်မာ</button>
+      </nav>
+    </div>
+
+    <div>
+      <p class="grouph" data-i18n="grpTheme">Appearance</p>
+      <div class="themebar" role="group" aria-label="Theme">
+        <button class="themebtn" data-theme-set="auto"  type="button" aria-pressed="true"  aria-label="System theme" data-i18n-aria="ariaAuto"><svg aria-hidden="true"><use href="#i-auto"></use></svg></button>
+        <button class="themebtn" data-theme-set="light" type="button" aria-pressed="false" aria-label="Light theme"  data-i18n-aria="ariaLight"><svg aria-hidden="true"><use href="#i-sun"></use></svg></button>
+        <button class="themebtn" data-theme-set="dark"  type="button" aria-pressed="false" aria-label="Dark theme"   data-i18n-aria="ariaDark"><svg aria-hidden="true"><use href="#i-moon"></use></svg></button>
+      </div>
+    </div>
+
+    <div class="railsocial">
+      <a href="mailto:xinyu.mgk@icloud.com" aria-label="Email"><svg aria-hidden="true"><use href="#i-mail"></use></svg></a>
+      <a href="https://www.linkedin.com/in/ei-phyu-sin-thant-2239822b9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-in"></use></svg></a>
+      <a href="https://www.tiktok.com/@xinxin.property.pattaya" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tt"></use></svg></a>
+    </div>
   </header>
 
   <!-- =========================== MAIN =========================== -->
-  <main class="main">
+  <main class="main" id="main">
   <div class="wrap">
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="heroName">
       <div class="hero__top">
+
+        <figure class="hero__figure" data-reveal style="--i:1">
+          <span class="hero__blob" aria-hidden="true"></span>
+          <img class="hero__portrait" src="media/portrait.jpg" width="900" height="900"
+               alt="Ei Phyu Sin Thant" fetchpriority="high" decoding="async">
+          <figcaption class="hero__badge">
+            <span class="pip" aria-hidden="true"></span>
+            <span data-i18n="badgeOpen">Open to graduate roles</span>
+          </figcaption>
+        </figure>
+
         <div class="hero__intro">
-          <p class="eyebrow" data-i18n="heroEyebrow">Pattaya · Jomtien · Thailand</p>
-          <h1 class="hero__name" id="heroName">Ei Phyu Sin Thant</h1>
-          <p class="hero__native">
-            <span class="ph">[her name in Burmese / Thai / Chinese — to confirm]</span>
+          <p class="hero__hi" data-reveal style="--i:0">
+            <span data-i18n="heroEyebrow">Chiang Rai · Pattaya · Thailand</span>
+          </p>
+          <h1 class="hero__name" id="heroName" data-reveal style="--i:1">Ei Phyu Sin Thant</h1>
+          <p class="hero__native" data-reveal style="--i:2">
+            <b lang="zh-Hans">辛玉</b> <span data-i18n="nativeNote">Xin Yu — the name she teaches and films under</span>
+          </p>
+          <p class="hero__lede" data-reveal style="--i:3" data-i18n="heroLede">
+            Economics undergraduate at Mae Fah Luang University. HSK Level 3 at nine years old,
+            teaching Chinese since 2020, and most recently presenting Pattaya property on camera
+            in four languages.
           </p>
         </div>
-        <img class="hero__portrait" src="video/portrait.jpg" width="560" height="560"
-             alt="Ei Phyu Sin Thant" fetchpriority="high" decoding="async">
       </div>
 
-      <p class="hero__lede" data-i18n="heroLede">
-        Economics graduate working where four languages and three borders meet —
-        cross-border trade, regional markets, and property in northern Thailand.
-      </p>
+      <!-- four languages saying hello, on a loop -->
+      <div class="greet" data-reveal style="--i:4" aria-hidden="true">
+        <div class="greet__track" id="greetTrack"></div>
+      </div>
 
-      <div class="facts">
+      <div class="stats" data-reveal style="--i:5">
+        <div class="stat"><p class="stat__n" data-count="4">4</p><p class="stat__k" data-i18n="statLang">working languages</p></div>
+        <div class="stat"><p class="stat__n"><span data-count="297">297</span>/300</p><p class="stat__k" data-i18n="statHsk">HSK Level 3, at age 9</p></div>
+        <div class="stat"><p class="stat__n">2020</p><p class="stat__k" data-i18n="statTeach">teaching Chinese since</p></div>
+        <div class="stat"><p class="stat__n" data-count="9">9</p><p class="stat__k" data-i18n="statFilm">property films on camera</p></div>
+      </div>
+
+      <div class="facts" data-reveal style="--i:6">
         <div class="fact">
           <span class="fact__k" data-i18n="factDegree">Degree</span>
-          <span class="fact__v">BEcon, Mae Fah Luang University — <span class="ph">[expected MONTH YEAR]</span></span>
+          <span class="fact__v" data-i18n="factDegreeV">BEcon, Mae Fah Luang University — in progress</span>
         </div>
         <div class="fact">
           <span class="fact__k" data-i18n="factRole">Recent role</span>
-          <span class="fact__v" data-i18n="factRoleV">Intern, Anjia Property</span>
+          <span class="fact__v" data-i18n="factRoleV">Intern, Anjia Property — Pattaya</span>
         </div>
         <div class="fact">
           <span class="fact__k" data-i18n="factLang">Languages</span>
-          <span class="fact__v">English · 中文 · ไทย · မြန်မာ</span>
+          <span class="fact__v">မြန်မာ · English · ไทย · 中文</span>
         </div>
         <div class="fact">
           <span class="fact__k" data-i18n="factBase">Based in</span>
-          <span class="fact__v" data-i18n="factBaseV">Chiang Rai, Thailand</span>
+          <span class="fact__v" data-i18n="factBaseV">Thailand — from Mogok, Myanmar</span>
         </div>
       </div>
 
-      <div class="actions">
-        <a class="btn btn--solid" href="#contact" data-i18n="ctaContact">Get in touch</a>
-        <a class="btn" href="#" data-i18n="ctaCv">Download CV</a>
+      <div class="actions" data-reveal style="--i:7">
+        <a class="btn btn--solid" href="#contact">
+          <svg aria-hidden="true"><use href="#i-mail"></use></svg>
+          <span data-i18n="ctaContact">Get in touch</span>
+        </a>
+        <a class="btn" href="#video">
+          <svg aria-hidden="true"><use href="#i-film"></use></svg>
+          <span data-i18n="ctaWatch">Watch her on camera</span>
+        </a>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" aria-labelledby="h-about">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-about" data-i18n="navAbout">About</h2>
       </div>
       <div class="prose">
-        <p>
-          <span class="ph">[Opening paragraph — 2–3 sentences in her own voice. Who she is,
-          what she's drawn to in economics, and what she wants to do next.]</span>
+        <p data-reveal style="--i:1" data-i18n="ab1">
+          I grew up in <strong>Mogok, Myanmar</strong>, and started learning Chinese young enough
+          that HSK Level 3 came at nine years old — <strong>297 out of 300</strong>.
         </p>
-        <p>
-          She is completing a <strong>Bachelor of Economics</strong> at
-          <strong>Mae Fah Luang University</strong> in Chiang Rai, a programme taught entirely in
-          English under the philosophy <em>"Economics for Future Society."</em> Her most recent
-          role was an internship with <strong>Anjia Property</strong>,
-          <span class="ph">[one line on what the internship involved]</span>.
+        <p data-reveal style="--i:2" data-i18n="ab2">
+          Since June 2020 I have taught Mandarin to younger students at
+          <strong>ESC Chinese Language Training Center</strong>, the school where I had been a
+          student since childhood — first in the classroom, then online.
         </p>
-        <p>
-          <span class="ph">[Closing paragraph — the thread that ties the languages, the region,
-          and the economics together. What kind of work she's looking for.]</span>
+        <p data-reveal style="--i:3" data-i18n="ab3">
+          Today I am studying for a <strong>Bachelor of Economics</strong> at
+          <strong>Mae Fah Luang University</strong> in Chiang Rai, taught entirely in English
+          under the philosophy “Economics for Future Society” — a 123-credit degree weighted
+          toward mathematics, statistics and econometrics. Most recently I interned with
+          <strong>Anjia Property</strong> in Pattaya, presenting pool villas, branded residences
+          and beachfront condos on camera.
+        </p>
+        <p data-reveal style="--i:4" data-i18n="ab4">
+          I am looking for graduate work where the economics and the languages pull in the same
+          direction: market and trade research, investment analysis, or property consulting
+          across the Thailand–Myanmar–China corridor.
         </p>
       </div>
     </section>
 
     <!-- ON CAMERA -->
     <section id="video" aria-labelledby="h-video">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-video" data-i18n="navVideo">On camera</h2>
       </div>
       <div class="prose">
-        <p data-i18n="videoIntro">Eight property walk-throughs presented on camera for the
-          agency's channel — pool villas, branded residences and beachfront condos across
-          Pattaya and Jomtien, one of them filmed in Burmese.</p>
+        <p data-reveal style="--i:1" data-i18n="videoIntro">Nine property walk-throughs presented on
+          camera for the agency's channel — pool villas, branded residences and beachfront condos
+          across Pattaya and Jomtien, including one filmed in Burmese and one in Thai.</p>
       </div>
 
-      <div class="vidwall" id="vidwall"></div>
+      <div class="vidwall" id="vidwall" data-reveal style="--i:2"></div>
 
-      <p class="eyebrow" style="margin-top:1.1rem">
-        <span data-i18n="videoNote">Tiles play while on screen and pause when scrolled away.</span>
+      <p class="eyebrow" style="margin-top:1.1rem" data-reveal>
+        <span data-i18n="videoNote">Tiles play while on screen and pause when scrolled away. Tap one for the full film.</span>
         <a href="https://www.tiktok.com/@xinxin.property.pattaya"
            target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya&nbsp;↗</a>
       </p>
@@ -676,173 +1174,207 @@ footer{
 
     <!-- LANGUAGES -->
     <section id="languages" aria-labelledby="h-lang">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-lang" data-i18n="navLang">Languages</h2>
       </div>
-      <div class="prose" style="margin-bottom:1.3rem">
-        <p data-i18n="langIntro">
-          Four working languages across the Thailand–Myanmar–China corridor.
+      <div class="prose">
+        <p data-reveal style="--i:1" data-i18n="langIntro">
+          Four working languages across the Thailand–Myanmar–China corridor — each one earning
+          its place in her studies, her teaching, or her client work.
         </p>
       </div>
-      <div class="tablewrap">
-        <table>
-          <thead>
-            <tr>
-              <th data-i18n="thLang">Language</th>
-              <th data-i18n="thSpeak">Speaking</th>
-              <th data-i18n="thWrite">Reading &amp; writing</th>
-              <th data-i18n="thUse">Used for</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="lang-cell">မြန်မာ<span>Burmese</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td><span class="ph">[e.g. first language; Myanmar clients]</span></td>
-            </tr>
-            <tr>
-              <td class="lang-cell">English<span>English</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td data-i18n="useEn">Degree taught in English; international clients</td>
-            </tr>
-            <tr>
-              <td class="lang-cell">ไทย<span>Thai</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td data-i18n="useTh">Local market, university, documentation</td>
-            </tr>
-            <tr>
-              <td class="lang-cell">中文<span>Mandarin Chinese</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td><span class="ph">[level]</span></td>
-              <td data-i18n="useZh">Chinese-speaking buyers and investors</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="langgrid">
+        <div class="lang" data-reveal style="--i:1">
+          <span class="lang__glyph" aria-hidden="true">မ</span>
+          <div class="lang__body">
+            <p class="lang__name">မြန်မာ <span>Burmese</span></p>
+            <p class="lang__role" data-i18n="langMyRole">First language.</p>
+            <span class="lang__proof" data-i18n="langMyProof">Grew up in Mogok · one property film presented in Burmese</span>
+          </div>
+        </div>
+        <div class="lang" data-reveal style="--i:2">
+          <span class="lang__glyph" aria-hidden="true">中</span>
+          <div class="lang__body">
+            <p class="lang__name">中文 <span>Mandarin Chinese</span></p>
+            <p class="lang__role" data-i18n="langZhRole">The language she teaches.</p>
+            <span class="lang__proof" data-i18n="langZhProof">HSK Level 3, 297/300 · instructor at ESC since 2020</span>
+          </div>
+        </div>
+        <div class="lang" data-reveal style="--i:3">
+          <span class="lang__glyph" aria-hidden="true">A</span>
+          <div class="lang__body">
+            <p class="lang__name">English <span>English</span></p>
+            <p class="lang__role" data-i18n="langEnRole">The language of her degree.</p>
+            <span class="lang__proof" data-i18n="langEnProof">MFU economics taught entirely in English</span>
+          </div>
+        </div>
+        <div class="lang" data-reveal style="--i:4">
+          <span class="lang__glyph" aria-hidden="true">ก</span>
+          <div class="lang__body">
+            <p class="lang__name">ไทย <span>Thai</span></p>
+            <p class="lang__role" data-i18n="langThRole">Daily and market language.</p>
+            <span class="lang__proof" data-i18n="langThProof">Living and studying in Thailand · one property film in Thai</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="meter" id="hskMeter" data-reveal style="--i:5">
+        <div class="meter__top">
+          <span class="meter__lab" data-i18n="hskLab">HSK Level 3 — taken at nine years old</span>
+          <span class="meter__val"><span data-count="297">297</span><small>/300</small></span>
+        </div>
+        <div class="meter__bar"><span class="meter__fill"></span></div>
+        <p class="meter__note" data-i18n="hskNote">A pass is 180. She scored 297.</p>
       </div>
     </section>
 
     <!-- EDUCATION -->
     <section id="education" aria-labelledby="h-edu">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-edu" data-i18n="navEdu">Education</h2>
       </div>
       <div class="tl">
-        <div class="tl__item">
-          <span class="tl__dot"></span>
-          <p class="tl__date"><span class="ph">[start year]</span> — <span class="ph">[expected MONTH YEAR]</span></p>
-          <h3 class="tl__title">Bachelor of Economics (BEcon)</h3>
-          <p class="tl__org">Mae Fah Luang University — School of Management, Chiang Rai</p>
-          <div class="tl__body">
-            <p data-i18n="eduNote">
-              Taught in English under the philosophy <em>"Economics for Future Society."</em>
-              A four-year, 123-credit degree weighted toward quantitative method — mathematics,
-              statistics and econometrics — alongside theory and applied data analysis.
-            </p>
+        <div class="tl__item" data-reveal style="--i:1">
+          <span class="tl__dot"><svg aria-hidden="true"><use href="#i-cap"></use></svg></span>
+          <div class="tl__card">
+            <p class="tl__date" data-i18n="eduNow">In progress</p>
+            <h3 class="tl__title">Bachelor of Economics (BEcon)</h3>
+            <p class="tl__org">Mae Fah Luang University — School of Management, Chiang Rai</p>
+            <div class="tl__body">
+              <p data-i18n="eduNote">
+                Taught in English under the philosophy “Economics for Future Society.”
+                A four-year, 123-credit degree weighted toward quantitative method — mathematics,
+                statistics and econometrics — alongside theory and applied data analysis.
+              </p>
 
-            <!-- Real curriculum structure, from the MFU programme specification -->
-            <div class="credits" role="img"
-                 aria-label="123 credits total: 24 general education, 93 specific requirement, 6 free elective">
-              <div class="credits__bar">
-                <span class="credits__seg credits__seg--gen"  style="flex:24"></span>
-                <span class="credits__seg credits__seg--spec" style="flex:93"></span>
-                <span class="credits__seg credits__seg--free" style="flex:6"></span>
+              <!-- Real curriculum structure, from the MFU programme specification -->
+              <div class="credits" role="img"
+                   aria-label="123 credits total: 24 general education, 93 specific requirement, 6 free elective">
+                <div class="credits__bar">
+                  <span class="credits__seg credits__seg--gen"  style="flex:24"></span>
+                  <span class="credits__seg credits__seg--spec" style="flex:93"></span>
+                  <span class="credits__seg credits__seg--free" style="flex:6"></span>
+                </div>
+                <ul class="credits__key">
+                  <li><span class="dot dot--gen"></span><b>24</b> <span data-i18n="crGen">General education</span></li>
+                  <li><span class="dot dot--spec"></span><b>93</b> <span data-i18n="crSpec">Specific requirement</span></li>
+                  <li><span class="dot dot--free"></span><b>6</b> <span data-i18n="crFree">Free elective</span></li>
+                  <li class="credits__total"><b>123</b> <span data-i18n="crTotal">credits</span></li>
+                </ul>
               </div>
-              <ul class="credits__key">
-                <li><span class="dot dot--gen"></span><b>24</b> <span data-i18n="crGen">General education</span></li>
-                <li><span class="dot dot--spec"></span><b>93</b> <span data-i18n="crSpec">Specific requirement</span></li>
-                <li><span class="dot dot--free"></span><b>6</b> <span data-i18n="crFree">Free elective</span></li>
-                <li class="credits__total"><b>123</b> <span data-i18n="crTotal">credits</span></li>
-              </ul>
             </div>
-            <ul>
-              <li><strong data-i18n="lblCourses">Selected coursework:</strong> <span class="ph">[list 4–6 courses]</span></li>
-              <li><strong data-i18n="lblThesis">Thesis / research:</strong> <span class="ph">[title and one-line summary]</span></li>
-              <li><strong data-i18n="lblHonours">Honours / GPA:</strong> <span class="ph">[only if she wants it shown]</span></li>
-            </ul>
           </div>
         </div>
-        <div class="tl__item">
-          <span class="tl__dot"></span>
-          <p class="tl__date"><span class="ph">[years]</span></p>
-          <h3 class="tl__title"><span class="ph">[Prior school / foundation programme]</span></h3>
-          <p class="tl__org"><span class="ph">[Institution, city]</span></p>
+
+        <div class="tl__item" data-reveal style="--i:2">
+          <span class="tl__dot"><svg aria-hidden="true"><use href="#i-doc"></use></svg></span>
+          <div class="tl__card">
+            <p class="tl__date" data-i18n="eduHskDate">Age 9</p>
+            <h3 class="tl__title" data-i18n="eduHskTitle">HSK Level 3 — 297 / 300</h3>
+            <p class="tl__org">ESC Chinese Language Training Center, Mogok</p>
+            <div class="tl__body">
+              <p data-i18n="eduHskNote">The Chinese proficiency exam she later went back to teach toward,
+                at the same school.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" aria-labelledby="h-exp">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-exp" data-i18n="navExp">Experience</h2>
       </div>
       <div class="tl">
-        <div class="tl__item">
-          <span class="tl__dot"></span>
-          <p class="tl__date"><span class="ph">[MONTH YEAR — MONTH YEAR]</span></p>
-          <h3 class="tl__title" data-i18n="expInternTitle">Intern</h3>
-          <p class="tl__org"><a href="https://www.anjia-home.net/" target="_blank" rel="noopener noreferrer">Anjia Property</a> — Pattaya</p>
-          <div class="tl__body">
-            <ul>
-              <li><span class="ph">[What she actually did — start with a verb. e.g. "Prepared listing
-                  material and market comparisons for X properties."]</span></li>
-              <li><span class="ph">[A second responsibility — ideally one where the languages mattered.]</span></li>
-              <li><span class="ph">[A result, with a number if there is one.]</span></li>
-            </ul>
+        <div class="tl__item" data-reveal style="--i:1">
+          <span class="tl__dot"><svg aria-hidden="true"><use href="#i-case"></use></svg></span>
+          <div class="tl__card">
+            <p class="tl__date" data-i18n="expInternDate">Most recent</p>
+            <h3 class="tl__title" data-i18n="expInternTitle">Intern — property presenter</h3>
+            <p class="tl__org"><a href="https://www.anjia-home.net/" target="_blank" rel="noopener noreferrer">Anjia Property</a> — Pattaya</p>
+            <div class="tl__body">
+              <ul>
+                <li data-i18n="expIn1">Presented nine property walk-throughs on camera for the agency's
+                    channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien.</li>
+                <li data-i18n="expIn2">Filmed in more than one language for different buyer audiences,
+                    including a Burmese-language feature and a Thai-language one.</li>
+                <li data-i18n="expIn3">The series drew over 9,900 views, led by a single villa
+                    feature at 3,300.</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="tl__item">
-          <span class="tl__dot"></span>
-          <p class="tl__date"><span class="ph">[dates]</span></p>
-          <h3 class="tl__title"><span class="ph">[Other role, part-time job, or university position]</span></h3>
-          <p class="tl__org"><span class="ph">[Organisation]</span></p>
-          <div class="tl__body"><p><span class="ph">[One or two lines.]</span></p></div>
+
+        <div class="tl__item" data-reveal style="--i:2">
+          <span class="tl__dot"><svg aria-hidden="true"><use href="#i-user"></use></svg></span>
+          <div class="tl__card">
+            <p class="tl__date" data-i18n="expEscDate">Since June 2020</p>
+            <h3 class="tl__title" data-i18n="expEscTitle">Mandarin instructor</h3>
+            <p class="tl__org">ESC Chinese Language Training Center — Mogok, Myanmar</p>
+            <div class="tl__body">
+              <ul>
+                <li data-i18n="expEsc1">Joined the teaching team at the school where she had studied
+                    Chinese since childhood, taking the under-tens.</li>
+                <li data-i18n="expEsc2">Moved lessons onto video calls when in-person teaching stopped,
+                    and kept teaching students and private clients remotely.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- TOOLKIT -->
     <section id="toolkit" aria-labelledby="h-kit">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-kit" data-i18n="navKit">Toolkit</h2>
       </div>
       <div class="grid">
-        <div class="kit">
-          <p class="kit__h" data-i18n="kitAnalysis">Economic analysis</p>
+        <div class="kit card" data-reveal style="--i:1">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-spark"></use></svg></span>
+            <span data-i18n="kitAnalysis">Economics &amp; method</span></p>
           <ul>
-            <li><span class="ph">[e.g. Microeconomic &amp; macroeconomic analysis]</span></li>
-            <li><span class="ph">[e.g. Econometrics / regression]</span></li>
-            <li><span class="ph">[e.g. Market &amp; trade research]</span></li>
+            <li data-i18n="kitA1">Microeconomics</li>
+            <li data-i18n="kitA2">Macroeconomics</li>
+            <li data-i18n="kitA3">Mathematics for economists</li>
+            <li data-i18n="kitA4">Statistics</li>
+            <li data-i18n="kitA5">Econometrics</li>
+            <li data-i18n="kitA6">Time series &amp; forecasting</li>
           </ul>
         </div>
-        <div class="kit">
-          <p class="kit__h" data-i18n="kitData">Data &amp; tools</p>
+        <div class="kit card" data-reveal style="--i:2">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-globe"></use></svg></span>
+            <span data-i18n="kitComms">Languages &amp; client work</span></p>
           <ul>
-            <li><span class="ph">[e.g. Excel — modelling, pivot tables]</span></li>
-            <li><span class="ph">[e.g. SPSS / Stata / R / Python]</span></li>
-            <li><span class="ph">[e.g. Canva, CRM, Google Workspace]</span></li>
+            <li data-i18n="kitC1">Four-language client liaison</li>
+            <li data-i18n="kitC2">Interpreting</li>
+            <li data-i18n="kitC3">Translation</li>
+            <li data-i18n="kitC4">Teaching &amp; tutoring</li>
           </ul>
         </div>
-        <div class="kit">
-          <p class="kit__h" data-i18n="kitProperty">Property &amp; market</p>
+        <div class="kit card" data-reveal style="--i:3">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-film"></use></svg></span>
+            <span data-i18n="kitCamera">On camera</span></p>
           <ul>
-            <li><span class="ph">[e.g. Listing preparation]</span></li>
-            <li><span class="ph">[e.g. Comparable market analysis]</span></li>
-            <li><span class="ph">[e.g. Client viewings &amp; follow-up]</span></li>
+            <li data-i18n="kitM1">Property walk-throughs</li>
+            <li data-i18n="kitM2">Presenting to camera</li>
+            <li data-i18n="kitM3">Short-form video</li>
+            <li data-i18n="kitM4">Multilingual scripting</li>
           </ul>
         </div>
-        <div class="kit">
-          <p class="kit__h" data-i18n="kitComms">Communication</p>
+        <div class="kit card" data-reveal style="--i:4">
+          <p class="kit__h"><span class="ico"><svg aria-hidden="true"><use href="#i-case"></use></svg></span>
+            <span data-i18n="kitProperty">Property &amp; market</span></p>
           <ul>
-            <li><span class="ph">[e.g. Four-language client liaison]</span></li>
-            <li><span class="ph">[e.g. Translation &amp; interpreting]</span></li>
-            <li><span class="ph">[e.g. Report writing &amp; presentation]</span></li>
+            <li data-i18n="kitP1">Listing presentation</li>
+            <li data-i18n="kitP2">Pattaya &amp; Jomtien market</li>
+            <li data-i18n="kitP3">Buyer-facing communication</li>
           </ul>
         </div>
       </div>
@@ -850,63 +1382,71 @@ footer{
 
     <!-- WORK -->
     <section id="work" aria-labelledby="h-work">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
-        <h2 id="h-work" data-i18n="navWork">Work &amp; research</h2>
+        <h2 id="h-work" data-i18n="navWork">Work &amp; credentials</h2>
       </div>
       <div class="grid">
-        <article class="work">
-          <p class="work__type" data-i18n="typeThesis">Thesis</p>
-          <h3 class="work__title"><span class="ph">[Thesis title]</span></h3>
-          <p class="work__desc"><span class="ph">[Two lines: the question, the method, the finding.]</span></p>
-        </article>
-        <article class="work">
-          <p class="work__type" data-i18n="typeProject">Course project</p>
-          <h3 class="work__title"><span class="ph">[Project title]</span></h3>
-          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
-        </article>
-        <article class="work">
-          <p class="work__type" data-i18n="typeReport">Internship report</p>
-          <h3 class="work__title"><span class="ph">[Report or deliverable title]</span></h3>
-          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
-        </article>
-        <article class="work">
+        <article class="card" data-reveal style="--i:1">
           <p class="work__type" data-i18n="typeCert">Certificate</p>
           <h3 class="work__title">Time Series Analysis for Beginners</h3>
-          <p class="work__desc">
-            <span data-i18n="certDesc">SkillUp by Simplilearn — completed 2026. The quantitative
-            side of the economics degree, applied to forecasting real series.</span>
-            <span class="ph">[confirm month]</span>
-          </p>
+          <p class="work__desc" data-i18n="certDesc">SkillUp by Simplilearn — completed 2026.
+            The quantitative side of the economics degree, applied to forecasting real series.</p>
         </article>
 
-        <article class="work">
-          <p class="work__type" data-i18n="typeOther">Activity</p>
-          <h3 class="work__title"><span class="ph">[Club, volunteering, competition]</span></h3>
-          <p class="work__desc"><span class="ph">[Two lines.]</span></p>
+        <article class="card" data-reveal style="--i:2">
+          <p class="work__type" data-i18n="typeCert">Certificate</p>
+          <h3 class="work__title" data-i18n="hskCardTitle">HSK Level 3 — 297 / 300</h3>
+          <p class="work__desc" data-i18n="hskCardDesc">Chinese proficiency, passed at nine years old
+            against a pass mark of 180.</p>
+        </article>
+
+        <article class="card" data-reveal style="--i:3">
+          <p class="work__type" data-i18n="typeSeries">Video series</p>
+          <h3 class="work__title" data-i18n="seriesTitle">Pattaya property, in four languages</h3>
+          <p class="work__desc" data-i18n="seriesDesc">Nine on-camera walk-throughs for Anjia Property's
+            channel, over 9,900 views combined.</p>
+          <a class="work__link" href="#video">
+            <span data-i18n="seriesLink">Watch the series</span>
+            <svg aria-hidden="true"><use href="#i-right"></use></svg>
+          </a>
+        </article>
+
+        <article class="card" data-reveal style="--i:4">
+          <p class="work__type" data-i18n="typeTeaching">Teaching</p>
+          <h3 class="work__title" data-i18n="teachTitle">Mandarin, ESC Chinese Language Training Center</h3>
+          <p class="work__desc" data-i18n="teachDesc">Instructor since June 2020, classroom and online,
+            for students under ten and private clients.</p>
         </article>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" aria-labelledby="h-contact">
-      <div class="sechead">
+      <div class="sechead" data-reveal>
         <span class="num mono"></span>
         <h2 id="h-contact" data-i18n="navContact">Contact</h2>
       </div>
-      <div class="prose"><p data-i18n="contactIntro">Open to graduate roles in economic analysis,
-        trade and investment research, and property consulting across the region.</p></div>
+      <div class="prose">
+        <p data-reveal style="--i:1" data-i18n="contactIntro">Open to graduate roles in economic analysis,
+          trade and investment research, and property consulting across the region — and happy to work
+          in any of four languages.</p>
+      </div>
       <div class="contact">
-        <div class="crow"><span class="crow__k">Email</span><span class="ph">[email address]</span></div>
-        <div class="crow"><span class="crow__k">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/ei-phyu-sin-thant-2239822b9/"
-             target="_blank" rel="noopener noreferrer">ei-phyu-sin-thant</a></div>
-        <div class="crow"><span class="crow__k">TikTok</span>
-          <a href="https://www.tiktok.com/@xinxin.property.pattaya"
-             target="_blank" rel="noopener noreferrer">@xinxin.property.pattaya</a></div>
-        <div class="crow"><span class="crow__k">Phone</span><span class="ph">[number, or leave out]</span></div>
-        <div class="crow"><span class="crow__k">LINE</span><span class="ph">[LINE ID]</span></div>
-        <div class="crow"><span class="crow__k">WeChat</span><span class="ph">[WeChat ID]</span></div>
+        <a class="crow" href="mailto:xinyu.mgk@icloud.com" data-reveal style="--i:1">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-mail"></use></svg></span>
+          <span><span class="crow__k">Email</span><span class="crow__v">xinyu.mgk@icloud.com</span></span>
+        </a>
+        <a class="crow" href="https://www.linkedin.com/in/ei-phyu-sin-thant-2239822b9/"
+           target="_blank" rel="noopener noreferrer" data-reveal style="--i:2">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-in"></use></svg></span>
+          <span><span class="crow__k">LinkedIn</span><span class="crow__v">ei-phyu-sin-thant</span></span>
+        </a>
+        <a class="crow" href="https://www.tiktok.com/@xinxin.property.pattaya"
+           target="_blank" rel="noopener noreferrer" data-reveal style="--i:3">
+          <span class="crow__ico"><svg aria-hidden="true"><use href="#i-tt"></use></svg></span>
+          <span><span class="crow__k">TikTok</span><span class="crow__v">@xinxin.property.pattaya</span></span>
+        </a>
       </div>
     </section>
 
@@ -934,133 +1474,319 @@ footer{
   </div>
 </dialog>
 
+<button class="totop" id="totop" type="button" aria-label="Back to top" data-i18n-aria="ariaTop">
+  <svg aria-hidden="true"><use href="#i-up"></use></svg>
+</button>
+
 <footer>
   <div class="wrap">
-    <p>© <span id="yr"></span> Ei Phyu Sin Thant · <span data-i18n="footNote">Chiang Rai, Thailand</span></p>
+    <p>© <span id="yr"></span> Ei Phyu Sin Thant · 辛玉</p>
+    <p data-i18n="footNote">Chiang Rai &amp; Pattaya, Thailand</p>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   i18n — chrome and headings translate; personal content is
-   filled in per language once the real copy arrives.
+   i18n — the whole page translates, not just the chrome.
+   Values containing markup are injected as HTML; every string here
+   is authored in this file, never user input.
    ============================================================ */
 var I18N = {
   en:{
+    skip:"Skip to content",
     railRole:"Economics · Property",
     navAbout:"About", navLang:"Languages", navEdu:"Education", navExp:"Experience",
-    navKit:"Toolkit", navWork:"Work & research", navContact:"Contact", navVideo:"On camera",
-    heroEyebrow:"Pattaya · Jomtien · Thailand",
-    heroLede:"Economics undergraduate presenting Pattaya property on camera — pool villas and premium condos, in four languages.",
-    videoIntro:"Eight property walk-throughs presented on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien, one of them filmed in Burmese.",
-    videoNote:"Tiles play while on screen and pause when scrolled away.",
-    factDegree:"Degree", factRole:"Recent role", factRoleV:"Intern, Anjia Property",
-    factLang:"Languages", factBase:"Based in", factBaseV:"Pattaya, Thailand",
-    ctaContact:"Get in touch", ctaCv:"Download CV",
-    langIntro:"Four working languages for Thailand's most international property market.",
-    thLang:"Language", thSpeak:"Speaking", thWrite:"Reading & writing", thUse:"Used for",
-    useEn:"Degree taught in English; international clients",
-    useTh:"Local market, university, documentation",
-    useZh:"Chinese-speaking buyers and investors",
+    navKit:"Toolkit", navWork:"Work & credentials", navContact:"Contact", navVideo:"On camera",
+    grpLang:"Language", grpTheme:"Appearance",
+    ariaTheme:"Switch theme", ariaMenu:"Open menu", ariaClose:"Close menu",
+    ariaAuto:"System theme", ariaLight:"Light theme", ariaDark:"Dark theme", ariaTop:"Back to top",
+    heroEyebrow:"Chiang Rai · Pattaya · Thailand",
+    nativeNote:"Xin Yu — the name she teaches and films under",
+    badgeOpen:"Open to graduate roles",
+    heroLede:"Economics undergraduate at Mae Fah Luang University. HSK Level 3 at nine years old, teaching Chinese since 2020, and most recently presenting Pattaya property on camera in four languages.",
+    statLang:"working languages", statHsk:"HSK Level 3, at age 9",
+    statTeach:"teaching Chinese since", statFilm:"property films on camera",
+    factDegree:"Degree", factDegreeV:"BEcon, Mae Fah Luang University — in progress",
+    factRole:"Recent role", factRoleV:"Intern, Anjia Property — Pattaya",
+    factLang:"Languages", factBase:"Based in", factBaseV:"Thailand — from Mogok, Myanmar",
+    ctaContact:"Get in touch", ctaWatch:"Watch her on camera",
+    ab1:"I grew up in <strong>Mogok, Myanmar</strong>, and started learning Chinese young enough that HSK Level 3 came at nine years old — <strong>297 out of 300</strong>.",
+    ab2:"Since June 2020 I have taught Mandarin to younger students at <strong>ESC Chinese Language Training Center</strong>, the school where I had been a student since childhood — first in the classroom, then online.",
+    ab3:"Today I am studying for a <strong>Bachelor of Economics</strong> at <strong>Mae Fah Luang University</strong> in Chiang Rai, taught entirely in English under the philosophy “Economics for Future Society” — a 123-credit degree weighted toward mathematics, statistics and econometrics. Most recently I interned with <strong>Anjia Property</strong> in Pattaya, presenting pool villas, branded residences and beachfront condos on camera.",
+    ab4:"I am looking for graduate work where the economics and the languages pull in the same direction: market and trade research, investment analysis, or property consulting across the Thailand–Myanmar–China corridor.",
+    videoIntro:"Nine property walk-throughs presented on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien, including one filmed in Burmese and one in Thai.",
+    videoNote:"Tiles play while on screen and pause when scrolled away. Tap one for the full film.",
+    langIntro:"Four working languages across the Thailand–Myanmar–China corridor — each one earning its place in her studies, her teaching, or her client work.",
+    langMyRole:"First language.",
+    langMyProof:"Grew up in Mogok · one property film presented in Burmese",
+    langZhRole:"The language she teaches.",
+    langZhProof:"HSK Level 3, 297/300 · instructor at ESC since 2020",
+    langEnRole:"The language of her degree.",
+    langEnProof:"MFU economics taught entirely in English",
+    langThRole:"Daily and market language.",
+    langThProof:"Living and studying in Thailand · one property film in Thai",
+    hskLab:"HSK Level 3 — taken at nine years old",
+    hskNote:"A pass is 180. She scored 297.",
+    eduNow:"In progress",
     eduNote:"Taught in English under the philosophy “Economics for Future Society.” A four-year, 123-credit degree weighted toward quantitative method — mathematics, statistics and econometrics — alongside theory and applied data analysis.",
     crGen:"General education", crSpec:"Specific requirement", crFree:"Free elective", crTotal:"credits",
-    lblCourses:"Selected coursework:", lblThesis:"Thesis / research:", lblHonours:"Honours / GPA:",
-    expInternTitle:"Intern",
-    kitAnalysis:"Economic analysis", kitData:"Data & tools", kitProperty:"Property & market", kitComms:"Communication",
-    typeThesis:"Thesis", typeProject:"Course project", typeReport:"Internship report", typeOther:"Activity",
-    typeCert:"Certificate",
+    eduHskDate:"Age 9", eduHskTitle:"HSK Level 3 — 297 / 300",
+    eduHskNote:"The Chinese proficiency exam she later went back to teach toward, at the same school.",
+    expInternDate:"Most recent", expInternTitle:"Intern — property presenter",
+    expIn1:"Presented nine property walk-throughs on camera for the agency's channel — pool villas, branded residences and beachfront condos across Pattaya and Jomtien.",
+    expIn2:"Filmed in more than one language for different buyer audiences, including a Burmese-language feature and a Thai-language one.",
+    expIn3:"The series drew over 9,900 views, led by a single villa feature at 3,300.",
+    expEscDate:"Since June 2020", expEscTitle:"Mandarin instructor",
+    expEsc1:"Joined the teaching team at the school where she had studied Chinese since childhood, taking the under-tens.",
+    expEsc2:"Moved lessons onto video calls when in-person teaching stopped, and kept teaching students and private clients remotely.",
+    kitAnalysis:"Economics & method",
+    kitA1:"Microeconomics", kitA2:"Macroeconomics", kitA3:"Mathematics for economists",
+    kitA4:"Statistics", kitA5:"Econometrics", kitA6:"Time series & forecasting",
+    kitComms:"Languages & client work",
+    kitC1:"Four-language client liaison", kitC2:"Interpreting", kitC3:"Translation", kitC4:"Teaching & tutoring",
+    kitCamera:"On camera",
+    kitM1:"Property walk-throughs", kitM2:"Presenting to camera", kitM3:"Short-form video", kitM4:"Multilingual scripting",
+    kitProperty:"Property & market",
+    kitP1:"Listing presentation", kitP2:"Pattaya & Jomtien market", kitP3:"Buyer-facing communication",
+    typeCert:"Certificate", typeSeries:"Video series", typeTeaching:"Teaching",
     certDesc:"SkillUp by Simplilearn — completed 2026. The quantitative side of the economics degree, applied to forecasting real series.",
-    contactIntro:"Open to graduate roles in economic analysis, trade and investment research, and property consulting across the region.",
-    footNote:"Pattaya, Thailand"
+    hskCardTitle:"HSK Level 3 — 297 / 300",
+    hskCardDesc:"Chinese proficiency, passed at nine years old against a pass mark of 180.",
+    seriesTitle:"Pattaya property, in four languages",
+    seriesDesc:"Nine on-camera walk-throughs for Anjia Property's channel, over 9,900 views combined.",
+    seriesLink:"Watch the series",
+    teachTitle:"Mandarin, ESC Chinese Language Training Center",
+    teachDesc:"Instructor since June 2020, classroom and online, for students under ten and private clients.",
+    contactIntro:"Open to graduate roles in economic analysis, trade and investment research, and property consulting across the region — and happy to work in any of four languages.",
+    footNote:"Chiang Rai & Pattaya, Thailand"
   },
+
   zh:{
+    skip:"跳到正文",
     railRole:"经济学 · 房地产",
     navAbout:"关于", navLang:"语言能力", navEdu:"教育背景", navExp:"工作经历",
-    navKit:"专业技能", navWork:"项目与研究", navContact:"联系方式", navVideo:"出镜作品",
-    heroEyebrow:"泰国芭堤雅 · 宗提恩",
-    heroLede:"经济学在读生，用四种语言出镜介绍芭堤雅房产——泳池别墅与高端公寓。",
-    videoIntro:"为中介机构频道出镜拍摄的八支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓及海景公寓，其中一支以缅甸语拍摄。",
-    videoNote:"画面进入视区时自动播放，离开时暂停。",
-    factDegree:"学历", factRole:"近期职位", factRoleV:"安家房地产 实习生",
-    factLang:"语言", factBase:"所在地", factBaseV:"泰国芭堤雅",
-    ctaContact:"联系我", ctaCv:"下载简历",
-    langIntro:"四种工作语言，服务泰国最国际化的房地产市场。",
-    thLang:"语言", thSpeak:"口语", thWrite:"读写", thUse:"应用场景",
-    useEn:"全英文授课学位；国际客户",
-    useTh:"本地市场、大学与文件处理",
-    useZh:"华语买家与投资者",
+    navKit:"专业技能", navWork:"作品与证书", navContact:"联系方式", navVideo:"出镜作品",
+    grpLang:"语言", grpTheme:"外观",
+    ariaTheme:"切换主题", ariaMenu:"打开菜单", ariaClose:"关闭菜单",
+    ariaAuto:"跟随系统", ariaLight:"浅色模式", ariaDark:"深色模式", ariaTop:"回到顶部",
+    heroEyebrow:"泰国清莱 · 芭堤雅",
+    nativeNote:"辛玉 — 教学与出镜时使用的名字",
+    badgeOpen:"正在寻找应届岗位",
+    heroLede:"美福大学经济学在读生。九岁通过 HSK 三级，2020 年起教授中文，近期以四种语言出镜介绍芭堤雅房产。",
+    statLang:"种工作语言", statHsk:"HSK 三级（九岁）",
+    statTeach:"起教授中文", statFilm:"支出镜房产视频",
+    factDegree:"学历", factDegreeV:"美福大学 经济学学士 — 在读",
+    factRole:"近期职位", factRoleV:"安家房地产 实习生 — 芭堤雅",
+    factLang:"语言", factBase:"所在地", factBaseV:"泰国 — 来自缅甸抹谷",
+    ctaContact:"联系我", ctaWatch:"观看出镜作品",
+    ab1:"我在<strong>缅甸抹谷</strong>长大，很早就开始学中文，九岁便通过 HSK 三级，成绩<strong>297 / 300</strong>。",
+    ab2:"自 2020 年 6 月起，我在<strong>ESC 中文培训中心</strong>教低龄学生中文——那正是我从小学习中文的学校。最初在教室授课，后来转为线上。",
+    ab3:"目前我在清莱的<strong>美福大学</strong>攻读<strong>经济学学士</strong>，课程全英文授课，秉持「面向未来社会的经济学」理念；123 学分的学位，侧重数学、统计与计量经济学。近期我在芭堤雅的<strong>安家房地产</strong>实习，出镜介绍泳池别墅、品牌公寓与海景公寓。",
+    ab4:"我希望找到能让经济学与语言能力同时发挥作用的工作：市场与贸易研究、投资分析，或泰国—缅甸—中国走廊上的房地产顾问。",
+    videoIntro:"为中介机构频道出镜拍摄的九支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓及海景公寓，其中一支以缅甸语拍摄，一支以泰语拍摄。",
+    videoNote:"画面进入视区时自动播放，离开时暂停。点击可观看完整视频。",
+    langIntro:"泰国—缅甸—中国走廊上的四种工作语言——每一种都在学业、教学或客户工作中真正用得上。",
+    langMyRole:"母语。",
+    langMyProof:"在抹谷长大 · 一支缅甸语房产视频",
+    langZhRole:"她教授的语言。",
+    langZhProof:"HSK 三级 297/300 · 2020 年起任 ESC 教师",
+    langEnRole:"学位的授课语言。",
+    langEnProof:"美福大学经济学全英文授课",
+    langThRole:"日常与市场语言。",
+    langThProof:"在泰国生活与学习 · 一支泰语房产视频",
+    hskLab:"HSK 三级 — 九岁应考",
+    hskNote:"及格线为 180 分，她考了 297 分。",
+    eduNow:"在读",
     eduNote:"全英文授课，秉持「面向未来社会的经济学」理念。四年制、123 学分，课程侧重数量方法——数学、统计与计量经济学，并结合理论与数据分析应用。",
     crGen:"通识教育", crSpec:"专业必修", crFree:"自由选修", crTotal:"学分",
-    lblCourses:"主要课程：", lblThesis:"论文 / 研究：", lblHonours:"荣誉 / 成绩：",
-    expInternTitle:"实习生",
-    kitAnalysis:"经济分析", kitData:"数据与工具", kitProperty:"房地产与市场", kitComms:"沟通表达",
-    typeThesis:"毕业论文", typeProject:"课程项目", typeReport:"实习报告", typeOther:"课外活动",
-    typeCert:"证书",
+    eduHskDate:"九岁", eduHskTitle:"HSK 三级 — 297 / 300",
+    eduHskNote:"多年后，她回到同一所学校，教学生备考这项考试。",
+    expInternDate:"最近一份", expInternTitle:"实习生 — 房产出镜介绍",
+    expIn1:"为中介机构频道出镜拍摄九支房产实地介绍——芭堤雅与宗提恩的泳池别墅、品牌公寓与海景公寓。",
+    expIn2:"针对不同买家群体以多种语言拍摄，其中包括一支缅甸语和一支泰语作品。",
+    expIn3:"该系列累计播放量超过 9,900 次，其中单支别墅视频达 3,300 次。",
+    expEscDate:"2020 年 6 月起", expEscTitle:"中文教师",
+    expEsc1:"加入自己从小学习中文的学校的教学团队，负责十岁以下学生。",
+    expEsc2:"面授中断后将课程转到视频通话，持续为学生与私人客户远程授课。",
+    kitAnalysis:"经济学与方法",
+    kitA1:"微观经济学", kitA2:"宏观经济学", kitA3:"经济数学",
+    kitA4:"统计学", kitA5:"计量经济学", kitA6:"时间序列与预测",
+    kitComms:"语言与客户工作",
+    kitC1:"四语客户对接", kitC2:"口译", kitC3:"笔译", kitC4:"教学与辅导",
+    kitCamera:"出镜与内容",
+    kitM1:"房产实地介绍", kitM2:"镜头表达", kitM3:"短视频", kitM4:"多语脚本",
+    kitProperty:"房地产与市场",
+    kitP1:"房源介绍", kitP2:"芭堤雅与宗提恩市场", kitP3:"面向买家的沟通",
+    typeCert:"证书", typeSeries:"视频系列", typeTeaching:"教学",
     certDesc:"Simplilearn 旗下 SkillUp — 2026 年结业。将经济学学位中的数量分析方法应用于真实时间序列预测。",
-    contactIntro:"正在寻找经济分析、贸易与投资研究，以及区域房地产顾问方向的应届岗位。",
-    footNote:"泰国芭堤雅"
+    hskCardTitle:"HSK 三级 — 297 / 300",
+    hskCardDesc:"中文水平考试，九岁通过，及格线为 180 分。",
+    seriesTitle:"四种语言介绍芭堤雅房产",
+    seriesDesc:"为安家房地产频道拍摄的九支出镜视频，累计播放超过 9,900 次。",
+    seriesLink:"观看系列",
+    teachTitle:"中文教学 · ESC 中文培训中心",
+    teachDesc:"2020 年 6 月起任教，课堂与线上并行，面向十岁以下学生及私人客户。",
+    contactIntro:"正在寻找经济分析、贸易与投资研究，以及区域房地产顾问方向的应届岗位——四种语言均可工作。",
+    footNote:"泰国清莱与芭堤雅"
   },
+
   th:{
+    skip:"ข้ามไปยังเนื้อหา",
     railRole:"เศรษฐศาสตร์ · อสังหาริมทรัพย์",
     navAbout:"เกี่ยวกับ", navLang:"ภาษา", navEdu:"การศึกษา", navExp:"ประสบการณ์",
-    navKit:"ทักษะ", navWork:"ผลงานและงานวิจัย", navContact:"ติดต่อ", navVideo:"ผลงานหน้ากล้อง",
-    heroEyebrow:"พัทยา · จอมเทียน · ประเทศไทย",
-    heroLede:"นักศึกษาเศรษฐศาสตร์ นำเสนออสังหาริมทรัพย์พัทยาหน้ากล้อง — พูลวิลล่าและคอนโดระดับพรีเมียม ในสี่ภาษา",
-    videoIntro:"วิดีโอพาชมอสังหาริมทรัพย์แปดรายการที่นำเสนอหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน โดยหนึ่งในนั้นถ่ายทำเป็นภาษาเมียนมา",
-    videoNote:"วิดีโอจะเล่นเมื่ออยู่ในหน้าจอ และหยุดเมื่อเลื่อนผ่าน",
-    factDegree:"วุฒิการศึกษา", factRole:"ตำแหน่งล่าสุด", factRoleV:"นักศึกษาฝึกงาน Anjia Property",
-    factLang:"ภาษา", factBase:"ฐานที่ตั้ง", factBaseV:"พัทยา ประเทศไทย",
-    ctaContact:"ติดต่อฉัน", ctaCv:"ดาวน์โหลดเรซูเม่",
-    langIntro:"สี่ภาษาสำหรับตลาดอสังหาริมทรัพย์ที่เป็นสากลที่สุดของไทย",
-    thLang:"ภาษา", thSpeak:"การพูด", thWrite:"การอ่านและเขียน", thUse:"ใช้สำหรับ",
-    useEn:"หลักสูตรสอนเป็นภาษาอังกฤษ; ลูกค้าต่างชาติ",
-    useTh:"ตลาดท้องถิ่น มหาวิทยาลัย และงานเอกสาร",
-    useZh:"ผู้ซื้อและนักลงทุนที่พูดภาษาจีน",
+    navKit:"ทักษะ", navWork:"ผลงานและวุฒิบัตร", navContact:"ติดต่อ", navVideo:"ผลงานหน้ากล้อง",
+    grpLang:"ภาษา", grpTheme:"ธีมการแสดงผล",
+    ariaTheme:"สลับธีม", ariaMenu:"เปิดเมนู", ariaClose:"ปิดเมนู",
+    ariaAuto:"ตามระบบ", ariaLight:"ธีมสว่าง", ariaDark:"ธีมมืด", ariaTop:"กลับขึ้นด้านบน",
+    heroEyebrow:"เชียงราย · พัทยา · ประเทศไทย",
+    nativeNote:"ซินอวี้ — ชื่อที่ใช้สอนและถ่ายทำ",
+    badgeOpen:"เปิดรับงานสำหรับบัณฑิตจบใหม่",
+    heroLede:"นักศึกษาเศรษฐศาสตร์ มหาวิทยาลัยแม่ฟ้าหลวง สอบผ่าน HSK ระดับ 3 ตั้งแต่อายุ 9 ขวบ สอนภาษาจีนตั้งแต่ปี 2020 และล่าสุดนำเสนออสังหาริมทรัพย์พัทยาหน้ากล้องในสี่ภาษา",
+    statLang:"ภาษาที่ใช้ทำงาน", statHsk:"HSK ระดับ 3 ตอนอายุ 9 ขวบ",
+    statTeach:"สอนภาษาจีนตั้งแต่", statFilm:"วิดีโออสังหาฯ หน้ากล้อง",
+    factDegree:"วุฒิการศึกษา", factDegreeV:"เศรษฐศาสตรบัณฑิต ม.แม่ฟ้าหลวง — กำลังศึกษา",
+    factRole:"ตำแหน่งล่าสุด", factRoleV:"นักศึกษาฝึกงาน Anjia Property — พัทยา",
+    factLang:"ภาษา", factBase:"ฐานที่ตั้ง", factBaseV:"ประเทศไทย — จากเมืองโมโกะ เมียนมา",
+    ctaContact:"ติดต่อฉัน", ctaWatch:"ดูผลงานหน้ากล้อง",
+    ab1:"ฉันเติบโตที่<strong>เมืองโมโกะ ประเทศเมียนมา</strong> และเริ่มเรียนภาษาจีนตั้งแต่เล็ก จนสอบผ่าน HSK ระดับ 3 ตอนอายุ 9 ขวบ ด้วยคะแนน <strong>297 จาก 300</strong>",
+    ab2:"ตั้งแต่เดือนมิถุนายน 2020 ฉันสอนภาษาจีนให้นักเรียนรุ่นเล็กที่<strong>ESC Chinese Language Training Center</strong> โรงเรียนที่ฉันเรียนภาษาจีนมาตั้งแต่เด็ก เริ่มจากในห้องเรียน แล้วจึงย้ายมาสอนออนไลน์",
+    ab3:"ปัจจุบันฉันกำลังศึกษา<strong>เศรษฐศาสตรบัณฑิต</strong>ที่<strong>มหาวิทยาลัยแม่ฟ้าหลวง</strong> จังหวัดเชียงราย หลักสูตรสอนเป็นภาษาอังกฤษทั้งหมด ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” เป็นหลักสูตร 123 หน่วยกิตที่เน้นคณิตศาสตร์ สถิติ และเศรษฐมิติ ล่าสุดฉันฝึกงานกับ<strong>Anjia Property</strong> ที่พัทยา นำเสนอพูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดหน้ากล้อง",
+    ab4:"ฉันกำลังมองหางานสำหรับบัณฑิตจบใหม่ที่ได้ใช้ทั้งเศรษฐศาสตร์และภาษาไปพร้อมกัน ไม่ว่าจะเป็นการวิจัยตลาดและการค้า การวิเคราะห์การลงทุน หรือที่ปรึกษาอสังหาริมทรัพย์ในเส้นทางไทย–เมียนมา–จีน",
+    videoIntro:"วิดีโอพาชมอสังหาริมทรัพย์เก้ารายการที่นำเสนอหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน โดยหนึ่งเรื่องถ่ายเป็นภาษาเมียนมา และอีกหนึ่งเรื่องเป็นภาษาไทย",
+    videoNote:"วิดีโอจะเล่นเมื่ออยู่ในหน้าจอ และหยุดเมื่อเลื่อนผ่าน แตะเพื่อดูฉบับเต็ม",
+    langIntro:"สี่ภาษาสำหรับการทำงานในเส้นทางไทย–เมียนมา–จีน แต่ละภาษาล้วนได้ใช้จริงในการเรียน การสอน หรืองานกับลูกค้า",
+    langMyRole:"ภาษาแม่",
+    langMyProof:"เติบโตที่เมืองโมโกะ · วิดีโออสังหาฯ หนึ่งเรื่องเป็นภาษาเมียนมา",
+    langZhRole:"ภาษาที่เธอสอน",
+    langZhProof:"HSK ระดับ 3 คะแนน 297/300 · ครูที่ ESC ตั้งแต่ปี 2020",
+    langEnRole:"ภาษาที่ใช้เรียนตลอดหลักสูตร",
+    langEnProof:"เศรษฐศาสตร์ ม.แม่ฟ้าหลวง สอนเป็นภาษาอังกฤษทั้งหมด",
+    langThRole:"ภาษาในชีวิตประจำวันและในตลาด",
+    langThProof:"ใช้ชีวิตและเรียนในประเทศไทย · วิดีโออสังหาฯ หนึ่งเรื่องเป็นภาษาไทย",
+    hskLab:"HSK ระดับ 3 — สอบตอนอายุ 9 ขวบ",
+    hskNote:"เกณฑ์ผ่านคือ 180 คะแนน เธอได้ 297",
+    eduNow:"กำลังศึกษา",
     eduNote:"สอนเป็นภาษาอังกฤษ ภายใต้ปรัชญา “เศรษฐศาสตร์เพื่อสังคมอนาคต” หลักสูตร 4 ปี 123 หน่วยกิต เน้นวิธีเชิงปริมาณ — คณิตศาสตร์ สถิติ และเศรษฐมิติ ควบคู่กับทฤษฎีและการวิเคราะห์ข้อมูลเชิงประยุกต์",
     crGen:"หมวดศึกษาทั่วไป", crSpec:"หมวดวิชาเฉพาะ", crFree:"หมวดวิชาเลือกเสรี", crTotal:"หน่วยกิต",
-    lblCourses:"รายวิชาที่เลือก:", lblThesis:"วิทยานิพนธ์ / งานวิจัย:", lblHonours:"เกียรตินิยม / เกรดเฉลี่ย:",
-    expInternTitle:"นักศึกษาฝึกงาน",
-    kitAnalysis:"การวิเคราะห์เศรษฐกิจ", kitData:"ข้อมูลและเครื่องมือ", kitProperty:"อสังหาริมทรัพย์และตลาด", kitComms:"การสื่อสาร",
-    typeThesis:"วิทยานิพนธ์", typeProject:"โครงงานรายวิชา", typeReport:"รายงานฝึกงาน", typeOther:"กิจกรรม",
-    typeCert:"ประกาศนียบัตร",
+    eduHskDate:"อายุ 9 ขวบ", eduHskTitle:"HSK ระดับ 3 — 297 / 300",
+    eduHskNote:"ข้อสอบวัดระดับภาษาจีนที่ต่อมาเธอกลับไปสอนเตรียมสอบให้ที่โรงเรียนเดิม",
+    expInternDate:"ล่าสุด", expInternTitle:"นักศึกษาฝึกงาน — ผู้นำเสนออสังหาริมทรัพย์",
+    expIn1:"นำเสนอวิดีโอพาชมอสังหาริมทรัพย์เก้ารายการหน้ากล้องให้ช่องของบริษัท — พูลวิลล่า คอนโดแบรนด์ และคอนโดริมหาดในพัทยาและจอมเทียน",
+    expIn2:"ถ่ายทำมากกว่าหนึ่งภาษาเพื่อกลุ่มผู้ซื้อที่ต่างกัน รวมถึงเรื่องภาษาเมียนมาและภาษาไทยอย่างละหนึ่งเรื่อง",
+    expIn3:"ซีรีส์นี้มียอดชมรวมกว่า 9,900 ครั้ง นำโดยวิดีโอวิลล่าเดียวที่ 3,300 ครั้ง",
+    expEscDate:"ตั้งแต่มิถุนายน 2020", expEscTitle:"ครูสอนภาษาจีน",
+    expEsc1:"เข้าร่วมทีมผู้สอนที่โรงเรียนซึ่งเธอเรียนภาษาจีนมาตั้งแต่เด็ก ดูแลนักเรียนอายุต่ำกว่าสิบขวบ",
+    expEsc2:"ย้ายบทเรียนไปสอนผ่านวิดีโอคอลเมื่อการสอนในห้องเรียนหยุดลง และสอนนักเรียนกับลูกค้าส่วนตัวทางไกลต่อเนื่อง",
+    kitAnalysis:"เศรษฐศาสตร์และระเบียบวิธี",
+    kitA1:"เศรษฐศาสตร์จุลภาค", kitA2:"เศรษฐศาสตร์มหภาค", kitA3:"คณิตศาสตร์สำหรับเศรษฐศาสตร์",
+    kitA4:"สถิติ", kitA5:"เศรษฐมิติ", kitA6:"อนุกรมเวลาและการพยากรณ์",
+    kitComms:"ภาษาและงานลูกค้า",
+    kitC1:"ประสานงานลูกค้าสี่ภาษา", kitC2:"ล่าม", kitC3:"งานแปล", kitC4:"การสอนและติว",
+    kitCamera:"งานหน้ากล้อง",
+    kitM1:"พาชมอสังหาริมทรัพย์", kitM2:"การนำเสนอหน้ากล้อง", kitM3:"วิดีโอสั้น", kitM4:"เขียนสคริปต์หลายภาษา",
+    kitProperty:"อสังหาริมทรัพย์และตลาด",
+    kitP1:"การนำเสนอทรัพย์", kitP2:"ตลาดพัทยาและจอมเทียน", kitP3:"การสื่อสารกับผู้ซื้อ",
+    typeCert:"ประกาศนียบัตร", typeSeries:"ซีรีส์วิดีโอ", typeTeaching:"การสอน",
     certDesc:"SkillUp โดย Simplilearn — สำเร็จปี 2026 การประยุกต์วิธีเชิงปริมาณจากหลักสูตรเศรษฐศาสตร์กับการพยากรณ์อนุกรมเวลาจริง",
-    contactIntro:"เปิดรับโอกาสงานด้านการวิเคราะห์เศรษฐกิจ การค้าและการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในภูมิภาค",
-    footNote:"พัทยา ประเทศไทย"
+    hskCardTitle:"HSK ระดับ 3 — 297 / 300",
+    hskCardDesc:"การสอบวัดระดับภาษาจีน ผ่านตั้งแต่อายุ 9 ขวบ โดยมีเกณฑ์ผ่านที่ 180 คะแนน",
+    seriesTitle:"อสังหาริมทรัพย์พัทยา ในสี่ภาษา",
+    seriesDesc:"วิดีโอหน้ากล้องเก้าเรื่องให้ช่องของ Anjia Property ยอดชมรวมกว่า 9,900 ครั้ง",
+    seriesLink:"ดูซีรีส์ทั้งหมด",
+    teachTitle:"ภาษาจีน · ESC Chinese Language Training Center",
+    teachDesc:"ครูผู้สอนตั้งแต่มิถุนายน 2020 ทั้งในห้องเรียนและออนไลน์ สำหรับนักเรียนอายุต่ำกว่าสิบขวบและลูกค้าส่วนตัว",
+    contactIntro:"เปิดรับโอกาสงานด้านการวิเคราะห์เศรษฐกิจ การค้าและการลงทุน และที่ปรึกษาอสังหาริมทรัพย์ในภูมิภาค — และยินดีทำงานได้ทั้งสี่ภาษา",
+    footNote:"เชียงรายและพัทยา ประเทศไทย"
   },
+
   my:{
+    skip:"အကြောင်းအရာသို့ ကျော်ရန်",
     railRole:"စီးပွားရေးပညာ · အိမ်ခြံမြေ",
     navAbout:"အကြောင်း", navLang:"ဘာသာစကားများ", navEdu:"ပညာရေး", navExp:"အလုပ်အတွေ့အကြုံ",
-    navKit:"ကျွမ်းကျင်မှုများ", navWork:"လုပ်ငန်းနှင့် သုတေသန", navContact:"ဆက်သွယ်ရန်", navVideo:"ကင်မရာရှေ့ လုပ်ငန်း",
-    heroEyebrow:"ပတ္တရာ · ဂျွန်တီယန် · ထိုင်းနိုင်ငံ",
-    heroLede:"ဘာသာစကား လေးမျိုးဖြင့် ပတ္တရာ အိမ်ခြံမြေများကို ကင်မရာရှေ့မှ မိတ်ဆက်ပေးနေသော စီးပွားရေးပညာ ကျောင်းသူ — ရေကူးကန်ပါ ဗီလာနှင့် အဆင့်မြင့် ကွန်ဒိုများ။",
-    videoIntro:"အေဂျင်စီ၏ ချန်နယ်အတွက် ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သော အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ရှစ်ခု — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။ တစ်ခုကို မြန်မာဘာသာဖြင့် ရိုက်ကူးထားသည်။",
-    videoNote:"မျက်နှာပြင်ပေါ် ရောက်သည်နှင့် စတင်ပြသပြီး ကျော်လွန်သွားပါက ရပ်တန့်သည်။",
-    factDegree:"ဘွဲ့", factRole:"လတ်တလော ရာထူး", factRoleV:"Anjia Property တွင် အလုပ်သင်",
-    factLang:"ဘာသာစကားများ", factBase:"နေထိုင်ရာ", factBaseV:"ပတ္တရာ၊ ထိုင်းနိုင်ငံ",
-    ctaContact:"ဆက်သွယ်ရန်", ctaCv:"CV ဒေါင်းလုဒ်",
-    langIntro:"ထိုင်းနိုင်ငံ၏ အနိုင်ငံတကာဆုံး အိမ်ခြံမြေ ဈေးကွက်အတွက် အလုပ်သုံး ဘာသာစကား လေးမျိုး။",
-    thLang:"ဘာသာစကား", thSpeak:"အပြောအဆို", thWrite:"အဖတ်နှင့် အရေး", thUse:"အသုံးပြုရာ",
-    useEn:"အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသော ဘွဲ့၊ နိုင်ငံတကာ ဖောက်သည်များ",
-    useTh:"ဒေသတွင်း ဈေးကွက်၊ တက္ကသိုလ်နှင့် စာရွက်စာတမ်း",
-    useZh:"တရုတ်စကားပြော ဝယ်ယူသူနှင့် ရင်းနှီးမြှုပ်နှံသူများ",
+    navKit:"ကျွမ်းကျင်မှုများ", navWork:"လုပ်ငန်းနှင့် အသိအမှတ်ပြုလက်မှတ်", navContact:"ဆက်သွယ်ရန်", navVideo:"ကင်မရာရှေ့ လုပ်ငန်း",
+    grpLang:"ဘာသာစကား", grpTheme:"အသွင်အပြင်",
+    ariaTheme:"အသွင်အပြင် ပြောင်းရန်", ariaMenu:"မီနူး ဖွင့်ရန်", ariaClose:"မီနူး ပိတ်ရန်",
+    ariaAuto:"စနစ်အလိုက်", ariaLight:"အလင်းရောင်", ariaDark:"အမှောင်ရောင်", ariaTop:"အပေါ်သို့ ပြန်တက်ရန်",
+    heroEyebrow:"ချင်းရိုင် · ပတ္တရာ · ထိုင်းနိုင်ငံ",
+    nativeNote:"Xin Yu — သင်ကြားရာနှင့် ရိုက်ကူးရာတွင် သုံးသော အမည်",
+    badgeOpen:"ဘွဲ့ရ ရာထူးများအတွက် ဖွင့်လှစ်ထားသည်",
+    heroLede:"Mae Fah Luang တက္ကသိုလ်မှ စီးပွားရေးပညာ ကျောင်းသူ။ ကိုးနှစ်အရွယ်တွင် HSK အဆင့် ၃ အောင်မြင်ခဲ့ပြီး ၂၀၂၀ မှစ၍ တရုတ်စာ သင်ကြားနေသည်။ မကြာသေးမီက ပတ္တရာ အိမ်ခြံမြေများကို ဘာသာစကား လေးမျိုးဖြင့် ကင်မရာရှေ့မှ မိတ်ဆက်ခဲ့သည်။",
+    statLang:"အလုပ်သုံး ဘာသာစကား", statHsk:"HSK အဆင့် ၃ (ကိုးနှစ်)",
+    statTeach:"မှစ၍ တရုတ်စာ သင်ကြား", statFilm:"အိမ်ခြံမြေ ဗီဒီယို",
+    factDegree:"ဘွဲ့", factDegreeV:"စီးပွားရေးပညာ ဘွဲ့၊ Mae Fah Luang တက္ကသိုလ် — တက်ရောက်ဆဲ",
+    factRole:"လတ်တလော ရာထူး", factRoleV:"Anjia Property တွင် အလုပ်သင် — ပတ္တရာ",
+    factLang:"ဘာသာစကားများ", factBase:"နေထိုင်ရာ", factBaseV:"ထိုင်းနိုင်ငံ — မြန်မာနိုင်ငံ မိုးကုတ်မှ",
+    ctaContact:"ဆက်သွယ်ရန်", ctaWatch:"ကင်မရာရှေ့ လုပ်ငန်း ကြည့်ရန်",
+    ab1:"ကျွန်မသည် <strong>မြန်မာနိုင်ငံ၊ မိုးကုတ်</strong>တွင် ကြီးပြင်းခဲ့ပြီး ငယ်စဉ်ကတည်းက တရုတ်စာ စတင်သင်ယူခဲ့သဖြင့် ကိုးနှစ်အရွယ်တွင်ပင် HSK အဆင့် ၃ ကို <strong>၃၀၀ တွင် ၂၉၇</strong> ဖြင့် အောင်မြင်ခဲ့သည်။",
+    ab2:"၂၀၂၀ ခုနှစ် ဇွန်လမှစ၍ ကျွန်မသည် ငယ်စဉ်ကတည်းက တရုတ်စာ သင်ယူခဲ့ရာ ကျောင်းဖြစ်သော <strong>ESC Chinese Language Training Center</strong> တွင် ကလေးငယ်များကို တရုတ်စာ သင်ကြားပေးခဲ့သည် — အစပိုင်းတွင် စာသင်ခန်းအတွင်း၊ နောက်ပိုင်းတွင် အွန်လိုင်းမှတစ်ဆင့်။",
+    ab3:"ယခုအခါ ကျွန်မသည် ချင်းရိုင်ရှိ <strong>Mae Fah Luang တက္ကသိုလ်</strong>တွင် <strong>စီးပွားရေးပညာ ဘွဲ့</strong> ကို သင်ယူနေသည်။ “အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားပြီး ၁၂၃ ခရက်ဒစ် ရှိကာ သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာကို အလေးပေးသည်။ မကြာသေးမီက ပတ္တရာရှိ <strong>Anjia Property</strong> တွင် အလုပ်သင်အဖြစ် ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများကို ကင်မရာရှေ့မှ မိတ်ဆက်ခဲ့သည်။",
+    ab4:"စီးပွားရေးပညာနှင့် ဘာသာစကား နှစ်မျိုးလုံး တစ်ပြိုင်နက် အသုံးဝင်မည့် အလုပ်ကို ရှာဖွေနေပါသည် — ဈေးကွက်နှင့် ကုန်သွယ်မှု သုတေသန၊ ရင်းနှီးမြှုပ်နှံမှု ခွဲခြမ်းစိတ်ဖြာမှု၊ သို့မဟုတ် ထိုင်း–မြန်မာ–တရုတ် စင်္ကြံတစ်လျှောက် အိမ်ခြံမြေ အကြံပေးလုပ်ငန်း။",
+    videoIntro:"အေဂျင်စီ၏ ချန်နယ်အတွက် ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သော အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ကိုးခု — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။ တစ်ခုကို မြန်မာဘာသာဖြင့်၊ တစ်ခုကို ထိုင်းဘာသာဖြင့် ရိုက်ကူးထားသည်။",
+    videoNote:"မျက်နှာပြင်ပေါ် ရောက်သည်နှင့် စတင်ပြသပြီး ကျော်လွန်သွားပါက ရပ်တန့်သည်။ ဗီဒီယို အပြည့်အစုံကို တစ်ချက်နှိပ်၍ ကြည့်နိုင်သည်။",
+    langIntro:"ထိုင်း–မြန်မာ–တရုတ် စင်္ကြံတစ်လျှောက် အလုပ်သုံး ဘာသာစကား လေးမျိုး — တစ်မျိုးစီသည် ပညာသင်ကြားရေး၊ သင်ကြားပေးမှု သို့မဟုတ် ဖောက်သည် လုပ်ငန်းတွင် အမှန်တကယ် အသုံးဝင်သည်။",
+    langMyRole:"မိခင်ဘာသာစကား။",
+    langMyProof:"မိုးကုတ်တွင် ကြီးပြင်းခဲ့ · အိမ်ခြံမြေ ဗီဒီယို တစ်ခုကို မြန်မာဘာသာဖြင့်",
+    langZhRole:"သူမ သင်ကြားပေးသော ဘာသာစကား။",
+    langZhProof:"HSK အဆင့် ၃၊ ၂၉၇/၃၀၀ · ၂၀၂၀ မှစ၍ ESC တွင် ဆရာမ",
+    langEnRole:"သူမ၏ ဘွဲ့ကို သင်ကြားသော ဘာသာစကား။",
+    langEnProof:"MFU စီးပွားရေးပညာကို အင်္ဂလိပ်ဘာသာဖြင့် အပြည့်အဝ သင်ကြားသည်",
+    langThRole:"နေ့စဉ်နှင့် ဈေးကွက် ဘာသာစကား။",
+    langThProof:"ထိုင်းနိုင်ငံတွင် နေထိုင်သင်ယူနေသည် · အိမ်ခြံမြေ ဗီဒီယို တစ်ခုကို ထိုင်းဘာသာဖြင့်",
+    hskLab:"HSK အဆင့် ၃ — ကိုးနှစ်အရွယ်တွင် ဖြေဆိုခဲ့သည်",
+    hskNote:"အောင်မှတ်မှာ ၁၈၀ ဖြစ်ပြီး သူမ ၂၉၇ ရရှိခဲ့သည်။",
+    eduNow:"တက်ရောက်ဆဲ",
     eduNote:"“အနာဂတ် လူ့အဖွဲ့အစည်းအတွက် စီးပွားရေးပညာ” ဟူသော အယူအဆအောက်တွင် အင်္ဂလိပ်ဘာသာဖြင့် သင်ကြားသည်။ လေးနှစ်တာ ၁၂၃ ခရက်ဒစ် ဘွဲ့ဖြစ်ပြီး သင်္ချာ၊ စာရင်းအင်းနှင့် စီးပွားရေး တိုင်းတာမှုပညာ စသည့် အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အလေးပေးသည်။",
     crGen:"အထွေထွေ ပညာရေး", crSpec:"အထူးပြု လိုအပ်ချက်", crFree:"လွတ်လပ် ရွေးချယ်မှု", crTotal:"ခရက်ဒစ်",
-    lblCourses:"ရွေးချယ်ထားသော ဘာသာရပ်များ။", lblThesis:"ကျမ်း / သုတေသန။", lblHonours:"ဂုဏ်ထူး / GPA။",
-    expInternTitle:"အလုပ်သင်",
-    kitAnalysis:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာမှု", kitData:"ဒေတာနှင့် ကိရိယာများ", kitProperty:"အိမ်ခြံမြေနှင့် ဈေးကွက်", kitComms:"ဆက်သွယ်ပြောဆိုမှု",
-    typeThesis:"ကျမ်း", typeProject:"ဘာသာရပ် ပရောဂျက်", typeReport:"အလုပ်သင် အစီရင်ခံစာ", typeOther:"လှုပ်ရှားမှု",
-    typeCert:"လက်မှတ်",
+    eduHskDate:"ကိုးနှစ်အရွယ်", eduHskTitle:"HSK အဆင့် ၃ — ၂၉၇ / ၃၀၀",
+    eduHskNote:"နှစ်များကြာသောအခါ သူမ ပြန်လည်ရောက်ရှိကာ ထိုကျောင်းတွင်ပင် ဤစာမေးပွဲအတွက် သင်ကြားပေးခဲ့သည်။",
+    expInternDate:"လတ်တလော", expInternTitle:"အလုပ်သင် — အိမ်ခြံမြေ တင်ဆက်သူ",
+    expIn1:"အေဂျင်စီ၏ ချန်နယ်အတွက် အိမ်ခြံမြေ လျှောက်လှမ်းကြည့်ရှုမှု ကိုးခုကို ကင်မရာရှေ့မှ တင်ဆက်ခဲ့သည် — ပတ္တရာနှင့် ဂျွန်တီယန်ရှိ ရေကူးကန်ပါ ဗီလာ၊ အမှတ်တံဆိပ် ကွန်ဒိုနှင့် ကမ်းခြေ ကွန်ဒိုများ။",
+    expIn2:"ဝယ်ယူသူ အမျိုးမျိုးအတွက် ဘာသာစကား တစ်မျိုးထက်ပို၍ ရိုက်ကူးခဲ့ပြီး မြန်မာဘာသာ တစ်ခုနှင့် ထိုင်းဘာသာ တစ်ခု ပါဝင်သည်။",
+    expIn3:"ဤစီးရီးသည် ကြည့်ရှုမှု ၉,၉၀၀ ကျော် ရရှိခဲ့ပြီး ဗီလာ ဗီဒီယို တစ်ခုတည်းက ၃,၃၀၀ ဖြင့် ရှေ့ဆုံးမှ ဦးဆောင်ခဲ့သည်။",
+    expEscDate:"၂၀၂၀ ဇွန်လမှစ၍", expEscTitle:"တရုတ်စာ ဆရာမ",
+    expEsc1:"ငယ်စဉ်ကတည်းက တရုတ်စာ သင်ယူခဲ့ရာ ကျောင်း၏ သင်ကြားရေးအဖွဲ့တွင် ပါဝင်ခဲ့ပြီး ဆယ်နှစ်အောက် ကလေးများကို တာဝန်ယူခဲ့သည်။",
+    expEsc2:"လူကိုယ်တိုင် သင်ကြားမှု ရပ်တန့်သွားချိန်တွင် သင်ခန်းစာများကို ဗီဒီယိုခေါ်ဆိုမှုသို့ ပြောင်းလဲကာ ကျောင်းသားများနှင့် ကိုယ်ပိုင် ဖောက်သည်များကို ဆက်လက် သင်ကြားပေးခဲ့သည်။",
+    kitAnalysis:"စီးပွားရေးပညာနှင့် နည်းစနစ်",
+    kitA1:"အသေးစား စီးပွားရေးပညာ", kitA2:"အကြီးစား စီးပွားရေးပညာ", kitA3:"စီးပွားရေး သင်္ချာ",
+    kitA4:"စာရင်းအင်း", kitA5:"စီးပွားရေး တိုင်းတာမှုပညာ", kitA6:"အချိန်စဉ်ဆက်နှင့် ခန့်မှန်းချက်",
+    kitComms:"ဘာသာစကားနှင့် ဖောက်သည် လုပ်ငန်း",
+    kitC1:"ဘာသာစကား လေးမျိုးဖြင့် ဖောက်သည် ဆက်သွယ်ရေး", kitC2:"စကားပြန်", kitC3:"ဘာသာပြန်", kitC4:"သင်ကြားရေးနှင့် ကျူရှင်",
+    kitCamera:"ကင်မရာရှေ့",
+    kitM1:"အိမ်ခြံမြေ လျှောက်လှမ်းပြသမှု", kitM2:"ကင်မရာရှေ့ တင်ဆက်မှု", kitM3:"ဗီဒီယို တိုများ", kitM4:"ဘာသာစုံ ဇာတ်ညွှန်း",
+    kitProperty:"အိမ်ခြံမြေနှင့် ဈေးကွက်",
+    kitP1:"အိမ်ခြံမြေ တင်ဆက်မှု", kitP2:"ပတ္တရာနှင့် ဂျွန်တီယန် ဈေးကွက်", kitP3:"ဝယ်ယူသူနှင့် ဆက်သွယ်ပြောဆိုမှု",
+    typeCert:"လက်မှတ်", typeSeries:"ဗီဒီယို စီးရီး", typeTeaching:"သင်ကြားရေး",
     certDesc:"Simplilearn ၏ SkillUp — ၂၀၂၆ ပြီးဆုံး။ စီးပွားရေးပညာ ဘွဲ့မှ အရေအတွက်ဆိုင်ရာ နည်းလမ်းများကို အချိန်စဉ်ဆက် ခန့်မှန်းချက်တွင် အသုံးချခြင်း။",
-    contactIntro:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု သုတေသန၊ ဒေသတွင်း အိမ်ခြံမြေ အကြံပေး ရာထူးများအတွက် ဖွင့်လှစ်ထားပါသည်။",
-    footNote:"ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
+    hskCardTitle:"HSK အဆင့် ၃ — ၂၉၇ / ၃၀၀",
+    hskCardDesc:"တရုတ်ဘာသာ ကျွမ်းကျင်မှု စာမေးပွဲ။ အောင်မှတ် ၁၈၀ ရှိသည့်အနက် ကိုးနှစ်အရွယ်တွင် အောင်မြင်ခဲ့သည်။",
+    seriesTitle:"ပတ္တရာ အိမ်ခြံမြေ၊ ဘာသာစကား လေးမျိုးဖြင့်",
+    seriesDesc:"Anjia Property ချန်နယ်အတွက် ကင်မရာရှေ့ ဗီဒီယို ကိုးခု၊ စုစုပေါင်း ကြည့်ရှုမှု ၉,၉၀၀ ကျော်။",
+    seriesLink:"စီးရီး ကြည့်ရန်",
+    teachTitle:"တရုတ်စာ · ESC Chinese Language Training Center",
+    teachDesc:"၂၀၂၀ ဇွန်လမှစ၍ ဆရာမ။ စာသင်ခန်းနှင့် အွန်လိုင်း နှစ်မျိုးလုံးတွင် ဆယ်နှစ်အောက် ကျောင်းသားများနှင့် ကိုယ်ပိုင် ဖောက်သည်များအတွက်။",
+    contactIntro:"စီးပွားရေး ခွဲခြမ်းစိတ်ဖြာရေး၊ ကုန်သွယ်မှုနှင့် ရင်းနှီးမြှုပ်နှံမှု သုတေသန၊ ဒေသတွင်း အိမ်ခြံမြေ အကြံပေး ရာထူးများအတွက် ဖွင့်လှစ်ထားပါသည် — ဘာသာစကား လေးမျိုးလုံးဖြင့် လုပ်ကိုင်နိုင်ပါသည်။",
+    footNote:"ချင်းရိုင်နှင့် ပတ္တရာ၊ ထိုင်းနိုင်ငံ"
   }
 };
+
+var GREETINGS = [
+  { t:"Hello",       l:"en" },
+  { t:"你好",         l:"zh-Hans" },
+  { t:"สวัสดีค่ะ",     l:"th" },
+  { t:"မင်္ဂလာပါ",     l:"my" }
+];
 
 function setLang(code){
   var dict = I18N[code] || I18N.en;
   document.querySelectorAll("[data-i18n]").forEach(function(el){
     var v = dict[el.getAttribute("data-i18n")];
-    if (v) el.textContent = v;
+    if (v == null) return;
+    // Strings in this file may carry <strong>; anything else is plain text.
+    if (v.indexOf("<") > -1) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
+    var v = dict[el.getAttribute("data-i18n-aria")];
+    if (v) el.setAttribute("aria-label", v);
   });
   var root = document.documentElement;
   root.setAttribute("lang", code === "my" ? "my" : (code === "zh" ? "zh-Hans" : code));
@@ -1072,22 +1798,196 @@ function setLang(code){
 }
 
 document.querySelectorAll("[data-lang-set]").forEach(function(b){
-  b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang-set")); });
+  b.addEventListener("click", function(){
+    setLang(b.getAttribute("data-lang-set"));
+    closeRail();
+  });
 });
 
+/* ============================================================
+   THEME — auto / light / dark, remembered. "auto" means no
+   data-theme attribute at all, so prefers-color-scheme decides.
+   ============================================================ */
+var THEME_ICON = { auto:"#i-auto", light:"#i-sun", dark:"#i-moon" };
+var themeMeta = document.createElement("meta");
+themeMeta.name = "theme-color";
+document.head.appendChild(themeMeta);
+
+function applyTheme(mode){
+  var root = document.documentElement;
+  if (mode === "light" || mode === "dark") root.setAttribute("data-theme", mode);
+  else root.removeAttribute("data-theme");
+
+  var dark = mode === "dark" ||
+    (mode === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  themeMeta.setAttribute("content", dark ? "#191315" : "#FFFBF7");
+
+  document.querySelectorAll("[data-theme-set]").forEach(function(b){
+    b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === mode));
+  });
+  var quick = document.querySelector("#themeQuick use");
+  if (quick) quick.setAttribute("href", THEME_ICON[mode] || THEME_ICON.auto);
+
+  try { localStorage.setItem("eps-theme", mode); } catch (e) {}
+  return mode;
+}
+
+var themeMode = "auto";
+document.querySelectorAll("[data-theme-set]").forEach(function(b){
+  b.addEventListener("click", function(){ themeMode = applyTheme(b.getAttribute("data-theme-set")); });
+});
+// The top bar has room for one control, so it cycles through the three.
+document.getElementById("themeQuick").addEventListener("click", function(){
+  var order = ["auto","light","dark"];
+  themeMode = applyTheme(order[(order.indexOf(themeMode) + 1) % 3]);
+});
+// Keep the status-bar colour honest when the OS flips while we're on "auto".
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
+  if (themeMode === "auto") applyTheme("auto");
+});
+
+/* ============================================================
+   DRAWER
+   ============================================================ */
+var rail   = document.getElementById("rail");
+var burger = document.getElementById("burger");
+var scrim  = document.getElementById("scrim");
+
+function isDesktop(){ return window.matchMedia("(min-width: 64rem)").matches; }
+
+function openRail(){
+  rail.classList.add("is-open");
+  scrim.classList.add("is-on");
+  burger.setAttribute("aria-expanded","true");
+  document.body.style.overflow = "hidden";
+  var first = rail.querySelector("a, button");
+  if (first) first.focus();
+}
+function closeRail(){
+  if (!rail.classList.contains("is-open")) return;
+  rail.classList.remove("is-open");
+  scrim.classList.remove("is-on");
+  burger.setAttribute("aria-expanded","false");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", function(){
+  rail.classList.contains("is-open") ? closeRail() : openRail();
+});
+document.getElementById("railClose").addEventListener("click", closeRail);
+scrim.addEventListener("click", closeRail);
+rail.querySelectorAll(".index a").forEach(function(a){ a.addEventListener("click", closeRail); });
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape" && rail.classList.contains("is-open")) { closeRail(); burger.focus(); }
+});
+// Crossing into desktop mid-session would otherwise leave the body scroll-locked.
+window.matchMedia("(min-width: 64rem)").addEventListener("change", function(e){
+  if (e.matches) closeRail();
+});
+
+/* ============================================================
+   REVEAL ON SCROLL + COUNTERS
+   ============================================================ */
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function runCount(el){
+  var target = parseInt(el.getAttribute("data-count"), 10);
+  if (isNaN(target)) return;
+  if (reduceMotion) { el.textContent = target.toLocaleString(); return; }
+  var start = performance.now(), dur = 1100;
+  (function tick(now){
+    var p = Math.min(1, (now - start) / dur);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased).toLocaleString();
+    if (p < 1) requestAnimationFrame(tick);
+  })(start);
+}
+
+if ("IntersectionObserver" in window) {
+  var revealIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add("is-in");
+      e.target.querySelectorAll("[data-count]").forEach(runCount);
+      revealIO.unobserve(e.target);
+    });
+  }, { threshold:.12, rootMargin:"0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach(function(el){ revealIO.observe(el); });
+
+  var meter = document.getElementById("hskMeter");
+  if (meter) {
+    var meterIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("is-in"); meterIO.unobserve(e.target); }
+      });
+    }, { threshold:.4 });
+    meterIO.observe(meter);
+  }
+} else {
+  document.querySelectorAll("[data-reveal]").forEach(function(el){ el.classList.add("is-in"); });
+  document.querySelectorAll("[data-count]").forEach(runCount);
+}
+
+/* ============================================================
+   SCROLL SPY + BACK TO TOP
+   ============================================================ */
+var navLinks = Array.prototype.slice.call(document.querySelectorAll(".index a"));
+var sections = navLinks
+  .map(function(a){ return document.querySelector(a.getAttribute("href")); })
+  .filter(Boolean);
+
+if ("IntersectionObserver" in window && sections.length) {
+  var visible = new Map();
+  var spyIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ visible.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0); });
+    var bestId = null, best = 0;
+    visible.forEach(function(ratio, id){ if (ratio > best) { best = ratio; bestId = id; } });
+    navLinks.forEach(function(a){
+      a.classList.toggle("is-current", bestId !== null && a.getAttribute("href") === "#" + bestId);
+    });
+  }, { threshold:[0,.2,.5,.8], rootMargin:"-15% 0px -45% 0px" });
+  sections.forEach(function(s){ spyIO.observe(s); });
+}
+
+var totop = document.getElementById("totop");
+window.addEventListener("scroll", function(){
+  totop.classList.toggle("is-on", window.scrollY > 600);
+}, { passive:true });
+totop.addEventListener("click", function(){
+  window.scrollTo({ top:0, behavior: reduceMotion ? "auto" : "smooth" });
+});
+
+/* ============================================================
+   GREETING MARQUEE — the track is doubled so the loop is seamless
+   ============================================================ */
+(function buildGreet(){
+  var track = document.getElementById("greetTrack");
+  if (!track) return;
+  var half = document.createDocumentFragment();
+  GREETINGS.forEach(function(g){
+    var s = document.createElement("span");
+    s.className = "greet__item";
+    s.lang = g.l;
+    s.textContent = g.t;
+    half.appendChild(s);
+  });
+  track.appendChild(half.cloneNode(true));
+  track.appendChild(half);
+})();
+
 (function init(){
-  var saved = null;
-  try { saved = localStorage.getItem("eps-lang"); } catch (e) {}
-  setLang(saved && I18N[saved] ? saved : "en");
+  var savedLang = null, savedTheme = null;
+  try { savedLang = localStorage.getItem("eps-lang"); savedTheme = localStorage.getItem("eps-theme"); } catch (e) {}
+  themeMode = applyTheme(["auto","light","dark"].indexOf(savedTheme) > -1 ? savedTheme : "auto");
+  setLang(savedLang && I18N[savedLang] ? savedLang : "en");
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 
 /* ============================================================
    VIDEO WALL
-   Drop files into ./video/ as <slug>.mp4 (+ optional <slug>.jpg poster).
-   A tile goes live as soon as its file exists; missing files stay as
-   labelled placeholders, so the section never looks broken.
-   Playback is gated on visibility — at most MAX_CONCURRENT at a time.
+   Files live in ./video/ as <id>.mp4 (8s silent loop) + <id>.jpg poster,
+   with the full cut in ./video/full/. A tile goes live as soon as its
+   file exists; missing files stay as labelled placeholders, so the
+   section never looks broken. Playback is gated on visibility.
    ============================================================ */
 var VIDEOS = [
   { id:"7660508028315159815", views:3325, likes:114,
@@ -1116,7 +2016,6 @@ var MAX_CONCURRENT = 4;
   var wall = document.getElementById("vidwall");
   if (!wall) return;
 
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var playing = new Set();
   var frag = document.createDocumentFragment();
 
@@ -1136,7 +2035,7 @@ var MAX_CONCURRENT = 4;
     if (item.lang) v.setAttribute("lang", item.lang);
 
     var src = document.createElement("source");
-    src.src  = "video/" + item.id + ".mp4";   // 8s silent loop (~400KB)
+    src.src  = "video/" + item.id + ".mp4";
     src.type = "video/mp4";
     v.appendChild(src);
 
@@ -1153,7 +2052,8 @@ var MAX_CONCURRENT = 4;
     if (item.views) {
       var badge = document.createElement("span");
       badge.className = "vtile__views";
-      badge.textContent = item.views.toLocaleString();
+      badge.innerHTML =
+        '<svg aria-hidden="true"><use href="#i-eye"></use></svg>' + item.views.toLocaleString();
       media.appendChild(badge);
     }
 
