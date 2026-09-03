@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Single-URL site: the four languages are a client-side toggle on this one
+     page, so there are no per-language URLs to declare hreflang for.
+     GitHub Pages project sites cannot own /robots.txt at the domain root, so
+     submit this sitemap through Google Search Console rather than linking it. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mfu-hlaing.github.io/xue-portfolio/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
